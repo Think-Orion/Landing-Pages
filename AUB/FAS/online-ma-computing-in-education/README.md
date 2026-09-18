@@ -136,6 +136,15 @@ Consequences worth knowing:
 - **The page now has one form, not two.** The advisor section's form is the only one, and
   `#vala-funnel` was moved onto it — the hero form held the page's only DC mount. The
   earlier open question about whether the embed supports two instances is moot.
+- **The CTA and stat band match the diploma.** The primary button is a pill
+  (`border-radius:999px`, `15px 30px`), and the three proof numbers moved out of the
+  680px copy column into a full-width band pinned to the bottom of the hero: a single
+  top rule, no vertical dividers between cells, and a "Scroll to explore" cue on the
+  right that anchors to `#how-it-works` like the secondary CTA. The hero container
+  stopped centring everything — the copy block takes the free space and centres inside
+  it, the band sits under it. One deliberate difference: the diploma's button hover goes
+  *lighter* (`#A10841`), which is outside the two shades Comms approved, so ours darkens
+  to `#6A132C` like every other button in the set.
 - **The hero carries two CTAs.** `Speak to an Advisor` (primary, burgundy) scrolls to
   `#form`. **`See how it works`** (secondary, white text with an arrow) is a plain
   in-page anchor to `#how-it-works`, the premise section directly below the hero

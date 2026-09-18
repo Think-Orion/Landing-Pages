@@ -109,8 +109,14 @@
            padding: .02em .2em .1em; border-radius: 3px;
            -webkit-box-decoration-break: clone; box-decoration-break: clone; }
     @keyframes heroWord { from { transform: translateY(105%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    /* Hero bottom band: rises in, and the scroll cue's arrow nudges. Both CSS only and
+       disabled under prefers-reduced-motion along with the word stagger. */
+    .hu  { animation: heroRise .7s ease-out both; }
+    .hn  { animation: heroNudge 1.8s ease-in-out infinite; }
+    @keyframes heroRise  { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes heroNudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
     @media (prefers-reduced-motion: reduce) {
-      .hw { animation: none !important; transform: none !important; opacity: 1 !important; }
+      .hw, .hu, .hn { animation: none !important; transform: none !important; opacity: 1 !important; }
     }
     /* Hero scrim. A flat black wash plus a vertical depth layer, matching the Online
        Education diploma hero — Comms asked for black here rather than a burgundy tint.
@@ -190,7 +196,7 @@
     </div>
   </nav>
 
-  <section id="hero" style="position:relative;overflow:hidden;background:#6A132C;color:#fff;min-height:clamp(540px,80vh,740px);display:flex;flex-direction:column;justify-content:center">
+  <section id="hero" style="position:relative;overflow:hidden;background:#6A132C;color:#fff;min-height:min(82vh,740px);display:flex;flex-direction:column">
     <!-- Full-bleed hero photo. Ships as real files with a responsive srcset rather than a
          data URI: at 2000x1500 the source is 2.8MB, and AVIF/WebP variants at two widths
          cut the mobile payload to ~15KB. Paths are relative to this file, so they resolve
@@ -205,7 +211,7 @@
     <div class="hero-scrim" style="position:absolute;inset:0"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 68%,rgba(0,0,0,.42) 100%)"></div>
 
-    <div style="position:relative;z-index:2;width:100%;max-width:1140px;margin-inline:auto;padding:clamp(56px,8vw,104px) clamp(18px,4vw,48px)">
+    <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1140px;width:100%;margin-inline:auto;padding:clamp(52px,8vw,104px) clamp(18px,4vw,48px) clamp(24px,3vw,32px)">
       <div style="max-width:680px">
         <h1 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(28px,5.2vw,60px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;margin-bottom:clamp(20px,2.6vw,28px);text-wrap:pretty;text-shadow:0 2px 24px rgba(0,0,0,.28)">
           <span class="hm"><span class="hw" style="animation-delay:0.15s">Earn</span> <span class="hw" style="animation-delay:0.22s">your</span> <span class="hw" style="animation-delay:0.29s">AUB</span></span>
@@ -215,8 +221,8 @@
         </h1>
         <div style="height:1px;max-width:400px;background:linear-gradient(to right,rgba(255,255,255,.52),rgba(255,255,255,.16),rgba(255,255,255,0));margin-bottom:clamp(20px,2.6vw,28px)"></div>
         <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.68;color:#fff;max-width:56ch;margin-bottom:clamp(28px,4vw,40px);font-weight:300;text-shadow:0 1px 14px rgba(0,0,0,.45)">Our MA in Computing in Education is the only online master’s in the region combining Education and Computer Science, and you graduate ready to teach programming, design online learning, and lead educational technology — with the Microsoft Certified Educator certificate included.</p>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.6vw,30px);margin-bottom:clamp(30px,4vw,44px)">
-          <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;border:none;border-radius:4px;padding:16px 32px;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2px;box-shadow:0 14px 34px rgba(0,0,0,.34)" style-hover="background:#6A132C">Speak to an Advisor</button>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px clamp(20px,3vw,30px)">
+          <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2px;padding:15px 30px;border:none;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.34);transition:background .2s,transform .2s" style-hover="background:#6A132C">Speak to an Advisor</button>
           <!-- Secondary CTA. A plain in-page anchor, not a DC handler: #how-it-works is the
                premise section directly below the hero, and html{scroll-behavior:smooth} already
                animates the jump, so this needs no JS and works even if the DC runtime never
@@ -225,20 +231,35 @@
             <svg class="hero-link-arrow" viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
           </a>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(255,255,255,.38);border-bottom:1px solid rgba(255,255,255,.38)">
-          <div style="flex:1 1 100px;padding:18px 20px 18px 0;border-right:1px solid rgba(255,255,255,.38)">
-            <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(23px,2.9vw,31px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px;text-shadow:0 1px 14px rgba(0,0,0,.45)">$450</div>
-            <div style="font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#fff;font-weight:600;text-shadow:0 1px 14px rgba(0,0,0,.45)">Per credit hour</div>
+              </div>
+    </div>
+    <!-- Bottom band: the three proof numbers, plus a scroll cue -->
+    <div style="position:relative;z-index:2;max-width:1140px;width:100%;margin-inline:auto;padding:0 clamp(18px,4vw,48px) clamp(26px,4vw,40px)">
+      <div class="hu" style="animation-delay:1.3s;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px clamp(24px,4vw,48px);border-top:1px solid rgba(255,255,255,.2);padding-top:clamp(18px,2.4vw,24px)">
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,52px)">
+          <div>
+            <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(22px,2.7vw,29px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px">$450</div>
+            <div style="font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:600">Per credit hour</div>
           </div>
-          <div style="flex:1 1 100px;padding:18px 20px;border-right:1px solid rgba(255,255,255,.38)">
-            <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(23px,2.9vw,31px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px;text-shadow:0 1px 14px rgba(0,0,0,.45)">30</div>
-            <div style="font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#fff;font-weight:600;text-shadow:0 1px 14px rgba(0,0,0,.45)">Credits, 9 courses + project</div>
+          <div>
+            <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(22px,2.7vw,29px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px">30</div>
+            <div style="font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:600">Credits, 9 courses + project</div>
           </div>
-          <div style="flex:1 1 100px;padding:18px 0 18px 20px">
-            <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(23px,2.9vw,31px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px;text-shadow:0 1px 14px rgba(0,0,0,.45)">18–24</div>
-            <div style="font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#fff;font-weight:600;text-shadow:0 1px 14px rgba(0,0,0,.45)">Months to graduate</div>
+          <div>
+            <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(22px,2.7vw,29px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px">18–24</div>
+            <div style="font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:600">Months to graduate</div>
           </div>
         </div>
+        <!-- Scroll cue, not a second CTA: "Speak to an Advisor" already sits above in
+             this same viewport, and repeating a CTA phrase twice on one screen dilutes
+             it. Plain anchor to #how-it-works — the helmet sets scroll-behavior:smooth. -->
+        <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,.86);font-family:inherit;font-size:13px;padding:6px 2px;text-decoration:none;transition:color .2s;flex-shrink:0" style-hover="color:rgba(255,255,255,.92)">
+          <span style="width:30px;height:1px;background:rgba(255,255,255,.32);display:block"></span>
+          Scroll to explore
+          <span class="hn" style="display:inline-flex">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+          </span>
+        </a>
       </div>
     </div>
   </section>
