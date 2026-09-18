@@ -44,16 +44,16 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#8B1333" />
+  <meta name="theme-color" content="#840132" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="American University of Beirut" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="Become a certified online educator" />
+  <meta property="og:title" content="Earn your AUB graduate diploma in online education" />
   <meta property="og:description" content="Graduate in nine months with two credentials: an AUB diploma and the Microsoft Certified Educator certificate, included at no extra cost. $5,400 total, 100% online." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Become a certified online educator" />
+  <meta name="twitter:title" content="Earn your AUB graduate diploma in online education" />
   <meta name="twitter:description" content="Graduate in nine months with two credentials: an AUB diploma and the Microsoft Certified Educator certificate, included at no extra cost. $5,400 total, 100% online." />
   <!-- og:url and og:image need absolute URLs, unknown at handoff. Commented out so a
        placeholder can never ship: a broken og:image renders social shares as a blank
@@ -78,31 +78,35 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body { font-family: 'Libre Franklin', system-ui, sans-serif; color: #45403D; background: #fff; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; height: auto; display: block; }
-    a { color: #8B1333; text-decoration: none; }
-    a:hover { color: #6B0F27; text-decoration: underline; }
+    a { color: #840132; text-decoration: none; }
+    a:hover { color: #6A132C; text-decoration: underline; }
     button { font-family: inherit; cursor: pointer; }
     table { border-collapse: collapse; }
     .lf .field { margin-bottom: 12px; }
     .lf .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .lf label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: #7A736F; margin-bottom: 6px; }
     .lf input[type=text], .lf input[type=email], .lf input[type=tel], .lf select { width: 100%; padding: 11px 12px; border: 1px solid #E6E1DB; border-radius: 5px; font-family: inherit; font-size: 14px; color: #171514; background: #fff; }
-    .lf input:focus, .lf select:focus { outline: none; border-color: #8B1333; }
+    .lf input:focus, .lf select:focus { outline: none; border-color: #840132; }
     .lf .radio-row { display: flex; gap: 18px; align-items: center; padding-top: 2px; }
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #171514; }
-    .lf input[type=radio] { accent-color: #8B1333; width: 15px; height: 15px; }
+    .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
     [data-testimonial-track]::-webkit-scrollbar { display: none; }
     .jm .jm-title, .jm .jm-dot { transition: color .2s ease, background-color .2s ease; }
-    .jm:hover .jm-title { color: #8B1333 !important; }
-    .jm:hover .jm-dot { background: #8B1333 !important; }
+    .jm:hover .jm-title { color: #840132 !important; }
+    .jm:hover .jm-dot { background: #840132 !important; }
     /* Hero type sits over a photograph (an image-slot placeholder until AUB supply it), so a
        soft shadow holds the letterforms wherever the image runs light. Client feedback was
        that the sub-heading and small white text read as faded. */
     #hf-hero h1, #hf-hero p, #hf-hero li, #hf-hero button { text-shadow: 0 1px 3px rgba(0,0,0,.55); }
     /* ...but never inside the white form card. The shadow exists to hold light type over a
        photograph; on dark text on white it just reads as a smudge. Scoped to the card rather
-       than to #form, because "Scholarships, discounts, and payment plans available." sits
+       than to #form, because "Discounts and payment plans available." sits
        inside #form but outside the card, on the dark background, and does need the shadow. */
     #hf-hero .hf-card, #hf-hero .hf-card * { text-shadow: none; }
+    #hf-hero .hl { text-shadow: none; }
+    .hl  { background: #840132; color: #fff; font-style: normal;
+           padding: .02em .2em .1em; border-radius: 3px;
+           -webkit-box-decoration-break: clone; box-decoration-break: clone; }
   </style>
 <!-- FAQPage structured data for search and answer engines; keep in sync with the visible FAQ text -->
 <script type="application/ld+json">
@@ -163,7 +167,7 @@
       "name": "What does it cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tuition for the AUB Graduate Diploma in Online Education is $450 per credit, or $5,400 in total for the 12-credit program. The Dean’s Scholarship covers 20% for qualified applicants, AUB alumni and staff get 15% off, and payment plans are available. If your employer sponsors staff study, AUB’s admissions team can provide the documents you need."
+        "text": "Tuition for the AUB Graduate Diploma in Online Education is $450 per credit, or $5,400 in total for the 12-credit program. AUB alumni and staff get 15% off, and payment plans are available through the Comptroller’s office. If your employer sponsors staff study, AUB’s admissions team can provide the documents you need."
       }
     }
   ]
@@ -206,27 +210,16 @@
   <nav style="position:sticky;top:0;z-index:100;background:rgba(23,21,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12)">
     <div style="max-width:1180px;margin-inline:auto;padding:12px clamp(18px,4vw,44px);display:flex;align-items:center;justify-content:space-between;gap:16px">
       <div style="display:flex;align-items:center;gap:12px">
-        <svg viewBox="0 0 64 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height:44px;width:auto;flex-shrink:0">
-          <path d="M3 2 L61 2 Q63 2 63 4 L63 44 Q63 64 32 74 Q1 64 1 44 L1 4 Q1 2 3 2 Z" fill="#8B1333"></path>
-          <rect x="4" y="3" width="56" height="17" fill="white"></rect>
-          <text x="32" y="10" text-anchor="middle" fill="#8B1333" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">UT VITAM HABEANT</text>
-          <text x="32" y="17" text-anchor="middle" fill="#8B1333" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">ABUNDANTIUS HABEANT</text>
-          <path d="M32 23 Q28.5 28 32 31.5 Q35.5 28 32 23 Z" fill="white"></path>
-          <path d="M32 36 Q22 31 13 35 L13 57 Q22 53 32 59 Z" fill="white"></path>
-          <path d="M32 36 Q42 31 51 35 L51 57 Q42 53 32 59 Z" fill="white"></path>
-          <line x1="32" y1="36" x2="32" y2="59" stroke="#8B1333" stroke-width="1.4"></line>
-          <line x1="13" y1="61.5" x2="51" y2="61.5" stroke="white" stroke-width="1.6" stroke-linecap="round"></line>
-        </svg>
-        <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font-family:Georgia,serif;font-size:11.5px;font-weight:700;color:#fff;letter-spacing:1.5px;line-height:1.15">AMERICAN</span>
-          <span style="font-family:Georgia,serif;font-size:11.5px;font-weight:700;color:#fff;letter-spacing:1.5px;line-height:1.15">UNIVERSITY <span style="font-size:9px">of</span> BEIRUT</span>
-          <div style="height:1px;background:rgba(255,255,255,.5);margin:3px 0"></div>
-          <span style="font-size:10.5px;font-weight:800;color:rgba(255,255,255,.75);letter-spacing:.6px;text-transform:uppercase">Faculty of Arts and Sciences</span>
-        </div>
+        <picture>
+          <source type="image/webp" srcset="assets/logo-fas-white-380.webp" />
+          <img src="assets/logo-fas-white-380.png" width="380" height="92"
+               alt="American University of Beirut — Faculty of Arts and Sciences"
+               style="height:clamp(32px,4.6vw,44px);width:auto;display:block;flex-shrink:0" />
+        </picture>
       </div>
       <div style="display:flex;align-items:center;gap:18px">
         <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,.88)">Fall 2026-2027 intake open</span>
-        <button onClick="{{ scrollToForm }}" style="background:#8B1333;color:#fff;font-size:13px;font-weight:700;letter-spacing:.2px;padding:11px 24px;border-radius:6px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#A81A42">Apply Now</button>
+        <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13px;font-weight:700;letter-spacing:.2px;padding:11px 24px;border-radius:6px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#A10841">Apply Now</button>
       </div>
     </div>
   </nav>
@@ -242,7 +235,7 @@
           <span style="width:5px;height:5px;border-radius:50%;background:#F0BECC;display:block"></span>
           Now Enrolling · Fall 2026-2027
         </div>
-        <h1 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(30px,4.4vw,52px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;margin-bottom:20px;text-wrap:pretty">Become a <em style="font-style:italic;color:#F0BECC">certified</em><br />online educator.</h1>
+        <h1 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(30px,4.4vw,52px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;margin-bottom:20px;text-wrap:pretty">Earn your AUB <span class="hl">graduate diploma</span><br />in online education.</h1>
         <p style="font-size:clamp(15px,1.6vw,17.5px);line-height:1.7;color:#fff;max-width:52ch;margin-bottom:clamp(24px,3vw,32px);font-weight:300">Graduate in nine months with two credentials: an AUB diploma and the Microsoft Certified Educator (MCE) certificate, included at no extra cost.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.18)">
           <li style="display:flex;align-items:flex-start;gap:13px;font-size:14.5px;color:#fff;line-height:1.5;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18)">
@@ -261,7 +254,7 @@
             <span style="width:18px;height:18px;border-radius:50%;background:rgba(240,190,204,.16);display:grid;place-items:center;flex-shrink:0;margin-top:1px">
               <svg viewBox="0 0 12 10" style="width:9px;height:8px;stroke:#F0BECC;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="1.5 5 4.5 8 10.5 2"></polyline></svg>
             </span>
-            $5,400 total · scholarships and payment plans available
+            $5,400 total · payment plans available
           </li>
           <li style="display:flex;align-items:flex-start;gap:13px;font-size:14.5px;color:#fff;line-height:1.5;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18)">
             <span style="width:18px;height:18px;border-radius:50%;background:rgba(240,190,204,.16);display:grid;place-items:center;flex-shrink:0;margin-top:1px">
@@ -273,7 +266,7 @@
       </div>
 
       <div id="form" style="scroll-margin-top:84px">
-        <div class="hf-card" style="background:#fff;border-top:3px solid #8B1333;box-shadow:0 28px 70px rgba(0,0,0,.45);padding:clamp(20px,2.6vw,28px);min-height:300px">
+        <div class="hf-card" style="background:#fff;border-top:3px solid #840132;box-shadow:0 28px 70px rgba(0,0,0,.45);padding:clamp(20px,2.6vw,28px);min-height:300px">
           <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid #E6E1DB">
             <p style="font-size:17px;font-weight:700;color:#171514;letter-spacing:-.2px">Talk to an advisor</p>
             <p style="font-size:12.5px;color:#7A736F;margin-top:4px">Your AUB diploma and the MCE certificate, for $5,400 in total.</p>
@@ -281,36 +274,36 @@
           <!-- Static lead-form mockup for client review. Replace with the live Vala embed, or wire these fields via DC. -->
           <div class="lf">
             <div class="row field">
-              <div><label for="lf-first-hero">First Name <span style="color:#8B1333">*</span></label><input required type="text" id="lf-first-hero" placeholder="First name"></div>
-              <div><label for="lf-last-hero">Last Name <span style="color:#8B1333">*</span></label><input required type="text" id="lf-last-hero" placeholder="Last name"></div>
+              <div><label for="lf-first-hero">First Name <span style="color:#840132">*</span></label><input required type="text" id="lf-first-hero" placeholder="First name"></div>
+              <div><label for="lf-last-hero">Last Name <span style="color:#840132">*</span></label><input required type="text" id="lf-last-hero" placeholder="Last name"></div>
             </div>
-            <div class="field"><label for="lf-email-hero">Email <span style="color:#8B1333">*</span></label><input required type="email" id="lf-email-hero" placeholder="you@example.com"></div>
-            <div class="field"><label for="lf-phone-hero">Phone <span style="color:#8B1333">*</span></label>
+            <div class="field"><label for="lf-email-hero">Email <span style="color:#840132">*</span></label><input required type="email" id="lf-email-hero" placeholder="you@example.com"></div>
+            <div class="field"><label for="lf-phone-hero">Phone <span style="color:#840132">*</span></label>
               <div style="display:grid;grid-template-columns:118px 1fr;gap:10px">
                 <select aria-label="Country code"><option>🇱🇧 +961</option><option>🇦🇪 +971</option><option>🇸🇦 +966</option><option>🇶🇦 +974</option><option>🇰🇼 +965</option><option>🇧🇭 +973</option><option>🇴🇲 +968</option><option>🇯🇴 +962</option><option>🇪🇬 +20</option><option>🇮🇶 +964</option><option>🇹🇷 +90</option><option>🇬🇧 +44</option><option>🇫🇷 +33</option><option>🇩🇪 +49</option><option>🇺🇸 +1</option></select>
                 <input required type="tel" id="lf-phone-hero" placeholder="Phone number">
               </div>
             </div>
-            <div class="field"><label for="lf-contact-hero">Preferred Contact Method <span style="color:#8B1333">*</span></label>
+            <div class="field"><label for="lf-contact-hero">Preferred Contact Method <span style="color:#840132">*</span></label>
               <select required id="lf-contact-hero"><option>Email</option><option>Phone</option></select>
             </div>
-            <div class="field"><label>Do you hold a bachelor’s degree? <span style="color:#8B1333">*</span></label>
+            <div class="field"><label>Do you hold a bachelor’s degree? <span style="color:#840132">*</span></label>
               <div class="radio-row">
                 <label><input required type="radio" name="lf-degree-hero"> Yes</label>
                 <label><input required type="radio" name="lf-degree-hero"> No</label>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#7A736F;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#7A736F;line-height:1.5">No obligation. An AUB advisor replies within 48 hours.</span></div><button type="button" style="width:100%;background:#8B1333;color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px;padding:13px 20px;border-radius:6px;border:none">Start My Journey</button>
+            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#7A736F;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#7A736F;line-height:1.5">No obligation. An AUB advisor replies within 48 hours.</span></div><button type="button" style="width:100%;background:#840132;color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px;padding:13px 20px;border-radius:6px;border:none">Start My Journey</button>
             <p style="font-size:11px;color:#7A736F;line-height:1.5;margin-top:10px;text-align:center">By submitting this form, you consent to AUB contacting you about this program.</p>
           </div>
           <div id="vala-funnel"></div>
         </div>
-        <p style="text-align:center;font-size:11.5px;color:rgba(255,255,255,.85);margin-top:12px">Scholarships, discounts, and payment plans available.</p>
+        <p style="text-align:center;font-size:11.5px;color:rgba(255,255,255,.85);margin-top:12px">Discounts and payment plans available.</p>
       </div>
     </div>
   </section>
 
-  <section style="background:#8B1333;padding:16px clamp(18px,4vw,48px)">
+  <section style="background:#840132;padding:16px clamp(18px,4vw,48px)">
     <div style="max-width:1140px;margin-inline:auto;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px clamp(28px,5vw,64px)">
       <div style="display:flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:#fff"><svg viewBox="0 0 24 24" style="width:15px;height:15px;flex-shrink:0;stroke:#F0BECC;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 3 L21 7 V13 C21 17.5 17 21 12 22 C7 21 3 17.5 3 13 V7 Z"></path></svg>AUB · Established 1866</div>
       <div style="display:flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:#fff"><svg viewBox="0 0 24 24" style="width:15px;height:15px;flex-shrink:0;stroke:#F0BECC;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V5 a2 2 0 0 1 2-2h4l2 2 2-2h4a2 2 0 0 1 2 2v14"></path><path d="M12 6v13"></path><path d="M5 19h14"></path></svg>NYSED-Recognized Diploma</div>
@@ -322,7 +315,7 @@
   <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px);background:#fff">
     <div style="max-width:1180px;margin-inline:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,60px)">
       <div data-reveal>
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">The Credential Gap</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">The Credential Gap</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(24px,3.1vw,37px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#171514;text-wrap:pretty">Your school is going digital. Are your qualifications keeping up?</h2>
         <!-- Below the fold, so lazy with explicit width/height to reserve space and avoid
              layout shift. Two widths x WebP/JPEG: the column is ~560px on desktop and ~354px
@@ -343,36 +336,36 @@
           <p style="margin-top:16px">Our Graduate Diploma in Online Education gives you both the skills and the proof. In nine months you learn to design engaging courses, lead digital classrooms, and implement EdTech at an institutional level. You finish with an AUB diploma recognized by NYSED and the MCE certificate from Microsoft, two credentials that work on your CV the day you graduate.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#E6E1DB;border:1px solid #E6E1DB;border-radius:6px;overflow:hidden;margin-top:clamp(26px,3.4vw,34px)">
-          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #8B1333">
+          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #840132">
             <div style="font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:#7A736F;margin-bottom:6px">Duration</div>
-            <div style="font-size:15px;font-weight:700;color:#8B1333">About 9 months</div>
+            <div style="font-size:15px;font-weight:700;color:#840132">About 9 months</div>
           </div>
-          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #8B1333">
+          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #840132">
             <div style="font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:#7A736F;margin-bottom:6px">Credits</div>
-            <div style="font-size:15px;font-weight:700;color:#8B1333">12, in 4 courses</div>
+            <div style="font-size:15px;font-weight:700;color:#840132">12, in 4 courses</div>
           </div>
-          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #8B1333">
+          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #840132">
             <div style="font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:#7A736F;margin-bottom:6px">Format</div>
-            <div style="font-size:15px;font-weight:700;color:#8B1333">100% online, asynchronous</div>
+            <div style="font-size:15px;font-weight:700;color:#840132">100% online, asynchronous</div>
           </div>
-          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #8B1333">
+          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #840132">
             <div style="font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:#7A736F;margin-bottom:6px">Credentials</div>
-            <div style="font-size:15px;font-weight:700;color:#8B1333">AUB diploma + MCE</div>
+            <div style="font-size:15px;font-weight:700;color:#840132">AUB diploma + MCE</div>
           </div>
-          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #8B1333">
+          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #840132">
             <div style="font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:#7A736F;margin-bottom:6px">Tuition</div>
-            <div style="font-size:15px;font-weight:700;color:#8B1333">$450 per credit</div>
+            <div style="font-size:15px;font-weight:700;color:#840132">$450 per credit</div>
           </div>
-          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #8B1333">
+          <div style="background:#FBF4F6;padding:16px 18px;border-left:3px solid #840132">
             <div style="font-size:10px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:#7A736F;margin-bottom:6px">Pathway</div>
-            <div style="font-size:15px;font-weight:700;color:#8B1333">MA in Computing in Education</div>
+            <div style="font-size:15px;font-weight:700;color:#840132">MA in Computing in Education</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px);background:#8B1333;color:#fff">
+  <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px);background:#840132;color:#fff">
     <div style="max-width:1180px;margin-inline:auto">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,56px);align-items:end;margin-bottom:clamp(30px,4vw,44px)">
         <div>
@@ -410,7 +403,7 @@
   <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px);background:#fff">
     <div style="max-width:1180px;margin-inline:auto">
       <div data-reveal style="max-width:62ch;margin-bottom:clamp(28px,4vw,42px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">How We Compare</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">How We Compare</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(24px,3.1vw,37px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#171514;margin-bottom:16px;text-wrap:pretty">A recognized diploma at a lower cost.</h2>
         <p style="font-size:clamp(15px,1.5vw,16.5px);line-height:1.74;color:#45403D">Our diploma pairs a NYSED-recognized credential and the MCE certification with 100% online delivery, for $5,400 in total.</p>
       </div>
@@ -419,7 +412,7 @@
             <thead>
               <tr style="background:#171514">
                 <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:rgba(255,255,255,.75);width:19%"></th>
-                <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:#fff;background:#8B1333;width:27%">AUB — Graduate Diploma in Online Education</th>
+                <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:#fff;background:#840132;width:27%">AUB — Graduate Diploma in Online Education</th>
                 <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:rgba(255,255,255,.75);width:27%">Typical US/UK Online EdTech Certificate</th>
                 <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:rgba(255,255,255,.75);width:27%">Regional Online Diplomas</th>
               </tr>
@@ -427,19 +420,19 @@
             <tbody>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">Tuition</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle;font-weight:700;font-size:15px">$5,400 ($450/credit)</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle;font-weight:700;font-size:15px">$5,400 ($450/credit)</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Often $8,000+</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Varies</td>
               </tr>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">Fully Online</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ 100% asynchronous</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ 100% asynchronous</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Sometimes hybrid</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Sometimes hybrid</td>
               </tr>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">MCE Included</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ At no extra cost</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ At no extra cost</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Rarely included</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Rarely included</td>
               </tr>
@@ -452,14 +445,14 @@
   <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px);background:#F8F5F1;border-top:1px solid #E6E1DB;border-bottom:1px solid #E6E1DB">
     <div style="max-width:1180px;margin-inline:auto">
       <div data-reveal style="max-width:56ch;margin-bottom:clamp(28px,4vw,42px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">From Our Students</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">From Our Students</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(24px,3.1vw,37px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#171514;text-wrap:pretty">What our students say.</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.6vw,26px)">
         <div data-reveal style="background:#fff;border:1px solid #E6E1DB;padding:clamp(26px,3vw,34px)">
           <p style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#171514;margin-bottom:24px">[TESTIMONIAL — student quote to be supplied by AUB. Suggested angle: an experienced teacher who redesigned their courses during the diploma.]</p>
           <div style="display:flex;align-items:center;gap:13px">
-            <div style="width:40px;height:40px;background:#8B1333;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
             <div>
               <strong style="display:block;font-size:13.5px;font-weight:600;color:#171514">[NAME]</strong>
               <span style="font-size:12.5px;color:#7A736F">[Role, Location]</span>
@@ -469,7 +462,7 @@
         <div data-reveal style="background:#fff;border:1px solid #E6E1DB;padding:clamp(26px,3vw,34px)">
           <p style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#171514;margin-bottom:24px">[TESTIMONIAL — student quote to be supplied by AUB. Suggested angle: a professional who moved from training or HR into instructional design.]</p>
           <div style="display:flex;align-items:center;gap:13px">
-            <div style="width:40px;height:40px;background:#8B1333;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
             <div>
               <strong style="display:block;font-size:13.5px;font-weight:600;color:#171514">[NAME]</strong>
               <span style="font-size:12.5px;color:#7A736F">[Role, Location]</span>
@@ -483,7 +476,7 @@
   <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px);background:#F8F5F1;border-bottom:1px solid #E6E1DB">
     <div style="max-width:1180px;margin-inline:auto">
       <div data-reveal style="max-width:62ch;margin-bottom:clamp(30px,4vw,46px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">Faculty</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Faculty</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(24px,3.1vw,37px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#171514;margin-bottom:16px;text-wrap:pretty">Meet your instructors.</h2>
         <p style="font-size:clamp(15px,1.5vw,16.5px);line-height:1.74;color:#45403D">The diploma is taught by AUB faculty in education and educational technology.</p>
       </div>
@@ -531,79 +524,85 @@
   <section style="padding:clamp(52px,7vw,96px) clamp(18px,4vw,44px) clamp(72px,9vw,116px);background:#fff">
     <div style="max-width:1180px;margin-inline:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,60px);align-items:start">
       <div>
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">Common Questions</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Common Questions</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(24px,3.1vw,37px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#171514;margin-bottom:24px;text-wrap:pretty">Your questions, answered.</h2>
-        <button onClick="{{ scrollToForm }}" style="background:#8B1333;color:#fff;font-size:14px;font-weight:700;padding:14px 26px;border:none;border-radius:6px;letter-spacing:.2px;transition:background .2s" style-hover="background:#6B0F27">Chat with an Advisor</button>
+        <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:14px;font-weight:700;padding:14px 26px;border:none;border-radius:6px;letter-spacing:.2px;transition:background .2s" style-hover="background:#6A132C">Chat with an Advisor</button>
       </div>
       <div style="display:flex;flex-direction:column;border-top:1px solid #E6E1DB">
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Do I need a tech background to apply?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">No. The AUB Graduate Diploma in Online Education is an entry point into educational technology, built for educators without a coding or IT background. Technical skills are taught step by step, alongside the teaching skills, so you do not need them before you start.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             What do I need to apply?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">To apply for the Graduate Diploma in Online Education at AUB, you need a bachelor's degree with a minimum GPA of 3.0, an English proficiency test, and two recommendation letters. Graduates of all backgrounds and majors can apply. Work experience helps but is not required.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Can I study while working full time?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Yes. The AUB diploma is 100% online and asynchronous, with no fixed class times, so it fits around a full-time job. Each of the 4 courses runs about seven weeks, and most weeks involve readings, a short task, and a piece of design work. You choose when the work happens.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             How do I earn the Microsoft certification?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">The Microsoft Certified Educator (MCE) preparation is built into the AUB diploma, and you earn the MCE certificate by the end of the program, at no extra cost.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             How is the diploma recognized?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch"><!-- MoE wording below mirrors the client-reviewed email sequence; confirm it should appear on paid landing pages. -->The Graduate Diploma in Online Education is awarded by the American University of Beirut (AUB) and recognized by the New York State Education Department (NYSED), which gives it standing in the US and with international employers. One note for Lebanon-based applicants: the program is not currently accredited by the Lebanese Ministry of Education. An AUB advisor can explain what this means for your situation.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             What if I want to continue to a master’s?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">All 12 diploma credits transfer directly into AUB’s MA in Computing in Education. Some of our graduates choose to continue, and the diploma is also a complete credential on its own. You decide at the end of the diploma, not before you start.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             What does it cost?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
-            <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Tuition for the AUB Graduate Diploma in Online Education is $450 per credit, or $5,400 in total for the 12-credit program. The Dean’s Scholarship covers 20% for qualified applicants, AUB alumni and staff get 15% off, and payment plans are available. If your employer sponsors staff study, AUB’s admissions team can provide the documents you need.</p>
+            <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Tuition for the AUB Graduate Diploma in Online Education is $450 per credit, or $5,400 in total for the 12-credit program. AUB alumni and staff get 15% off, and payment plans are available through the Comptroller’s office. If your employer sponsors staff study, AUB’s admissions team can provide the documents you need.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer style="background:#5E0C22;color:rgba(255,255,255,.6);text-align:center;padding:28px 20px;font-size:12.5px;line-height:1.7">
+  <footer style="background:#6A132C;color:rgba(255,255,255,.6);text-align:center;padding:28px 20px;font-size:12.5px;line-height:1.7">
+    <picture>
+      <source type="image/webp" srcset="assets/logo-aub-concise-white-300.webp" />
+      <img src="assets/logo-aub-concise-white-300.png" width="300" height="283" alt=""
+           loading="lazy" decoding="async"
+           style="height:84px;width:auto;display:block;margin:0 auto 20px" />
+    </picture>
     <p>© 2026 American University of Beirut. Faculty of Arts and Sciences.<br />Bliss Street, Hamra, Beirut, Lebanon. <a href="https://www.aub.edu.lb" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">aub.edu.lb</a></p>
     <!-- Legal links. This page collects name, email and phone, so a privacy notice must
          be reachable from the point of collection. Google Ads also requires lead-gen
@@ -623,7 +622,7 @@
       <strong style="display:block;font-size:13.5px;font-weight:700;color:#171514">Graduate Diploma in Online Education</strong>
       <span style="font-size:11.5px;color:#7A736F">$450/credit · 100% Online · Fall 2026-2027</span>
     </div>
-    <button onClick="{{ scrollToForm }}" style="background:#8B1333;color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;border:none;white-space:nowrap">Apply Now</button>
+    <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;border:none;white-space:nowrap">Apply Now</button>
   </div>
 
 </div>
