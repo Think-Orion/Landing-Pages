@@ -16,6 +16,8 @@ AUB/                                          client
       Thank_You_dc.html                       post-submission page
       assets/                                 shared across all three pages
       README.md                               per-program notes
+    online-ma-computing-in-education/         program
+      ... same three pages, assets/, README.md
 ```
 
 Folder names are lowercase slugs — no spaces. This keeps preview URLs readable
@@ -31,6 +33,7 @@ favicon, and `og:image` — exist once per program instead of being duplicated p
 | Client | Faculty | Program | Cold | In-Market | Thank You |
 |---|---|---|:--:|:--:|:--:|
 | AUB | FAS | Online Graduate Diploma in Online Education | ✅ | ✅ | ✅ |
+| AUB | FAS | Online MA in Computing in Education | ✅ | ✅ | ✅ |
 
 ## Conventions
 
