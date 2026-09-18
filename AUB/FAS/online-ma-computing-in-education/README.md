@@ -171,41 +171,51 @@ section stacks cleanly at 390 and 768.
 ## Hero text contrast
 
 AUB reported the white hero copy as "faded" and "not easily legible" on both landing
-pages, naming the sub-headings and the small labels under the cold hero's numbers.
-
-Two changes, no new images:
+pages, naming the sub-headings and the small labels under the cold hero's numbers. Two
+changes fixed it, and a later one improved it again.
 
 1. **The copy is solid white, not translucent.** Every flagged element was drawing at
    partial opacity — the cold sub-heading at 88%, its stat labels at 66%, the in-market
    sub-heading at 76% and its benefit bullets at 90%. All are now `#fff`, with a soft
-   `text-shadow` so the type lifts off the busier parts of the photo. The stat labels
-   keep their place in the hierarchy through size, uppercase and letter-spacing rather
-   than through being dimmed, which is what made them look washed out.
-2. **The cold scrim went up a notch** — roughly 6% darker at the lightest pixel under
-   the copy. Enough to carry the sub-heading over the AAA line, small enough that the
-   photo still reads.
+   `text-shadow` so the type lifts off the busier parts of the photo. The stat labels keep
+   their place in the hierarchy through size, uppercase and letter-spacing rather than
+   through being dimmed, which is what made them look washed out.
+2. **The scrim is a flat black wash**, `rgba(0,0,0,.64)` plus a vertical depth gradient,
+   matching the Online Education diploma hero. Comms asked for black rather than a
+   burgundy tint.
+
+The flat wash is not only on-brand, it measures better than the burgundy gradient it
+replaced — 8.82:1 at the weakest point against 7.37:1 before — and it removed a whole
+class of fragility. The burgundy version was a directional gradient whose stops had to be
+anchored in pixels, because the copy column is a fixed width while a percentage gradient
+tracks the viewport; get that wrong and the copy drifts onto the light end of the wash at
+some widths, which is exactly what happened at tablet sizes during an earlier round. A
+flat wash is uniform, so there is nothing to drift onto.
 
 Measured against the lightest pixel directly beneath each element:
 
-| Element | Before | After |
-|---|--:|--:|
-| Cold sub-heading, 1440 | 5.49:1 | **7.37:1** |
-| Cold sub-heading, 390 | 9.27:1 | **10.75:1** |
-| Cold stat labels, 1440 | 6.25:1 | **11.97:1** |
-| Cold stat labels, 390 | 6.76:1 | **12.50:1** |
-| In-market sub-heading, 1440 | 10.74:1 | **18.16:1** |
-| In-market sub-heading, 390 | 10.28:1 | **17.23:1** |
-| In-market bullets, 1440 | 14.77:1 | **18.15:1** |
-| In-market bullets, 390 | 14.01:1 | **17.17:1** |
+| Element | Before the fixes | Burgundy scrim | Flat black `.64` |
+|---|--:|--:|--:|
+| Cold sub-heading, 1440 | 5.49:1 | 7.37:1 | **9.94:1** |
+| Cold sub-heading, 390 | 9.27:1 | 10.75:1 | **8.82:1** |
+| Cold stat labels, 1440 | 6.25:1 | 11.97:1 | **17.75:1** |
+| Cold stat labels, 390 | 6.76:1 | 12.50:1 | **17.48:1** |
+| In-market sub-heading, 1440 | 10.74:1 | — | **18.16:1** |
+| In-market bullets, 1440 | 14.77:1 | — | **18.15:1** |
 
-Everything now clears **AAA (7:1)**; the AA floor is 4.5:1. The figures ignore the
-`text-shadow`, so perceived legibility is a little better than the numbers suggest.
+Everything clears **AAA (7:1)**; the AA floor is 4.5:1. Figures ignore the `text-shadow`,
+so perceived legibility is a little better than the numbers suggest. The in-market hero is
+unaffected by the scrim change — it has its own dark ground, not a photo wash.
 
-Also lifted while in there, same faded-white problem in the same viewport: the
-in-market dark nav's "Faculty of Arts and Sciences" (75% → 94%) and its intake label
-(60% → 92%), the line under the in-market form (55% → 90%), and the hero divider rules
-on both pages. The journey accordions further down the in-market page keep their
-original dividers — they sit on solid dark, not on a photo.
+The H1 is not in the table. Its plain lines sit on the same scrim as the sub-heading and
+are large-scale text (60px bold, a 3:1 floor rather than 4.5:1), and its highlighted line
+has an opaque `#840132` box behind it, where white measures 10.34:1.
+
+Also lifted while in there, same faded-white problem in the same viewport: the in-market
+dark nav's "Faculty of Arts and Sciences" (75% → 94%) and its intake label (60% → 92%),
+the line under the in-market form (55% → 90%), and the hero divider rules on both pages.
+The journey accordions further down the in-market page keep their original dividers — they
+sit on solid dark, not on a photo.
 
 ## Hero typography
 

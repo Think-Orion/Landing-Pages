@@ -112,15 +112,13 @@
     @media (prefers-reduced-motion: reduce) {
       .hw { animation: none !important; transform: none !important; opacity: 1 !important; }
     }
-    /* Hero scrim. Stops are anchored in PIXELS, not percentages, because the copy column
-       is a fixed 680px max-width while a percentage gradient moves with the viewport —
-       that mismatch left the copy sitting over the light end of the wash at tablet widths.
-       Base colour is the approved darker AUB shade #6A132C. That is lighter than the
-       near-black burgundy used before, so the alphas were raised to hold the contrast:
-       with the copy solid white the sub-heading measures 7.4:1 at 1440px and 10.8:1 at
-       390px, and the stat labels 12.0:1 and 12.5:1 — all above the 7:1 AAA line, which is
-       where AUB's legibility note landed us. */
-    .hero-scrim { background: linear-gradient(100deg,rgba(106,19,44,.95) 0,rgba(106,19,44,.91) 620px,rgba(106,19,44,.70) 900px,rgba(106,19,44,.34) 100%); }
+    /* Hero scrim. A flat black wash plus a vertical depth layer, matching the Online
+       Education diploma hero — Comms asked for black here rather than a burgundy tint.
+       The earlier pixel-anchored burgundy gradient is gone, and with it the reason it
+       existed: a flat wash is uniform, so the copy column cannot drift onto a lighter
+       part of it as the viewport changes. Alpha set by measurement against the lightest
+       pixel under the copy; see "Hero text contrast" in README.md. */
+    .hero-scrim { background: rgba(0,0,0,.64); }
     /* Hero secondary CTA. Overrides the sheet's default link colour and hover underline,
        which are tuned for burgundy-on-white and would be unreadable over the hero photo.
        The hover affordance is the arrow nudge instead. */
@@ -205,7 +203,7 @@
     <!-- Brand scrim. Burgundy wash weighted to the left so white type keeps contrast over
          the photo's bright top-left corner; the second layer adds top and bottom depth. -->
     <div class="hero-scrim" style="position:absolute;inset:0"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.30) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 66%,rgba(0,0,0,.38) 100%)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 68%,rgba(0,0,0,.42) 100%)"></div>
 
     <div style="position:relative;z-index:2;width:100%;max-width:1140px;margin-inline:auto;padding:clamp(56px,8vw,104px) clamp(18px,4vw,48px)">
       <div style="max-width:680px">
