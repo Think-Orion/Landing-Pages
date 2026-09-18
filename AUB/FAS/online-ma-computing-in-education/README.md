@@ -273,6 +273,80 @@ twitter alone would have left the meta description telling a different story.
 Everything below the fold is untouched: the comparison table, the programme sections and
 the FAQ all still carry the certification in full. The problem was hero space, not the claim.
 
+## Logos
+
+The nav crest used to be a hand-drawn inline `<svg>` — a shield path with the motto set
+as live `<text>`. It is now the official lockup, from the artwork Comms supplied.
+
+| File | Used on | Size |
+|---|---|---|
+| `logo-fas-380.png` / `.webp` | Nav, **cold** and **thank-you** (light navs) | 6.1KB / 5.1KB |
+| `logo-fas-white-380.png` / `.webp` | Nav, **in-market** (nav sits on `rgba(23,21,20,.92)`) | 16.7KB / 9.7KB |
+| `logo-aub-concise-white-300.png` / `.webp` | Footer, all three pages | 35.3KB / 20.5KB |
+
+All six are byte-identical to the Online Education diploma build, so the two page sets
+carry exactly the same marks.
+
+**The reversed versions are derived, and the precondition was checked first.** Filling a
+mark's alpha channel with white only works if its knockouts are transparent rather than
+opaque white — otherwise the fill floods them and the seal detail is lost. Counting opaque
+white pixels in both supplied files returned **0**, so the derivation is sound.
+
+**The reversed art is deliberately not palettised.** Quantising to 32 colours halves the
+file size, but on white-on-transparent artwork it collapses the alpha ramp from 256 levels
+to 8, which bands the antialiased edges of the seal's ring text and the cedar. The standard
+burgundy lockup *is* palettised (28 alpha levels, no visible cost). Measured both ways
+before choosing.
+
+## Footer
+
+Identical markup on all three pages, byte for byte.
+
+- **The AUB concise mark** sits first in the footer, centred, directly above the copyright
+  line. `alt=""` on purpose: the line underneath already reads "American University of
+  Beirut", so announcing it again would just repeat the institution to a screen reader.
+  Intrinsic `width`/`height` are the asset's real pixels (300x283), not the display size,
+  so the browser reserves the right space before the image loads and the footer does not
+  jump. Display height comes from CSS. `loading="lazy"` and `decoding="async"` — it is
+  below the fold on every page.
+- **Ground is `#6A132C`**, the approved darker AUB shade. The reversed mark needs it.
+- **Legal links were missing entirely** and have been added: Privacy Policy, Terms of Use,
+  Non-Discrimination, all `[BRACKETED]` pending AUB's own URLs. These pages collect name,
+  email and phone, and Google Ads requires lead-gen destinations to carry a reachable
+  privacy disclosure — a missing one is a common disapproval cause. Link AUB's existing
+  policies; do not author new ones.
+
+### The sticky bar was covering the privacy link
+
+A fixed `padding-bottom:104px` is not enough on these pages. The cold page's CTA bar wraps
+as the viewport narrows — **105px tall at 390px, 123px at 360px, 141px at 320px** — so at
+320px it overlapped the privacy link by **12px**, while 390px cleared it by only 3px.
+
+Footer padding therefore moved out of the inline style into `.pg-footer`, with a bump below
+420px. It lives in CSS rather than inline so no `!important` is needed to beat an inline
+style. Clearance is now 34px at 320px, 51px at 360px and 49px at 390px, worst case across
+all three pages.
+
+## Hero headline treatment
+
+Both H1s now carry the diploma build's treatment: a burgundy `.hl` highlight on the second
+line, and on the cold page the `.hw` word-stagger reveal (CSS only, fully disabled under
+`prefers-reduced-motion`).
+
+**This is what makes the earlier line-pitch brief apply.** `.hw` sets each word
+`display:inline-block`, which inflates every line box to about 1.15x the font size. Before
+this change both H1s were plain text and both rendered at their declared 1.05, so there was
+nothing to reconcile. Now the cold page renders at 1.15 despite still declaring 1.05, so the
+in-market H1 — plain text plus `<br />` — had its declared `line-height` raised from 1.05
+to **1.15** to sit at the same pitch. Measured after the change:
+
+| Page | font-size | declared | rendered pitch | ratio |
+|---|--:|--:|--:|--:|
+| Cold | 60px | 1.05 | 69px | **1.150** |
+| In-market | 46px | 1.15 | 53px | **1.152** |
+
+Copying the declared value across would not have matched, exactly as the brief warned.
+
 ## Assets
 
 Photos are embedded as data URIs for review builds; the decoded originals live in
@@ -358,19 +432,12 @@ straight from a repo subfolder rather than from a real deployment.
 
 ## Open client-fill items
 
-**Blocked on assets from Comms — these two cannot be done without the files:**
+**Resolved:** the FAS lockup and the AUB concise mark are supplied, compressed, committed
+and wired in. See "Logos" and "Footer".
 
-- **The FAS logo is not the real mark.** The AUB crest in the nav of all three pages is a
-  hand-drawn inline `<svg>` approximation — a shield path with the motto set as `<text>`,
-  not the official lockup. It needs replacing with the supplied FAS logo file. Send SVG if
-  it exists (sharpest, smallest, recolours cleanly); otherwise PNG at 3x the display height
-  (the nav renders it at 48px, so ~144px tall) with a transparent background.
-- **The AUB concise logo is not yet in the footer.** Nothing is reserved for it. Same
-  format preference as above.
-
-Once the files arrive they get compressed, converted to WebP with a PNG fallback (or kept
-as SVG), added to `assets/`, wired into the markup and committed — no GitHub access needed
-on your side.
+**Now open:** the three footer legal URLs (`[AUB PRIVACY POLICY URL]`,
+`[AUB TERMS OF USE URL]`, `[AUB NON-DISCRIMINATION / ACCESSIBILITY URL]`) need AUB's own
+existing policy pages before launch.
 
 Each page carries its own `CLIENT-FILL` comment block at the top. Consolidated:
 
@@ -424,7 +491,10 @@ the hero, Opportunity-image and FAQ changes.
 | Responsive image negotiation | Pass — Chromium picks `hero-cold-elearning-800.avif` at 390px and `-1600.avif` at 1440px; `opportunity-coding-600.avif` at a 560px column |
 | No missing assets | Pass — no failed requests apart from the expected `support.js` / `image-slot.js` |
 | Hero text contrast | Pass — **every hero text element on both pages clears WCAG AAA (7:1)**, measured against the lightest pixel directly beneath it at 1440 and 390. Weakest is the cold sub-heading at 7.37:1, re-tuned after the brand-colour swap lightened the scrim base |
-| Hero H1 line pitch | Pass — cold 1.050, in-market 1.065 measured baseline-to-baseline; already matched, no change made |
+| Hero H1 line pitch | Pass — cold 1.150, in-market 1.152 measured between visual lines, after the `.hw` stagger made the reconciliation necessary |
+| Nav + footer logos | Pass — official lockup on all three navs (reversed on the dark in-market nav), concise mark decodes at 300x283 and renders 84px tall with `alt=""` in all three footers |
+| Footer legal links | Pass — present on all three pages; sticky bar clears them by 34px at 320px, 51px at 360px, 49px at 390px (was **-12px at 320px**) |
+| Footer parity | Pass — footer markup byte-identical across all three pages |
 | Hero H1 wrap | Pass — two lines on both pages at 320, 360, 390, 414, 480, 600, 768, 820, 900, 1024, 1180, 1280, 1440, 1600 and 1920, highlighted phrase unbroken, no horizontal overflow |
 | Hero certification count | Pass — one distinct mention above the fold per page, plus the trust-strip badge |
 | Brand colours | Pass — no `#8B1333`, `#6B0F27`, `#5E0C22`, `#A81A42` or `#3A0A16` left in any page; nav CTAs compute to `rgb(132, 1, 50)` on both landing pages |

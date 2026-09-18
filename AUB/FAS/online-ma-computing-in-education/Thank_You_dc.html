@@ -83,6 +83,14 @@
     a { color: #840132; text-decoration: none; }
     a:hover { color: #6A132C; text-decoration: underline; }
     button { font-family: inherit; cursor: pointer; }
+    /* Footer clearance for the fixed CTA bar. The bar's content wraps as the viewport
+       narrows — on the cold page it grows from 105px tall at 390px to 141px at 320px —
+       so a single fixed padding is not enough: at 320px the bar was covering the privacy
+       link by 12px. A covered privacy disclosure is a Google Ads disapproval cause on
+       lead-gen destinations, so the padding scales at the narrow end. Padding lives here
+       rather than inline so no !important is needed to beat an inline style. */
+    .pg-footer { padding: 28px 20px 104px; }
+    @media (max-width: 420px) { .pg-footer { padding-bottom: 150px; } }
   </style>
 </helmet>
 
@@ -90,25 +98,10 @@
 
   <nav style="background:#fff;border-bottom:1px solid #E6E1DB">
     <div style="max-width:1140px;margin-inline:auto;padding:12px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <svg viewBox="0 0 64 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height:48px;width:auto;flex-shrink:0">
-          <path d="M3 2 L61 2 Q63 2 63 4 L63 44 Q63 64 32 74 Q1 64 1 44 L1 4 Q1 2 3 2 Z" fill="#840132"></path>
-          <rect x="4" y="3" width="56" height="17" fill="white"></rect>
-          <text x="32" y="10" text-anchor="middle" fill="#840132" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">UT VITAM HABEANT</text>
-          <text x="32" y="17" text-anchor="middle" fill="#840132" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">ABUNDANTIUS HABEANT</text>
-          <path d="M32 23 Q28.5 28 32 31.5 Q35.5 28 32 23 Z" fill="white"></path>
-          <path d="M32 36 Q22 31 13 35 L13 57 Q22 53 32 59 Z" fill="white"></path>
-          <path d="M32 36 Q42 31 51 35 L51 57 Q42 53 32 59 Z" fill="white"></path>
-          <line x1="32" y1="36" x2="32" y2="59" stroke="#840132" stroke-width="1.4"></line>
-          <line x1="13" y1="61.5" x2="51" y2="61.5" stroke="white" stroke-width="1.6" stroke-linecap="round"></line>
-        </svg>
-        <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#840132;letter-spacing:1.5px;line-height:1.15">AMERICAN</span>
-          <span style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#840132;letter-spacing:1.5px;line-height:1.15">UNIVERSITY <span style="font-size:9px">of</span> BEIRUT</span>
-          <div style="height:1px;background:#840132;margin:3px 0"></div>
-          <span style="font-size:11px;font-weight:800;color:#171514;letter-spacing:.6px;text-transform:uppercase">Faculty of Arts and Sciences</span>
-        </div>
-      </div>
+      <picture>
+          <source type="image/webp" srcset="assets/logo-fas-380.webp" />
+          <img src="assets/logo-fas-380.png" width="380" height="92" alt="American University of Beirut — Faculty of Arts and Sciences" style="height:clamp(32px,4.6vw,44px);width:auto;display:block;flex-shrink:0" />
+        </picture>
       <span style="font-size:12.5px;color:#7A736F;letter-spacing:.2px">MA in Computing in Education · Fall 2026–2027 intake</span>
     </div>
   </nav>
@@ -208,8 +201,27 @@
     </div>
   </section>
 
-  <footer style="background:#6A132C;color:rgba(255,255,255,.6);text-align:center;padding:28px 20px;font-size:12.5px;line-height:1.7">
-    <p>&copy; 2026 American University of Beirut. Faculty of Arts and Sciences.<br />Bliss Street, Hamra, Beirut, Lebanon. <a href="https://www.aub.edu.lb" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">aub.edu.lb</a></p>
+  <footer class="pg-footer" style="background:#6A132C;color:rgba(255,255,255,.6);text-align:center;font-size:12.5px;line-height:1.7">
+    <picture>
+      <source type="image/webp" srcset="assets/logo-aub-concise-white-300.webp" />
+      <img src="assets/logo-aub-concise-white-300.png" width="300" height="283" alt=""
+           loading="lazy" decoding="async"
+           style="height:84px;width:auto;display:block;margin:0 auto 20px" />
+    </picture>
+    <p>© 2026 American University of Beirut. Faculty of Arts and Sciences.<br />Bliss Street, Hamra, Beirut, Lebanon. <a href="https://www.aub.edu.lb" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">aub.edu.lb</a></p>
+    <!-- Legal links. These pages collect name, email and phone, so a privacy notice
+         must be reachable from the point of collection. Google Ads also requires
+         lead-gen destinations to disclose data practices — a missing privacy link is
+         a common disapproval cause on paid pages. Link AUB's OWN existing policies;
+         do not author new ones. The footer's 104px bottom padding keeps these clear
+         of the fixed CTA bar. -->
+    <p style="margin-top:12px">
+      <a href="[AUB PRIVACY POLICY URL]" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">Privacy Policy</a>
+      <span style="opacity:.45;padding:0 8px">·</span>
+      <a href="[AUB TERMS OF USE URL]" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">Terms of Use</a>
+      <span style="opacity:.45;padding:0 8px">·</span>
+      <a href="[AUB NON-DISCRIMINATION / ACCESSIBILITY URL]" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">Non-Discrimination</a>
+    </p>
   </footer>
 
   <div data-sticky-cta style="position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;border-top:1px solid #E6E1DB;padding:12px clamp(16px,4vw,32px);display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 -6px 24px rgba(0,0,0,.1);transform:translateY(110%);transition:transform .3s ease">
