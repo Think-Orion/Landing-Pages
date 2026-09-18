@@ -207,6 +207,72 @@ in-market dark nav's "Faculty of Arts and Sciences" (75% → 94%) and its intake
 on both pages. The journey accordions further down the in-market page keep their
 original dividers — they sit on solid dark, not on a photo.
 
+## Hero typography
+
+### Line pitch — measured, and no change was needed
+
+The brief assumed the cold H1 uses the word-stagger reveal (`.hw` spans set to
+`display:inline-block`), which inflates each line box to about 1.15x the font size and
+would leave the two heroes at different pitches despite the same declared `line-height`.
+
+**Neither H1 in this build uses that pattern.** Both are plain text — the cold one wraps
+naturally, the in-market one uses an explicit `<br />` — and both declare `line-height:1.05`.
+Measured baseline-to-baseline:
+
+| Page | font-size | declared | measured pitch | ratio |
+|---|--:|--:|--:|--:|
+| Cold | 60px | 1.05 | 63px | **1.050** |
+| In-market | 46px | 1.05 | 49px | **1.065** (48.3px, rounded up by the renderer) |
+
+They already match. Copying a 1.15 figure across would have *inflated* the in-market
+pitch by ~11% and broken the match, so the declared values were left alone.
+
+The 1.15-ish number does show up in the measurements, as the `getClientRects()` height
+(70px cold / 54px in-market). That is the font's own em box — Libre Franklin's ascent plus
+descent — not the line pitch. Worth knowing, because it is the number that looks like it
+confirms the inflation theory when it does not.
+
+### Font-size clamps — both reduced
+
+| Page | Was | Now | Why |
+|---|---|---|---|
+| In-market | `clamp(30px,4.4vw,52px)` | `clamp(30px,3.9vw,46px)` | The headline column is 517px at 1440px, and the longest line measured 505px — **97.8% full**. It fitted, but on a 12px cushion. Now 86%. |
+| Cold | `clamp(34px,5.2vw,60px)` | `clamp(28px,5.2vw,60px)` | At 320px the H1 set as **four lines**, not two: 284px of column against a 323px longest line. Now 92% and two lines. |
+
+**Caveat on every width measurement here:** the sandbox cannot reach
+`fonts.googleapis.com`, so Libre Franklin never loads and the numbers were taken against
+the fallback (`system-ui`). `document.fonts.size` is 0 while `document.fonts.check()` still
+returns true, which is misleading. The clamps were set to leave real headroom rather than
+to sit on a thin margin precisely because the measuring font is not the shipping font.
+Worth a glance on a machine that can load the real face.
+
+Verified 320, 360, 390, 414, 480, 600, 768, 820, 900, 1024, 1180, 1280, 1440, 1600 and
+1920: **two lines on both pages at every width, the highlighted phrase never broken, and
+`scrollWidth <= clientWidth` throughout.**
+
+## Hero certification messaging
+
+Comms flagged that the MCE messaging was taking too much hero real estate. Target was one
+mention above the fold plus the trust-strip badge; both pages now hit it exactly.
+
+| Slot | Cold | In-market |
+|---|---|---|
+| Sub-heading | Two sentences merged into one, certification demoted to a trailing clause — **the one mention** | Certification dropped; leads on the AUB master's and spends the space on 30 credits, 9 courses, capstone, delivery mode |
+| Hero bullets | n/a | Reordered: NYSED credential first, certification last and cut to "MCE certificate included" — **the one mention** |
+| Stat strip | Third stat was "MCE / Microsoft certification, free"; now **"18–24 / Months to graduate"** | n/a |
+| Form card sub-line | n/a | Was "Your AUB master's and the MCE certificate, for $13,500 in total"; now "18–24 months, 100% online, $13,500 in total" |
+| Trust strip | Badge kept | Badge kept |
+
+Counted from the rendered hero text: **one distinct certification mention per page**, down
+from two on cold and three on in-market.
+
+`description`, `og:description` and `twitter:description` follow the new sub-headings. All
+three tags carried identical strings per page, so they moved together — changing og and
+twitter alone would have left the meta description telling a different story.
+
+Everything below the fold is untouched: the comparison table, the programme sections and
+the FAQ all still carry the certification in full. The problem was hero space, not the claim.
+
 ## Assets
 
 Photos are embedded as data URIs for review builds; the decoded originals live in
@@ -358,6 +424,9 @@ the hero, Opportunity-image and FAQ changes.
 | Responsive image negotiation | Pass — Chromium picks `hero-cold-elearning-800.avif` at 390px and `-1600.avif` at 1440px; `opportunity-coding-600.avif` at a 560px column |
 | No missing assets | Pass — no failed requests apart from the expected `support.js` / `image-slot.js` |
 | Hero text contrast | Pass — **every hero text element on both pages clears WCAG AAA (7:1)**, measured against the lightest pixel directly beneath it at 1440 and 390. Weakest is the cold sub-heading at 7.37:1, re-tuned after the brand-colour swap lightened the scrim base |
+| Hero H1 line pitch | Pass — cold 1.050, in-market 1.065 measured baseline-to-baseline; already matched, no change made |
+| Hero H1 wrap | Pass — two lines on both pages at 320, 360, 390, 414, 480, 600, 768, 820, 900, 1024, 1180, 1280, 1440, 1600 and 1920, highlighted phrase unbroken, no horizontal overflow |
+| Hero certification count | Pass — one distinct mention above the fold per page, plus the trust-strip badge |
 | Brand colours | Pass — no `#8B1333`, `#6B0F27`, `#5E0C22`, `#A81A42` or `#3A0A16` left in any page; nav CTAs compute to `rgb(132, 1, 50)` on both landing pages |
 | Headline accent | Pass — the hero `<em>` computes to `rgb(255, 255, 255)` on both landing pages; no pink left on either headline |
 | Cost FAQ | Pass — ends at "the Comptroller's office", no Dean's Scholarship sentence, on both pages and in both JSON-LD copies |
