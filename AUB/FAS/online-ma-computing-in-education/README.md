@@ -329,9 +329,23 @@ all three pages.
 
 ## Hero headline treatment
 
-Both H1s now carry the diploma build's treatment: a burgundy `.hl` highlight on the second
-line, and on the cold page the `.hw` word-stagger reveal (CSS only, fully disabled under
-`prefers-reduced-motion`).
+Both H1s now use the diploma's construction and treatment: **"Earn your AUB / [master's
+degree] / in Computing / in Education"**, with a burgundy `.hl` highlight on the credential
+and, on the cold page, the `.hw` word-stagger reveal (CSS only, fully disabled under
+`prefers-reduced-motion`). `og:title` and `twitter:title` follow the headline on both pages.
+
+**Why four rows and not the diploma's three.** The diploma's longest line is "in online
+education" at 19 characters. The MA's equivalent, "in Computing in Education", is 25, and
+holding it on one line forced the H1 clamp down to `clamp(20px,3.5vw,40px)` — a third off
+the hero size. Splitting it across two rows keeps every line at 15 characters or fewer and
+the full 60px. Putting the whole programme name inside the highlight and letting it wrap
+does not work here: `.hw` makes each span `display:inline-block`, and an inline-block will
+not wrap, so a long phrase overflows instead (silently, because the hero clips).
+
+The in-market H1 carries **explicit `<br />` breaks** for the same reason the cold page has
+them. Left to wrap on its own it swung between 2, 3 and 4 rows across the width range, and
+at 480px the highlight itself split across two rows. Both pages now set as four rows at
+every width from 320 to 1920.
 
 **This is what makes the earlier line-pitch brief apply.** `.hw` sets each word
 `display:inline-block`, which inflates every line box to about 1.15x the font size. Before
