@@ -56,6 +56,30 @@ $16,200, not 30 credits and $13,500 — and the factsheet says the program is op
 graduates of *any* field, so the un-waived case is not the exception. Confirm the
 default credit load with AUB before launch. See "Open client-fill items".
 
+## Brand colours
+
+Comms supplied the approved AUB values in the September review. Everything in the old
+burgundy family was mapped onto the two named shades:
+
+| Role | Now | Was |
+|---|---|---|
+| Main Berytus red — fills, buttons, headings, links, `theme-color` | **`#840132`** | `#8B1333` |
+| Darker shade — button hover, deep section fills, the cold hero scrim | **`#6A132C`** | `#6B0F27`, `#5E0C22`, `#3A0A16` |
+
+Three notes on the mapping:
+
+- **The in-market nav button used to go *lighter* on hover** (`#A81A42`), which was the
+  only place in the build that did. It now darkens to `#6A132C` like every other button,
+  so the whole page set uses the two approved values and nothing else.
+- **The cold hero scrim changed base and needed re-tuning.** `#6A132C` is a good deal
+  lighter than the near-black burgundy it replaced, so at the old alphas the sub-heading
+  fell from 7.2:1 to 5.9:1 — still AA, but below the AAA line the previous review round
+  earned. The alphas went up to compensate; see "Hero text contrast".
+- **The pink tints are untouched** (`#F0BECC`, `#E8A0B4`, `#EAD3DA`, `#D9BCC5`, `#F6E9EC`,
+  `#FBF4F6`). They are accent and wash colours on icons, rules and tinted panels, and
+  Comms named only the two reds. If those tints should be re-derived from `#840132`, that
+  is a separate pass — say the word.
+
 ## Head, indexing and tracking
 
 Applied to all three pages, matching the Online Education builds.
@@ -64,7 +88,7 @@ Applied to all three pages, matching the Online Education builds.
 |---|---|
 | `robots` | **All three pages: `noindex, follow`.** Client decision — these are paid-traffic landing pages and are deliberately kept out of the index. `follow` keeps link equity flowing to aub.edu.lb. This is load-bearing: it is the reason the two landing pages may share an FAQ set. If indexing is ever switched back on, the FAQ sets must be split again first. |
 | `canonical` | **Commented out.** The live URL is unknown at handoff, and a canonical pointing at a placeholder can misdirect indexing, whereas an absent one is safe — engines self-canonicalise. Uncomment and fill before launch. |
-| Favicon | Root-relative paths (`/favicon.ico`, `/favicon-32x32.png`, `/favicon-16x16.png`, `/apple-touch-icon.png`, `/site.webmanifest`) plus `<meta name="theme-color" content="#8B1333">`. Files ship in `assets/favicon/` and must be deployed to the **domain root** — they will not appear in a raw-repo preview from a subfolder, which is expected. |
+| Favicon | Root-relative paths (`/favicon.ico`, `/favicon-32x32.png`, `/favicon-16x16.png`, `/apple-touch-icon.png`, `/site.webmanifest`) plus `<meta name="theme-color" content="#840132">`. Files ship in `assets/favicon/` and must be deployed to the **domain root** — they will not appear in a raw-repo preview from a subfolder, which is expected. |
 | Open Graph | `og:type`, `og:site_name`, `og:locale`, `og:title`, `og:description` live on both landing pages. `og:url`, `og:image` and its width/height/alt are **commented out** pending the live URL — a broken `og:image` renders a share as a blank card. The image file itself is supplied. The thank-you page carries no OG tags, matching the diploma build. |
 | Twitter card | `summary_large_image`, title and description live; `twitter:image` commented out alongside `og:image`. |
 | GTM | **Live.** Stape server-side container `GTM-KZDZDJJ`, loaded first-party from `trk.aub.edu.lb`. Pasted verbatim as supplied by AUB ops — the obfuscated query parameter *is* the container reference and must not be reformatted or re-encoded. |
@@ -103,6 +127,12 @@ eyebrow pill ("Now Enrolling · Fall 2026–2027") is gone.
 
 Consequences worth knowing:
 
+- **The headline accent is solid white italic, not pink.** Comms found the pink
+  ("Design learning." in `#F0BECC`) odd on the hero visual. The italic alone now carries
+  the distinction, which is the more confident editorial treatment and removes a second
+  colour from the most important line on the page. The `<em>` carries a `hl-accent` class
+  so alternatives are a one-line change; two others were rendered for Comms (white with a
+  pink underline rule, and a warm off-white).
 - **The page now has one form, not two.** The advisor section's form is the only one, and
   `#vala-funnel` was moved onto it — the hero form held the page's only DC mount. The
   earlier open question about whether the embed supports two instances is moot.
@@ -159,10 +189,10 @@ Measured against the lightest pixel directly beneath each element:
 
 | Element | Before | After |
 |---|--:|--:|
-| Cold sub-heading, 1440 | 5.49:1 | **7.18:1** |
-| Cold sub-heading, 390 | 9.27:1 | **12.62:1** |
-| Cold stat labels, 1440 | 6.25:1 | **13.32:1** |
-| Cold stat labels, 390 | 6.76:1 | **14.56:1** |
+| Cold sub-heading, 1440 | 5.49:1 | **7.37:1** |
+| Cold sub-heading, 390 | 9.27:1 | **10.75:1** |
+| Cold stat labels, 1440 | 6.25:1 | **11.97:1** |
+| Cold stat labels, 390 | 6.76:1 | **12.50:1** |
 | In-market sub-heading, 1440 | 10.74:1 | **18.16:1** |
 | In-market sub-heading, 390 | 10.28:1 | **17.23:1** |
 | In-market bullets, 1440 | 14.77:1 | **18.15:1** |
@@ -262,6 +292,20 @@ straight from a repo subfolder rather than from a real deployment.
 
 ## Open client-fill items
 
+**Blocked on assets from Comms — these two cannot be done without the files:**
+
+- **The FAS logo is not the real mark.** The AUB crest in the nav of all three pages is a
+  hand-drawn inline `<svg>` approximation — a shield path with the motto set as `<text>`,
+  not the official lockup. It needs replacing with the supplied FAS logo file. Send SVG if
+  it exists (sharpest, smallest, recolours cleanly); otherwise PNG at 3x the display height
+  (the nav renders it at 48px, so ~144px tall) with a transparent background.
+- **The AUB concise logo is not yet in the footer.** Nothing is reserved for it. Same
+  format preference as above.
+
+Once the files arrive they get compressed, converted to WebP with a PNG fallback (or kept
+as SVG), added to `assets/`, wired into the markup and committed — no GitHub access needed
+on your side.
+
 Each page carries its own `CLIENT-FILL` comment block at the top. Consolidated:
 
 1. **Credit load and total price** — the 30-credit / $13,500 headline assumes both
@@ -313,7 +357,10 @@ the hero, Opportunity-image and FAQ changes.
 | Every `<img>` decodes | Pass — checked after a full scroll pass so `loading="lazy"` images actually fetch |
 | Responsive image negotiation | Pass — Chromium picks `hero-cold-elearning-800.avif` at 390px and `-1600.avif` at 1440px; `opportunity-coding-600.avif` at a 560px column |
 | No missing assets | Pass — no failed requests apart from the expected `support.js` / `image-slot.js` |
-| Hero text contrast | Pass — **every hero text element on both pages clears WCAG AAA (7:1)**, measured against the lightest pixel directly beneath it at 1440 and 390. Weakest is the cold sub-heading at 7.18:1 |
+| Hero text contrast | Pass — **every hero text element on both pages clears WCAG AAA (7:1)**, measured against the lightest pixel directly beneath it at 1440 and 390. Weakest is the cold sub-heading at 7.37:1, re-tuned after the brand-colour swap lightened the scrim base |
+| Brand colours | Pass — no `#8B1333`, `#6B0F27`, `#5E0C22`, `#A81A42` or `#3A0A16` left in any page; nav CTAs compute to `rgb(132, 1, 50)` on both landing pages |
+| Headline accent | Pass — the hero `<em>` computes to `rgb(255, 255, 255)` on both landing pages; no pink left on either headline |
+| Cost FAQ | Pass — ends at "the Comptroller's office", no Dean's Scholarship sentence, on both pages and in both JSON-LD copies |
 | Hero secondary CTA | Pass — renders white, label correct, click lands on `#how-it-works` with the heading clear of the top, arrow nudges on hover, and the primary CTA still reaches `#form`. Checked at 1440 and 390 |
 | Opportunity alignment | Pass — photo top and copy top differ by 0px at 900, 1024, 1280 and 1440; stacks in DOM order at 390 and 768 |
 | Console / page errors | None |

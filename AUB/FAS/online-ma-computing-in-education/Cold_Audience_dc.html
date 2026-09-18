@@ -47,7 +47,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#8B1333" />
+  <meta name="theme-color" content="#840132" />
 
   <!-- Open Graph / Twitter — og:image must be a hosted 1200x630 file, not a data URI -->
   <meta property="og:type" content="website" />
@@ -82,33 +82,31 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body { font-family: 'Libre Franklin', system-ui, sans-serif; color: #45403D; background: #fff; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; height: auto; display: block; }
-    a { color: #8B1333; text-decoration: none; }
-    a:hover { color: #6B0F27; text-decoration: underline; }
+    a { color: #840132; text-decoration: none; }
+    a:hover { color: #6A132C; text-decoration: underline; }
     button { font-family: inherit; cursor: pointer; }
     table { border-collapse: collapse; }
     .lf .field { margin-bottom: 12px; }
     .lf .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .lf label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: #7A736F; margin-bottom: 6px; }
     .lf input[type=text], .lf input[type=email], .lf input[type=tel], .lf select { width: 100%; padding: 11px 12px; border: 1px solid #E6E1DB; border-radius: 5px; font-family: inherit; font-size: 14px; color: #171514; background: #fff; }
-    .lf input:focus, .lf select:focus { outline: none; border-color: #8B1333; }
+    .lf input:focus, .lf select:focus { outline: none; border-color: #840132; }
     .lf .radio-row { display: flex; gap: 18px; align-items: center; padding-top: 2px; }
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #171514; }
-    .lf input[type=radio] { accent-color: #8B1333; width: 15px; height: 15px; }
+    .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
     [data-testimonial-track]::-webkit-scrollbar { display: none; }
     .jm .jm-title, .jm .jm-dot { transition: color .2s ease, background-color .2s ease; }
-    .jm:hover .jm-title { color: #8B1333 !important; }
-    .jm:hover .jm-dot { background: #8B1333 !important; }
+    .jm:hover .jm-title { color: #840132 !important; }
+    .jm:hover .jm-dot { background: #840132 !important; }
     /* Hero scrim. Stops are anchored in PIXELS, not percentages, because the copy column
        is a fixed 680px max-width while a percentage gradient moves with the viewport —
        that mismatch left the copy sitting over the light end of the wash at tablet widths.
-       Anchored this way the wash stays dark across the copy column at every width and only
-       thins out to the right of it, where the photo has no text over it. Tuned against the
-       worst-case (lightest) pixel under the copy. Nudged up slightly after AUB reported the
-       hero copy read as faded: with the copy now solid white the sub-heading lands at 7.2:1
-       at 1440px (AAA for body text) and 11.5:1 at 390px, up from 5.5:1 and 9.3:1. The nudge
-       darkens the lightest pixel under the copy by about 6%, which keeps the photo readable
-       — a heavier wash cleared AAA too but buried the image. */
-    .hero-scrim { background: linear-gradient(100deg,rgba(58,10,22,.88) 0,rgba(58,10,22,.82) 620px,rgba(58,10,22,.58) 900px,rgba(58,10,22,.26) 100%); }
+       Base colour is the approved darker AUB shade #6A132C. That is lighter than the
+       near-black burgundy used before, so the alphas were raised to hold the contrast:
+       with the copy solid white the sub-heading measures 7.4:1 at 1440px and 10.8:1 at
+       390px, and the stat labels 12.0:1 and 12.5:1 — all above the 7:1 AAA line, which is
+       where AUB's legibility note landed us. */
+    .hero-scrim { background: linear-gradient(100deg,rgba(106,19,44,.95) 0,rgba(106,19,44,.91) 620px,rgba(106,19,44,.70) 900px,rgba(106,19,44,.34) 100%); }
     /* Hero secondary CTA. Overrides the sheet's default link colour and hover underline,
        which are tuned for burgundy-on-white and would be unreadable over the hero photo.
        The hover affordance is the arrow nudge instead. */
@@ -128,7 +126,7 @@
      Premise-section image (educator with students and robotics kits, MCE badge composite) is client-supplied and embedded as a data URI — swap to a hosted file at launch; confirm Microsoft brand-usage approval for the badge
      [TESTIMONIAL / NAME / ROLE] — all quote blocks are placeholders with suggested angles
      Comparison-table figures for non-AUB categories are indicative ranges; validate before publishing
-     Dean's Scholarship shown for qualified applicants per the program dossier — confirm it applies to the MA
+     Dean's Scholarship REMOVED from the cost FAQ at Comms' request; payment plans now attributed to the Comptroller's office
      Vala form embed (continuous-learning-survey.js) — confirm the correct funnel script for this program
      Two form hosts on this page: #vala-funnel (hero) and #vala-funnel-2 (advisor section) — confirm the embed supports two mounts
      Advisor photo is embedded as a data URI (client-supplied, carried over from the diploma build) — same hosting note. Remaining image-slot elements (faculty portraits) only render inside the DC preview
@@ -163,31 +161,31 @@
     <div style="max-width:1140px;margin-inline:auto;padding:12px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px">
       <div style="display:flex;align-items:center;gap:12px">
         <svg viewBox="0 0 64 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height:48px;width:auto;flex-shrink:0">
-          <path d="M3 2 L61 2 Q63 2 63 4 L63 44 Q63 64 32 74 Q1 64 1 44 L1 4 Q1 2 3 2 Z" fill="#8B1333"></path>
+          <path d="M3 2 L61 2 Q63 2 63 4 L63 44 Q63 64 32 74 Q1 64 1 44 L1 4 Q1 2 3 2 Z" fill="#840132"></path>
           <rect x="4" y="3" width="56" height="17" fill="white"></rect>
-          <text x="32" y="10" text-anchor="middle" fill="#8B1333" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">UT VITAM HABEANT</text>
-          <text x="32" y="17" text-anchor="middle" fill="#8B1333" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">ABUNDANTIUS HABEANT</text>
+          <text x="32" y="10" text-anchor="middle" fill="#840132" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">UT VITAM HABEANT</text>
+          <text x="32" y="17" text-anchor="middle" fill="#840132" font-size="4.2" font-family="serif" font-weight="700" letter-spacing=".3">ABUNDANTIUS HABEANT</text>
           <path d="M32 23 Q28.5 28 32 31.5 Q35.5 28 32 23 Z" fill="white"></path>
           <path d="M32 36 Q22 31 13 35 L13 57 Q22 53 32 59 Z" fill="white"></path>
           <path d="M32 36 Q42 31 51 35 L51 57 Q42 53 32 59 Z" fill="white"></path>
-          <line x1="32" y1="36" x2="32" y2="59" stroke="#8B1333" stroke-width="1.4"></line>
+          <line x1="32" y1="36" x2="32" y2="59" stroke="#840132" stroke-width="1.4"></line>
           <line x1="13" y1="61.5" x2="51" y2="61.5" stroke="white" stroke-width="1.6" stroke-linecap="round"></line>
         </svg>
         <div style="display:flex;flex-direction:column;gap:2px">
-          <span style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#8B1333;letter-spacing:1.5px;line-height:1.15">AMERICAN</span>
-          <span style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#8B1333;letter-spacing:1.5px;line-height:1.15">UNIVERSITY <span style="font-size:9px">of</span> BEIRUT</span>
-          <div style="height:1px;background:#8B1333;margin:3px 0"></div>
+          <span style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#840132;letter-spacing:1.5px;line-height:1.15">AMERICAN</span>
+          <span style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#840132;letter-spacing:1.5px;line-height:1.15">UNIVERSITY <span style="font-size:9px">of</span> BEIRUT</span>
+          <div style="height:1px;background:#840132;margin:3px 0"></div>
           <span style="font-size:11px;font-weight:800;color:#171514;letter-spacing:.6px;text-transform:uppercase">Faculty of Arts and Sciences</span>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:22px">
         <span style="display:none;font-size:12.5px;color:#7A736F;letter-spacing:.2px">Now enrolling · Fall 2026–2027</span>
-        <button onClick="{{ scrollToForm }}" style="background:#8B1333;color:#fff;font-size:13px;font-weight:600;letter-spacing:.2px;padding:11px 22px;border-radius:6px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#6B0F27">Chat with an Advisor</button>
+        <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13px;font-weight:600;letter-spacing:.2px;padding:11px 22px;border-radius:6px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#6A132C">Chat with an Advisor</button>
       </div>
     </div>
   </nav>
 
-  <section id="hero" style="position:relative;overflow:hidden;background:#3A0A16;color:#fff;min-height:clamp(540px,80vh,740px);display:flex;flex-direction:column;justify-content:center">
+  <section id="hero" style="position:relative;overflow:hidden;background:#6A132C;color:#fff;min-height:clamp(540px,80vh,740px);display:flex;flex-direction:column;justify-content:center">
     <!-- Full-bleed hero photo. Ships as real files with a responsive srcset rather than a
          data URI: at 2000x1500 the source is 2.8MB, and AVIF/WebP variants at two widths
          cut the mobile payload to ~15KB. Paths are relative to this file, so they resolve
@@ -204,11 +202,11 @@
 
     <div style="position:relative;z-index:2;width:100%;max-width:1140px;margin-inline:auto;padding:clamp(56px,8vw,104px) clamp(18px,4vw,48px)">
       <div style="max-width:680px">
-        <h1 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(34px,5.2vw,60px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;margin-bottom:clamp(20px,2.6vw,28px);text-wrap:pretty;text-shadow:0 2px 24px rgba(0,0,0,.28)">Teach technology. <em style="font-style:italic;color:#F0BECC">Design learning.</em></h1>
+        <h1 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(34px,5.2vw,60px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;margin-bottom:clamp(20px,2.6vw,28px);text-wrap:pretty;text-shadow:0 2px 24px rgba(0,0,0,.28)">Teach technology. <em class="hl-accent" style="font-style:italic;color:#fff">Design learning.</em></h1>
         <div style="height:1px;max-width:400px;background:linear-gradient(to right,rgba(255,255,255,.52),rgba(255,255,255,.16),rgba(255,255,255,0));margin-bottom:clamp(20px,2.6vw,28px)"></div>
         <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.68;color:#fff;max-width:56ch;margin-bottom:clamp(28px,4vw,40px);font-weight:300;text-shadow:0 1px 14px rgba(0,0,0,.45)">Our MA in Computing in Education is the only online master’s in the region that combines Education and Computer Science in one curriculum. You graduate ready to teach programming in schools, design online learning, and lead educational technology.</p>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.6vw,30px);margin-bottom:clamp(30px,4vw,44px)">
-          <button onClick="{{ scrollToForm }}" style="background:#8B1333;color:#fff;border:none;border-radius:4px;padding:16px 32px;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2px;box-shadow:0 14px 34px rgba(0,0,0,.34)" style-hover="background:#6B0F27">Speak to an Advisor</button>
+          <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;border:none;border-radius:4px;padding:16px 32px;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2px;box-shadow:0 14px 34px rgba(0,0,0,.34)" style-hover="background:#6A132C">Speak to an Advisor</button>
           <!-- Secondary CTA. A plain in-page anchor, not a DC handler: #how-it-works is the
                premise section directly below the hero, and html{scroll-behavior:smooth} already
                animates the jump, so this needs no JS and works even if the DC runtime never
@@ -247,7 +245,7 @@
   <section id="how-it-works" style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#fff;scroll-margin-top:80px">
     <div style="max-width:1140px;margin-inline:auto">
       <div data-reveal style="max-width:62ch">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">Open To All Backgrounds</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Open To All Backgrounds</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#171514;text-wrap:pretty">You don't need a computer science background.</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,5vw,72px);align-items:stretch;margin-top:clamp(28px,4vw,44px)">
@@ -257,7 +255,7 @@
         </div>
         <div data-reveal style="font-size:clamp(15px,1.5vw,17px);line-height:1.76;color:#45403D;max-width:62ch">
           <p>Our MA in Computing in Education brings education and computer science together in one degree. You do not need a technical background to join. The program admits educators, career changers from HR or corporate training, and graduates from other fields.</p>
-          <div style="margin:clamp(26px,4vw,36px) 0;padding-left:clamp(18px,3vw,28px);border-left:2px solid #8B1333">
+          <div style="margin:clamp(26px,4vw,36px) 0;padding-left:clamp(18px,3vw,28px);border-left:2px solid #840132">
             <p style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(18px,2.1vw,23px);font-style:normal;font-weight:500;color:#171514;line-height:1.44">Python, gaming, and robotics are taught from the ground up. You learn to use them, and to teach with them.</p>
           </div>
           <p>The MA is 30 credits across 9 core courses and an MA project. It is 100% online and asynchronous, so you study at your own pace. <strong style="color:#171514;font-weight:600">You graduate with an AUB master’s recognized by NYSED, plus the Microsoft Certified Educator (MCE) certificate at no extra cost.</strong></p>
@@ -270,7 +268,7 @@
   <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#F8F5F1;border-top:1px solid #E6E1DB;border-bottom:1px solid #E6E1DB">
     <div style="max-width:1140px;margin-inline:auto">
       <div data-reveal style="max-width:64ch;margin-bottom:clamp(32px,5vw,54px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">The Curriculum</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">The Curriculum</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#171514;margin-bottom:18px;text-wrap:pretty">Your MA journey, explained.</h2>
         <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.75;color:#45403D">30 credits across 9 core courses and a capstone project. Each course takes about seven weeks. Most students finish in 1.5 to 2 years.</p>
       </div>
@@ -278,9 +276,9 @@
           <div style="border-top:1px solid #E6E1DB">
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">01</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">01</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 371 · Digital Citizenship</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Learn the ethics of technology: responsible ways to access, manage, exchange, and share information online.</p>
@@ -288,9 +286,9 @@
             </div>
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">02</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">02</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 372 · Foundations in Distance Education</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Learn the fundamentals of online learning, for K-12 students and adult learners, in formal and informal settings.</p>
@@ -298,9 +296,9 @@
             </div>
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">03</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">03</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 373 · Instructional Design and Development</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Learn the core principles, tools, and techniques of instructional design, then apply them in real course projects.</p>
@@ -308,9 +306,9 @@
             </div>
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">04</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">04</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 374 · Technology and Information Systems</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Explore how schools use technology and information systems: for decision-making, planning, and communication.</p>
@@ -318,9 +316,9 @@
             </div>
             <div class="jm" style="">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">05</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">05</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 375 · Trends and Issues in Educational Technology</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Reflect on the roles digital technology plays in teaching and learning, and analyze past, current, and future developments in the field.</p>
@@ -330,9 +328,9 @@
           <div style="border-top:1px solid #E6E1DB">
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">06</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">06</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 315 · Psychology of Education</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Study instructional theories, cognitive development, and learning theory, and how behavior methods apply in real classrooms.</p>
@@ -340,9 +338,9 @@
             </div>
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">07</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">07</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">EDUC 321 · General Research Methodologies in Education</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Develop a scientific approach to educational problems, work with a variety of research designs, and cover basic statistics.</p>
@@ -350,9 +348,9 @@
             </div>
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">08</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">08</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">CMPS 301 · Programming and Computational Thinking</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Get a working introduction to computer science, and learn to teach programming and computational thinking in schools using Python.</p>
@@ -360,9 +358,9 @@
             </div>
             <div class="jm" style="border-bottom:1px solid #E6E1DB;">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">09</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">09</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">CMPS 303 · Gaming and Robotics</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Use research-based practices to build real-world learning experiences with gaming, robotics, and design technology.</p>
@@ -370,9 +368,9 @@
             </div>
             <div class="jm" style="">
               <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
-                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#8B1333;letter-spacing:.5px;min-width:20px;padding-top:2px">10</span>
+                <span style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:11px;font-weight:700;color:#840132;letter-spacing:.5px;min-width:20px;padding-top:2px">10</span>
                 <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#171514;letter-spacing:-.1px">Capstone · Applied MA Project</span>
-                <span data-cur-icon style="font-size:18px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
               </button>
               <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
                 <p style="font-size:13.5px;color:#45403D;line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Apply what you have learned across the program in one capstone project. Many students build something they can use in their current school or workplace.</p>
@@ -384,7 +382,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#8B1333;color:#fff">
+  <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#840132;color:#fff">
     <div style="max-width:1140px;margin-inline:auto">
       <div style="max-width:64ch;margin-bottom:clamp(32px,5vw,52px)">
         <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px">Program Details</p>
@@ -392,27 +390,27 @@
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:rgba(255,255,255,.16);margin-bottom:clamp(28px,4vw,40px)">
-        <div style="background:#8B1333;padding:22px 20px">
+        <div style="background:#840132;padding:22px 20px">
           <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Tuition</div>
           <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.3">$450 / Credit</div>
         </div>
-        <div style="background:#8B1333;padding:22px 20px">
+        <div style="background:#840132;padding:22px 20px">
           <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Format</div>
           <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.3">100% Online</div>
         </div>
-        <div style="background:#8B1333;padding:22px 20px">
+        <div style="background:#840132;padding:22px 20px">
           <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Duration</div>
           <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.3">1.5–2 Years, Self-Paced</div>
         </div>
-        <div style="background:#8B1333;padding:22px 20px">
+        <div style="background:#840132;padding:22px 20px">
           <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Credential</div>
           <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.3">MA + MCE</div>
         </div>
-        <div style="background:#8B1333;padding:22px 20px">
+        <div style="background:#840132;padding:22px 20px">
           <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Who It's For</div>
           <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.3">Teachers, Administrators, Career Shifters</div>
         </div>
-        <div style="background:#8B1333;padding:22px 20px">
+        <div style="background:#840132;padding:22px 20px">
           <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Language</div>
           <div style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.3">English</div>
         </div>
@@ -442,26 +440,26 @@
       </div>
 
       <div style="margin-top:clamp(48px,7vw,80px);background:#fff;border-radius:8px;padding:clamp(24px,3.5vw,40px);box-shadow:0 24px 60px rgba(0,0,0,.25)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:18px">What You Graduate With</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:18px">What You Graduate With</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:4px clamp(24px,4vw,48px)">
           <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0">
-            <span style="width:22px;height:22px;border-radius:50%;background:#8B1333;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
+            <span style="width:22px;height:22px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
             <span style="font-size:15px;color:#171514;line-height:1.5;font-weight:500">An MA in Computing in Education from AUB, recognized by NYSED</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0">
-            <span style="width:22px;height:22px;border-radius:50%;background:#8B1333;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
+            <span style="width:22px;height:22px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
             <span style="font-size:15px;color:#171514;line-height:1.5;font-weight:500">The Microsoft Certified Educator (MCE) certificate</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0">
-            <span style="width:22px;height:22px;border-radius:50%;background:#8B1333;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
+            <span style="width:22px;height:22px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
             <span style="font-size:15px;color:#171514;line-height:1.5;font-weight:500">A portfolio of learning experiences you designed and built</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0">
-            <span style="width:22px;height:22px;border-radius:50%;background:#8B1333;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
+            <span style="width:22px;height:22px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
             <span style="font-size:15px;color:#171514;line-height:1.5;font-weight:500">A capstone project you can apply in your school or career</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0">
-            <span style="width:22px;height:22px;border-radius:50%;background:#8B1333;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
+            <span style="width:22px;height:22px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;line-height:1">✓</span>
             <span style="font-size:15px;color:#171514;line-height:1.5;font-weight:500">PhD eligibility, subject to your academic standing</span>
           </div>
         </div>
@@ -474,7 +472,7 @@
       <div>
         <div style="margin-bottom:clamp(32px,4vw,52px);max-width:64ch">
           <div>
-            <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:14px">Your Journey</p>
+            <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:14px">Your Journey</p>
             <h3 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(21px,2.5vw,30px);font-weight:700;color:#171514;line-height:1.2;letter-spacing:-.5px;text-wrap:pretty">How the MA builds, semester by semester.</h3>
           </div>
           <p style="font-size:14.5px;line-height:1.7;color:#7A736F;max-width:58ch;font-weight:400;margin-top:14px">The program moves from foundations to technical fluency to applied work. Each stage builds on the one before it.</p>
@@ -519,9 +517,9 @@
           <div class="jm" style="display:flex;flex-direction:column;gap:0;padding:0 clamp(14px,1.6vw,20px) 0 0">
             <div style="position:relative;height:11px;margin-bottom:20px">
               <div style="position:absolute;left:0;right:0;top:5px;height:1px;background:rgba(255,255,255,.0)"></div>
-              <div style="position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:#8B1333;box-shadow:0 0 0 5px rgba(139,19,51,.15)"></div>
+              <div style="position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:#840132;box-shadow:0 0 0 5px rgba(132,1,50,.15)"></div>
             </div>
-            <span style="font-size:10px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8B1333;margin-bottom:12px">After graduating</span>
+            <span style="font-size:10px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#840132;margin-bottom:12px">After graduating</span>
             <p class="jm-title" style="font-size:clamp(16px,1.7vw,19px);font-weight:700;color:#171514;line-height:1.28;letter-spacing:-.2px;margin-bottom:12px;text-wrap:pretty">You graduate with two credentials and a capstone.</p>
             <p style="font-size:13.5px;color:#7A736F;line-height:1.68">An AUB MA recognized by NYSED, the Microsoft Certified Educator certificate, and a capstone project you can use in your career. The degree can also support PhD applications, subject to your academic standing.</p>
           </div>
@@ -536,7 +534,7 @@
   <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#fff">
     <div style="max-width:1140px;margin-inline:auto">
       <div data-reveal style="max-width:60ch;margin-bottom:clamp(28px,4vw,44px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">From Graduates</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">From Graduates</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#171514;text-wrap:pretty">What our students say.</h2>
       </div>
       <!-- Testimonial slider: horizontally scrollable track with snap. Add more cards to the track for pages with many testimonials; arrows appear automatically when cards overflow. -->
@@ -544,7 +542,7 @@
         <div data-reveal style="border:1px solid #E6E1DB;padding:clamp(26px,3vw,36px);background:#fff;flex:0 0 min(100%,calc(50% - 14px));scroll-snap-align:start;box-sizing:border-box">
           <p style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#171514;margin-bottom:24px">[TESTIMONIAL — student quote to be supplied by AUB. Suggested angle: an experienced teacher who moved into an EdTech coordinator or head of digital learning role after the MA.]</p>
           <div style="display:flex;align-items:center;gap:13px">
-            <div style="width:40px;height:40px;background:#8B1333;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
             <div>
               <strong style="display:block;font-size:13.5px;font-weight:600;color:#171514">[NAME]</strong>
               <span style="font-size:12.5px;color:#7A736F">[Role, Location]</span>
@@ -554,7 +552,7 @@
         <div data-reveal style="border:1px solid #E6E1DB;padding:clamp(26px,3vw,36px);background:#fff;flex:0 0 min(100%,calc(50% - 14px));scroll-snap-align:start;box-sizing:border-box">
           <p style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#171514;margin-bottom:24px">[TESTIMONIAL — student quote to be supplied by AUB. Suggested angle: a career shifter from IT, HR, or corporate training who used the MA to move into instructional design.]</p>
           <div style="display:flex;align-items:center;gap:13px">
-            <div style="width:40px;height:40px;background:#8B1333;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
             <div>
               <strong style="display:block;font-size:13.5px;font-weight:600;color:#171514">[NAME]</strong>
               <span style="font-size:12.5px;color:#7A736F">[Role, Location]</span>
@@ -573,7 +571,7 @@
   <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#F8F5F1;border-top:1px solid #E6E1DB;border-bottom:1px solid #E6E1DB">
     <div style="max-width:1140px;margin-inline:auto">
       <div data-reveal style="max-width:60ch;margin-bottom:clamp(28px,4vw,44px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">How We Compare</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">How We Compare</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#171514;text-wrap:pretty">A recognized master’s at a lower cost.</h2>
       </div>
       <div style="overflow-x:auto;background:#fff;border:1px solid #E6E1DB">
@@ -581,7 +579,7 @@
             <thead>
               <tr style="background:#171514">
                 <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:rgba(255,255,255,.75);width:19%"></th>
-                <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:#fff;background:#8B1333;width:27%">AUB — MA in Computing in Education</th>
+                <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:#fff;background:#840132;width:27%">AUB — MA in Computing in Education</th>
                 <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:rgba(255,255,255,.75);width:27%">Typical US/UK Online EdTech Master’s</th>
                 <th style="padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.5;vertical-align:middle;color:rgba(255,255,255,.75);width:27%">Regional Online Master’s</th>
               </tr>
@@ -589,25 +587,25 @@
             <tbody>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">Tuition</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle;font-weight:700;font-size:15px">$13,500 ($450/credit)</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle;font-weight:700;font-size:15px">$13,500 ($450/credit)</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Often $20,000+</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Varies</td>
               </tr>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">Fully Online</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ 100% asynchronous</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ 100% asynchronous</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Sometimes hybrid</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Sometimes hybrid</td>
               </tr>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">Education + CS in One Degree</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ Both fields in one curriculum</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ Both fields in one curriculum</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Usually one field only</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Usually one field</td>
               </tr>
               <tr style="background:#fff">
                 <td style="padding:17px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;color:#171514;border-bottom:1px solid #E6E1DB;vertical-align:middle">MCE Included</td>
-                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#8B1333;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ At no extra cost</td>
+                <td style="padding:17px 16px;font-size:14px;font-weight:600;color:#840132;background:#F6E9EC;border-bottom:1px solid #EAD3DA;vertical-align:middle">✓ At no extra cost</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Rarely included</td>
                 <td style="padding:17px 16px;font-size:14px;color:#45403D;border-bottom:1px solid #E6E1DB;vertical-align:middle">Rarely included</td>
               </tr>
@@ -620,7 +618,7 @@
   <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px);background:#fff">
     <div style="max-width:1140px;margin-inline:auto">
       <div data-reveal style="max-width:64ch;margin-bottom:clamp(32px,5vw,52px)">
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">Faculty</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Faculty</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#171514;margin-bottom:18px;text-wrap:pretty">Meet your instructors.</h2>
         <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.75;color:#45403D">The MA is taught by AUB faculty in education and computing.</p>
       <!-- Faculty shown teach EDUC 371-374. Instructors for EDUC 375, EDUC 315, EDUC 321, CMPS 301, CMPS 303, and the MA project to be supplied by AUB; add cards as received. -->
@@ -685,26 +683,26 @@
         <!-- Static lead-form mockup for client review. Replace with the live Vala embed, or wire these fields via DC. -->
           <div class="lf">
             <div class="row field">
-              <div><label for="lf-first-adv">First Name <span style="color:#8B1333">*</span></label><input required type="text" id="lf-first-adv" placeholder="First name"></div>
-              <div><label for="lf-last-adv">Last Name <span style="color:#8B1333">*</span></label><input required type="text" id="lf-last-adv" placeholder="Last name"></div>
+              <div><label for="lf-first-adv">First Name <span style="color:#840132">*</span></label><input required type="text" id="lf-first-adv" placeholder="First name"></div>
+              <div><label for="lf-last-adv">Last Name <span style="color:#840132">*</span></label><input required type="text" id="lf-last-adv" placeholder="Last name"></div>
             </div>
-            <div class="field"><label for="lf-email-adv">Email <span style="color:#8B1333">*</span></label><input required type="email" id="lf-email-adv" placeholder="you@example.com"></div>
-            <div class="field"><label for="lf-phone-adv">Phone <span style="color:#8B1333">*</span></label>
+            <div class="field"><label for="lf-email-adv">Email <span style="color:#840132">*</span></label><input required type="email" id="lf-email-adv" placeholder="you@example.com"></div>
+            <div class="field"><label for="lf-phone-adv">Phone <span style="color:#840132">*</span></label>
               <div style="display:grid;grid-template-columns:118px 1fr;gap:10px">
                 <select aria-label="Country code"><option>🇱🇧 +961</option><option>🇦🇪 +971</option><option>🇸🇦 +966</option><option>🇶🇦 +974</option><option>🇰🇼 +965</option><option>🇧🇭 +973</option><option>🇴🇲 +968</option><option>🇯🇴 +962</option><option>🇪🇬 +20</option><option>🇮🇶 +964</option><option>🇹🇷 +90</option><option>🇬🇧 +44</option><option>🇫🇷 +33</option><option>🇩🇪 +49</option><option>🇺🇸 +1</option></select>
                 <input required type="tel" id="lf-phone-adv" placeholder="Phone number">
               </div>
             </div>
-            <div class="field"><label for="lf-contact-adv">Preferred Contact Method <span style="color:#8B1333">*</span></label>
+            <div class="field"><label for="lf-contact-adv">Preferred Contact Method <span style="color:#840132">*</span></label>
               <select required id="lf-contact-adv"><option>Email</option><option>Phone</option></select>
             </div>
-            <div class="field"><label>Do you hold a bachelor’s degree? <span style="color:#8B1333">*</span></label>
+            <div class="field"><label>Do you hold a bachelor’s degree? <span style="color:#840132">*</span></label>
               <div class="radio-row">
                 <label><input required type="radio" name="lf-degree-adv"> Yes</label>
                 <label><input required type="radio" name="lf-degree-adv"> No</label>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#7A736F;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#7A736F;line-height:1.5">Your details go only to AUB’s admissions team.</span></div><button type="button" style="width:100%;background:#8B1333;color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px;padding:13px 20px;border-radius:6px;border:none">Start the Conversation</button>
+            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#7A736F;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#7A736F;line-height:1.5">Your details go only to AUB’s admissions team.</span></div><button type="button" style="width:100%;background:#840132;color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px;padding:13px 20px;border-radius:6px;border:none">Start the Conversation</button>
             <p style="font-size:11px;color:#7A736F;line-height:1.5;margin-top:10px;text-align:center">By submitting this form, you consent to AUB contacting you about this program.</p>
           </div>
           <div id="vala-funnel"></div>
@@ -718,78 +716,78 @@
   <section style="padding:clamp(56px,8vw,110px) clamp(18px,4vw,48px) clamp(72px,9vw,120px);background:#fff">
     <div style="max-width:1140px;margin-inline:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,64px);align-items:start">
       <div>
-        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#8B1333;margin-bottom:16px">Common Questions</p>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Common Questions</p>
         <h2 style="font-family:'Libre Franklin',system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#171514;text-wrap:pretty">Everything you need to know before you decide.</h2>
       </div>
       <div style="display:flex;flex-direction:column;border-top:1px solid #E6E1DB">
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Do I need a computer science background to apply for the AUB MA?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">No. The AUB MA in Computing in Education admits students from varied academic backgrounds. The technical content is taught in a pedagogical frame and does not assume prior computer science training. There are only two prerequisite courses, one in education and one in computer science, and either can be exempted depending on your background.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             What are the admission requirements for the AUB MA in Computing in Education?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Applicants need a bachelor’s degree from a recognized institution with a minimum GPA of 3.0, an English proficiency test, and two recommendation letters. The AUB MA in Computing in Education is open to graduates of all backgrounds and majors. Work experience is helpful but is not required for admission.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Can I complete the AUB MA in Computing in Education while working full time?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Yes. The AUB MA in Computing in Education is 100% online and fully asynchronous, with no fixed class times. Each of the nine core courses runs about seven weeks. Most students spend 10 to 15 hours per week on coursework and complete the 30-credit program in 1.5 to 2 years.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Is the Microsoft Certified Educator (MCE) certification included in the AUB MA?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Yes. The Microsoft Certified Educator (MCE) certification is built into the AUB MA in Computing in Education at no additional cost. Students complete the MCE assessment alongside their coursework and graduate holding both the AUB master’s degree and the MCE certificate.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Is the AUB MA in Computing in Education recognized internationally?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch"><!-- MoE wording mirrors the client-reviewed email sequence; confirm it should appear on paid landing pages. -->The AUB MA in Computing in Education is recognized by the New York State Education Department (NYSED), which gives the degree standing in the United States and with international employers. The degree can also support PhD applications, subject to academic standing. One note for Lebanon-based applicants: the program is not currently accredited by the Lebanese Ministry of Education. An AUB advisor can explain what this means for your situation.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             Can I start with the Graduate Diploma before committing to the full MA?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
             <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Yes. AUB offers a 12-credit Graduate Diploma in Online Education that takes about nine months to complete. All 12 diploma credits transfer directly into the MA in Computing in Education. Some diploma graduates choose to continue into the full master’s program, and the diploma also stands as an independent credential.</p>
           </div>
         </div>
         <div style="border-bottom:1px solid #E6E1DB">
-          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#8B1333">
+          <button onClick="{{ toggleFaq }}" style="width:100%;background:none;border:none;padding:20px 0;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:#171514;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;line-height:1.45" style-hover="color:#840132">
             How much does the AUB MA in Computing in Education cost?
-            <span data-faq-icon style="font-size:20px;font-weight:300;color:#8B1333;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
+            <span data-faq-icon style="font-size:20px;font-weight:300;color:#840132;line-height:1;flex-shrink:0;transition:transform .25s">+</span>
           </button>
           <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
-            <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Tuition for the AUB MA in Computing in Education is $450 per credit, which is $13,500 for the full 30-credit program. AUB alumni and staff receive a 15% discount, corporate groups of five or more receive 15 to 20% off, and payment plans are available through the admissions office. The Dean’s Scholarship is available for qualified applicants.</p>
+            <p style="font-size:14.5px;color:#45403D;line-height:1.76;padding-bottom:22px;max-width:60ch">Tuition for the AUB MA in Computing in Education is $450 per credit, which is $13,500 for the full 30-credit program. AUB alumni and staff receive a 15% discount, corporate groups of five or more receive 15 to 20% off, and payment plans are available through the Comptroller’s office.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer style="background:#5E0C22;color:rgba(255,255,255,.6);text-align:center;padding:28px 20px;font-size:12.5px;line-height:1.7">
+  <footer style="background:#6A132C;color:rgba(255,255,255,.6);text-align:center;padding:28px 20px;font-size:12.5px;line-height:1.7">
     <p>© 2026 American University of Beirut. Faculty of Arts and Sciences.<br />Bliss Street, Hamra, Beirut, Lebanon. <a href="https://www.aub.edu.lb" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">aub.edu.lb</a></p>
   </footer>
 
@@ -798,7 +796,7 @@
       <strong style="display:block;font-size:13.5px;font-weight:700;color:#171514">MA in Computing in Education</strong>
       <span style="font-size:11.5px;color:#7A736F">$450/credit · 100% Online</span>
     </div>
-    <button onClick="{{ scrollToForm }}" style="background:#8B1333;color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;border:none;white-space:nowrap">Chat with an Advisor</button>
+    <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;border:none;white-space:nowrap">Chat with an Advisor</button>
   </div>
 
 </div>
@@ -947,7 +945,7 @@ class Component extends DCLogic {
       "name": "How much does the AUB MA in Computing in Education cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tuition for the AUB MA in Computing in Education is $450 per credit, which is $13,500 for the full 30-credit program. AUB alumni and staff receive a 15% discount, corporate groups of five or more receive 15 to 20% off, and payment plans are available through the admissions office. The Dean’s Scholarship is available for qualified applicants."
+        "text": "Tuition for the AUB MA in Computing in Education is $450 per credit, which is $13,500 for the full 30-credit program. AUB alumni and staff receive a 15% discount, corporate groups of five or more receive 15 to 20% off, and payment plans are available through the Comptroller’s office."
       }
     }
   ]
