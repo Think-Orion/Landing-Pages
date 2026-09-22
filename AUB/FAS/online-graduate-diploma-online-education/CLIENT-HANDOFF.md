@@ -58,9 +58,8 @@ on the cold-audience page, so nothing is needed from you. Your web team only has
 
 ## Section B — Decisions and confirmations we need
 
-- [ ] **The intake date.** Now shown as **Fall 2026-2027**, as you asked. We had taken the
-      semester start from AUB's master's page because the diploma page still showed 2025, so
-      please still confirm the exact start date before these go live.
+- [ ] **The intake date.** Now shown as **Spring 2026-2027**, as you asked. The pages do not
+      show a start date, so please confirm the exact Spring semester start before these go live.
 - [ ] **The three policy links for the footer** — privacy policy, terms of use, and
       non-discrimination. We need the web addresses of AUB's **existing** pages; we are not
       writing new policies. These do not depend on where the landing pages end up, so they

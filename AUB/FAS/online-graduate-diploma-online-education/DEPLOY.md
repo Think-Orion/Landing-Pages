@@ -174,8 +174,8 @@ it in GTM preview mode before the campaigns go live.
 
 ## 8. Content still to confirm with the client
 
-- **Intake date.** Shown as **Fall 2026-2027**, per AUB feedback. The Aug 31, 2026 semester
-  start came from the AUB MA page; the diploma page still showed 2025. Confirm before launch.
+- **Intake date.** Shown as **Spring 2026-2027**, per AUB feedback. No start date appears on the
+  pages; confirm the Spring semester start with AUB before launch.
 - **Comparison table** figures for the non-AUB columns are indicative ranges.
 - **MCE badge** — confirm Microsoft brand-usage approval.
 - **Lebanese MoE recognition wording** in the FAQ mirrors the client-reviewed email

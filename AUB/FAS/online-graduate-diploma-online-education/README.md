@@ -251,6 +251,14 @@ render only inside the DC preview:
 Replace each `<image-slot>` with a plain `<img>` once the real photo exists — `image-slot`
 elements are invisible in a raw browser.
 
+### Intake change — applied
+
+- Intake label changed from "Fall 2026-2027" to **"Spring 2026-2027"** everywhere it appears
+  across all three pages: hero pill, nav bar, sticky bars, page meta description and the
+  thank-you page. The Aug 31, 2026 semester start referenced in earlier notes was the Fall
+  start and no longer applies; the Spring start date is unconfirmed and shown nowhere on the
+  pages.
+
 ### AUB review round — applied
 
 - Nav and FAQ CTA changed from "Chat to an Advisor" to **"Chat with an Advisor"** on both
@@ -300,8 +308,8 @@ Search the HTML for `REPLACE-WITH-LIVE-URL` to find every tag awaiting the live 
 
 The full list lives in the comment block at the top of `Cold_Audience_dc.html`. Headlines:
 
-- Intake shown as **Fall 2026**; the Aug 31, 2026 semester start comes from the AUB MA page
-  (the diploma page still shows 2025). Confirm the diploma start date before launch.
+- Intake shown as **Spring 2026-2027**. No start date appears on the pages; confirm the
+  Spring semester start with AUB before launch.
 - Faculty `[Short bio]` lines to be supplied.
 - All testimonial quote blocks are `[TESTIMONIAL / NAME / ROLE]` placeholders with suggested angles.
 - Comparison-table figures for the non-AUB columns are indicative ranges — client validates.
