@@ -38,7 +38,7 @@ off. See "Cold hero", "In-market Opportunity section", "FAQs" and "Assets".
 | Admissions | Bachelor's (any field) from a recognized institution, min GPA 3.0, English proficiency, two recommendation letters | Factsheet + approved diploma builds |
 | Diploma pathway | All 12 Graduate Diploma in Online Education credits transfer into this MA | Factsheet, footnote ** |
 | Waivers | Students with an education or computer science background can apply to have credits waived | Factsheet, footnote * |
-| Intake | Fall 2026–2027 | AUB review round — was "Fall 2026" |
+| Intake | Spring 2026–2027 | AUB review round — was "Fall 2026", then "Fall 2026–2027" |
 | Advisor | Mike (Mike Wakim), Online Program Recruiter | Factsheet contact block |
 
 ### Credit maths
@@ -123,7 +123,12 @@ labels, not FAQ content.
 
 The hero no longer carries a lead form. It is a full-bleed photo with the headline,
 description, a single **Speak to an Advisor** CTA and the three-stat strip, and the
-eyebrow pill ("Now Enrolling · Fall 2026–2027") is gone.
+eyebrow pill ("Now Enrolling · Spring 2026–2027") is gone.
+
+On the in-market page the nav intake badge ("Spring 2026–2027 intake open") is
+hidden below 560px (`.nav-intake`). It was wrapping to five lines at 320px and
+squeezing the logo and the Apply Now button; the sticky bottom bar still carries
+the intake line at those widths, so nothing is lost.
 
 Consequences worth knowing:
 
@@ -556,9 +561,12 @@ Each page carries its own `CLIENT-FILL` comment block at the top. Consolidated:
 8. **Faculty bios** — four named faculty, all bios `[BRACKETED]`. Instructor
    attribution in the cold curriculum cards covers `EDUC 371`–`374` only;
    instructors for the remaining courses and the capstone are outstanding.
-9. **Intake** — now "Fall 2026–2027", set in an AUB review round. Rendered with an en
-    dash to match the other ranges on the page ("1.5–2 years"); the request was written
-    with a hyphen. Say the word if a literal hyphen is wanted.
+9. **Intake** — now "Spring 2026–2027". Moved off Fall at AUB's request; rendered with
+    an en dash to match the other ranges on the page ("1.5–2 years"), though the request
+    was written "spring 2026-27". Say the word if a literal hyphen or the short "26-27"
+    form is wanted. **The August 31, 2026 semester start previously noted in the page
+    comments belonged to the Fall round and no longer applies** — the Spring start date
+    is outstanding.
 10. **Factsheet download** — the thank-you page's download button is `href="#"`
     pending a hosted URL for the PDF in `assets/`.
 11. **Booking link** — the thank-you page points at the Online Education
