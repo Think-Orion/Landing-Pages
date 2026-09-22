@@ -380,6 +380,65 @@ to **1.15** to sit at the same pitch. Measured after the change:
 
 Copying the declared value across would not have matched, exactly as the brief warned.
 
+## Typography
+
+**Roboto, from Google Fonts, one family across all three pages.** AUB asked for it; it is
+free, so nothing needs licensing or supplying. Loaded with a single `<link>` — never
+`@import`, which blocks rendering and cannot be preconnected — behind the two preconnects
+that were already in place:
+
+```
+https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap
+```
+
+The stack is `Roboto, system-ui, sans-serif` everywhere. `system-ui` sits ahead of the
+generic deliberately: if the webfont fails, the page lands on the OS interface face rather
+than something serif-ish.
+
+**Six weights loaded, all six used, and each verified to paint a real face.** A weight the
+family does not ship degrades silently into faux bold — the browser smears the outline,
+which shows badly at display sizes. Asked of the renderer directly rather than trusting
+the CSS:
+
+| Weight | Face painted | Used for |
+|---|---|---|
+| 300 | Roboto Light | Hero sub-paragraphs and intro copy only, never small body text |
+| 400 | Roboto | Body default, mostly inherited |
+| 500 | Roboto Medium | Form labels |
+| 600 | Roboto SemiBold | Uppercase eyebrows, labels, small meta |
+| 700 | Roboto | Headings, buttons, stat numbers, table headers |
+| 800 | Roboto ExtraBold | The largest display figures |
+
+### Verifying that the font actually painted
+
+`document.fonts.check()` is not evidence — it returns true for a family that never loaded,
+which is how earlier rounds of this build were measured against the fallback face without
+anyone noticing. Two things were needed here.
+
+First, the renderer has to be able to load the font at all. It can reach
+`fonts.googleapis.com` from this sandbox, but only serves TTF to an old user-agent (modern
+ones get woff2, which fontconfig cannot use), so the faces were fetched with
+`-A "Mozilla/4.0"`, dropped in `~/.local/share/fonts` and registered with `fc-cache -f`.
+
+Second, ask Chromium what it painted, via CDP `CSS.getPlatformFontsForNode`. That is what
+produced the table above, and it reports the resolved face per weight — "Roboto Light",
+"Roboto SemiBold" — so faux rendering would be visible as the wrong face rather than
+silently passing.
+
+### What the swap moved
+
+Roboto is narrower than Libre Franklin at the same size, so every page got shorter at
+1440px: cold 8557 → **8327**, in-market 5479 → **5219**, thank-you 2289 → **2184**.
+
+That same mechanism moves line breaks, so both H1s were re-swept across 320, 360, 390,
+414, 480, 600, 768, 820, 900, 1024, 1180, 1280, 1440, 1600 and 1920. Both still set as
+four rows at every width with the highlight on a single row and no horizontal overflow.
+
+It also improved the footer clearance measured in the previous round: the cold page's
+sticky CTA bar wraps less in a narrower face, dropping from 105px tall at 390px to 83px
+and from 141px at 320px to 105px. The gap above the legal links went from 34–51px to
+70–88px.
+
 ## Assets
 
 Photos are embedded as data URIs for review builds; the decoded originals live in
@@ -524,6 +583,8 @@ the hero, Opportunity-image and FAQ changes.
 | Responsive image negotiation | Pass — Chromium picks `hero-cold-elearning-800.avif` at 390px and `-1600.avif` at 1440px; `opportunity-coding-600.avif` at a 560px column |
 | No missing assets | Pass — no failed requests apart from the expected `support.js` / `image-slot.js` |
 | Hero text contrast | Pass — **every hero text element on both pages clears WCAG AAA (7:1)**, measured against the lightest pixel directly beneath it at 1440 and 390. Weakest is the cold sub-heading at 7.37:1, re-tuned after the brand-colour swap lightened the scrim base |
+| Typography | Pass — zero `Libre Franklin` references survive; 62 `font-family` declarations and 3 stylesheet hrefs swapped. CDP `CSS.getPlatformFontsForNode` confirms Roboto painting on h1/h2/body/button/eyebrow across all three pages, and each of the six declared weights resolving to its own real face |
+| Headline reflow after the swap | Pass — both H1s still four rows at all 15 widths from 320 to 1920, highlight unbroken, no overflow |
 | Hero H1 line pitch | Pass — cold 1.150, in-market 1.152 measured between visual lines, after the `.hw` stagger made the reconciliation necessary |
 | Nav + footer logos | Pass — official lockup on all three navs (reversed on the dark in-market nav), concise mark decodes at 300x283 and renders 84px tall with `alt=""` in all three footers |
 | Footer legal links | Pass — present on all three pages; sticky bar clears them by 34px at 320px, 51px at 360px, 49px at 390px (was **-12px at 320px**) |
