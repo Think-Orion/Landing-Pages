@@ -104,10 +104,9 @@
        text + <br />) declares line-height:1.15 to sit at the same pitch. */
     .hw  { display: inline-block; animation: heroWord .8s cubic-bezier(.33,1,.68,1) both; }
     .hm  { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
-    .hm-hl { padding-top: .16em; margin-top: -.16em; }
-    .hl  { background: #840132; color: #fff; font-style: normal;
-           padding: .02em .2em .1em; border-radius: 3px;
-           -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    /* The burgundy headline highlight and its line-box compensation are gone: AUB chose the
+       EMBA treatment, where the headline is plain white over the photograph and the scrim
+       carries legibility on its own. The in-market page still uses the highlight. */
     @keyframes heroWord { from { transform: translateY(105%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     /* Hero bottom band: rises in, and the scroll cue's arrow nudges. Both CSS only and
        disabled under prefers-reduced-motion along with the word stagger. */
@@ -184,14 +183,14 @@
 <div style="width:100%;background:#fff;overflow-x:hidden">
 
   <nav style="position:sticky;top:0;z-index:100;background:#840132;border-bottom:1px solid rgba(255,255,255,.15)">
-    <div style="max-width:1140px;margin-inline:auto;padding:12px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <div style="max-width:1140px;margin-inline:auto;padding:20px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px">
       <picture>
           <source type="image/webp" srcset="assets/logo-fas-white-380.webp" />
-          <img src="assets/logo-fas-white-380.png" width="380" height="92" alt="American University of Beirut — Faculty of Arts and Sciences" style="height:clamp(32px,4.6vw,44px);width:auto;display:block;flex-shrink:0" />
+          <img src="assets/logo-fas-white-380.png" width="380" height="92" alt="American University of Beirut — Faculty of Arts and Sciences" style="height:clamp(34px,4.6vw,46px);width:auto;display:block;flex-shrink:0" />
         </picture>
       <div style="display:flex;align-items:center;gap:22px">
         <span style="display:none;font-size:12.5px;color:rgba(255,255,255,.92);letter-spacing:.2px">Now enrolling · Spring 2026–2027</span>
-        <button onClick="{{ scrollToForm }}" style="background:#fff;color:#840132;font-size:13px;font-weight:600;letter-spacing:.2px;padding:11px 22px;border-radius:6px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#F4F4F4">Chat with an Advisor</button>
+        <button onClick="{{ scrollToForm }}" style="background:#fff;color:#840132;font-size:13.5px;font-weight:700;letter-spacing:.5px;padding:13px 24px;border-radius:3px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#F4F4F4">Chat with an Advisor</button>
       </div>
     </div>
   </nav>
@@ -213,16 +212,20 @@
 
     <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1140px;width:100%;margin-inline:auto;padding:clamp(52px,8vw,104px) clamp(18px,4vw,48px) clamp(24px,3vw,32px)">
       <div style="max-width:680px">
-        <h1 style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(28px,5.2vw,60px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;margin-bottom:clamp(20px,2.6vw,28px);text-wrap:pretty;text-shadow:0 2px 24px rgba(0,0,0,.28)">
+        <!-- Eyebrow, reinstated in the EMBA-calibrated round. It was removed earlier when the
+             hero carried a form; with the headline now plain white it is the only thing naming
+             the programme above the fold. 13px at 0.24em tracking, measured off the reference. -->
+        <div style="font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:22px;text-shadow:0 1px 14px rgba(0,0,0,.45)">MA in Computing in Education · 100% Online</div>
+        <h1 style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(30px,4.6vw,64px);font-weight:700;line-height:1.06;letter-spacing:-1.3px;color:#fff;margin-bottom:clamp(20px,2.6vw,28px);text-wrap:pretty;text-shadow:0 2px 24px rgba(0,0,0,.28)">
           <span class="hm"><span class="hw" style="animation-delay:0.15s">Earn</span> <span class="hw" style="animation-delay:0.22s">your</span> <span class="hw" style="animation-delay:0.29s">AUB</span></span>
-          <span class="hm hm-hl"><span class="hw hl" style="animation-delay:0.36s">master’s degree</span></span>
+          <span class="hm"><span class="hw" style="animation-delay:0.36s">master’s degree</span></span>
           <span class="hm"><span class="hw" style="animation-delay:0.57s">in</span> <span class="hw" style="animation-delay:0.64s">Computing</span></span>
           <span class="hm"><span class="hw" style="animation-delay:0.71s">in</span> <span class="hw" style="animation-delay:0.78s">Education</span></span>
         </h1>
         <div style="height:1px;max-width:400px;background:linear-gradient(to right,rgba(255,255,255,.52),rgba(255,255,255,.16),rgba(255,255,255,0));margin-bottom:clamp(20px,2.6vw,28px)"></div>
-        <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.68;color:#fff;max-width:56ch;margin-bottom:clamp(28px,4vw,40px);font-weight:300;text-shadow:0 1px 14px rgba(0,0,0,.45)">Our MA in Computing in Education is the only online master’s in the region combining Education and Computer Science, and you graduate ready to teach programming, design online learning, and lead educational technology — with the Microsoft Certified Educator certificate included.</p>
+        <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.70;color:#fff;max-width:56ch;margin-bottom:clamp(28px,4vw,40px);font-weight:300;text-shadow:0 1px 14px rgba(0,0,0,.45)">Our MA in Computing in Education is the only online master’s in the region combining Education and Computer Science, and you graduate ready to teach programming, design online learning, and lead educational technology — with the Microsoft Certified Educator certificate included.</p>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px clamp(20px,3vw,30px)">
-          <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.2px;padding:15px 30px;border:none;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.34);transition:background .2s,transform .2s" style-hover="background:#6A132C">Speak to an Advisor</button>
+          <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-family:inherit;font-size:17px;font-weight:700;letter-spacing:.6px;padding:18px 36px;border:none;border-radius:3px;box-shadow:0 14px 34px rgba(0,0,0,.34);transition:background .2s,transform .2s" style-hover="background:#6A132C">Speak to an Advisor</button>
           <!-- Secondary CTA. A plain in-page anchor, not a DC handler: #how-it-works is the
                premise section directly below the hero, and html{scroll-behavior:smooth} already
                animates the jump, so this needs no JS and works even if the DC runtime never
@@ -733,7 +736,7 @@
                 <label><input required type="radio" name="lf-degree-adv"> No</label>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#747474;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#747474;line-height:1.5">Your details go only to AUB’s admissions team.</span></div><button type="button" style="width:100%;background:#840132;color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px;padding:13px 20px;border-radius:6px;border:none">Start the Conversation</button>
+            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#747474;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#747474;line-height:1.5">Your details go only to AUB’s admissions team.</span></div><button type="button" style="width:100%;background:#840132;color:#fff;font-size:15px;font-weight:700;letter-spacing:.5px;padding:15px 20px;border-radius:3px;border:none">Start the Conversation</button>
             <p style="font-size:11px;color:#747474;line-height:1.5;margin-top:10px;text-align:center">By submitting this form, you consent to AUB contacting you about this program.</p>
           </div>
           <div id="vala-funnel"></div>
@@ -872,7 +875,7 @@
       <strong style="display:block;font-size:13.5px;font-weight:700;color:#151515">MA in Computing in Education</strong>
       <span style="font-size:11.5px;color:#747474">$450/credit · 100% Online</span>
     </div>
-    <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;border:none;white-space:nowrap">Chat with an Advisor</button>
+    <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.5px;padding:13px 24px;border-radius:3px;border:none;white-space:nowrap">Chat with an Advisor</button>
   </div>
 
 </div>

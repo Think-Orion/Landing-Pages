@@ -95,9 +95,16 @@
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #151515; }
     .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
     [data-testimonial-track]::-webkit-scrollbar { display: none; }
-    .jm .jm-title, .jm .jm-dot { transition: color .2s ease, background-color .2s ease; }
-    .jm:hover .jm-title { color: #840132 !important; }
-    .jm:hover .jm-dot { background: #840132 !important; }
+    /* Curriculum rows. On the cold page these sit on #F4F4F4 and the hover paints the
+       title burgundy, which reads fine. This section sits ON #840132, so that same rule
+       painted the title in its own background colour and the row went blank on hover.
+       On a dark ground the title is already white, so there is no brighter colour to go
+       to — the row itself lights up instead, and the + icon goes to full white. */
+    .jm { transition: background-color .2s ease; }
+    .jm .jm-title, .jm [data-cur-icon] { transition: color .2s ease; }
+    .jm:hover { background: rgba(255,255,255,.07); }
+    .jm:hover .jm-title { color: #fff !important; }
+    .jm:hover [data-cur-icon] { color: #fff !important; }
     /* Hero headline treatment, matching the Online Education diploma build.
        .hw makes each word an inline-block so it can rise into place; that also inflates
        every line box to about 1.15x the font size, which is why the in-market H1 (plain
