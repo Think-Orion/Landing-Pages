@@ -75,10 +75,59 @@ Three notes on the mapping:
   lighter than the near-black burgundy it replaced, so at the old alphas the sub-heading
   fell from 7.2:1 to 5.9:1 — still AA, but below the AAA line the previous review round
   earned. The alphas went up to compensate; see "Hero text contrast".
-- **The pink tints are untouched** (`#F0BECC`, `#E8A0B4`, `#EAD3DA`, `#D9BCC5`, `#F6E9EC`,
-  `#FBF4F6`). They are accent and wash colours on icons, rules and tinted panels, and
-  Comms named only the two reds. If those tints should be re-derived from `#840132`, that
-  is a separate pass — say the word.
+- **The pink tints are gone.** The October Comms round asked for no pink anywhere — "a
+  shade of grey can work" — so every tint derived from the burgundy was replaced with a
+  neutral. See "Neutral palette" below.
+
+## Neutral palette
+
+Two separate complaints in the October round turn out to be the same problem, so they
+were fixed in one pass: the pink accents, and the page background.
+
+Comms sampled the two side by side and the difference is measurable — every AUB Online
+subpage grounds on **`#F4F4F4`**, a true neutral (R=G=B), while these pages were on
+`#F8F5F1`, a warm beige. But the beige was not just the background: the whole neutral
+ramp was warm, so swapping only the ground would have left beige borders and
+beige-grey body text sitting on neutral grey, which reads muddier than either choice
+alone.
+
+Every replacement below is **luminance-matched** to the colour it replaces, so the
+contrast ratios earned in the September round survive the swap unchanged:
+
+| Was | Now | Role |
+|---|---|---|
+| `#F8F5F1` | `#F4F4F4` | page tint — Comms' sampled target, not the luminance match |
+| `#E6E1DB` | `#E2E2E2` | borders and rules |
+| `#EDE7E0` | `#E8E8E8` | panels and dividers |
+| `#7A736F` | `#747474` | muted body text |
+| `#45403D` | `#404040` | body text |
+| `#171514` | `#151515` | near-black ground |
+| `#F0BECC` | `#CBCBCB` | icons and eyebrow text on dark |
+| `#D9BCC5` | `#C4C4C4` | timeline dot |
+| `#E8A0B4` | `#B4B4B4` | small dot on dark |
+| `#F6E9EC` | `#EDEDED` | table header cell fill — the "boxes" Comms flagged |
+| `#EAD3DA` | `#D9D9D9` | table borders |
+| `#FBF4F6` | `#F6F6F6` | tinted box fill |
+
+Plus `rgba(240,190,204,α)` → `rgba(255,255,255,α)` on the translucent tint circles behind
+icons, and `rgba(23,21,20,α)` → `rgba(21,21,21,α)` on the two warm-dark washes. 389
+replacements in all.
+
+Two were not simple swaps:
+
+- **The in-market hero gradient** ended in `rgba(106,19,44,.72)` — a 72% burgundy over a
+  photograph, which composites to exactly the pink block Comms kept objecting to. The
+  gradient is now neutral dark end to end. This was the "pink opacity block in the main
+  visuals" complaint; the cold hero had already moved to a black scrim in an earlier round,
+  which is why only the in-market page still showed it.
+- **The active timeline dot** carried a `rgba(132,1,50,.15)` halo, which over white
+  composites to a pink ring. The halo is now `rgba(0,0,0,.10)`; the dot itself stays
+  `#840132`, so the emphasis is unchanged.
+
+`#840132` and `#6A132C` are the only non-neutral colours left in the three pages. That is
+asserted in the render sweep, not just intended: the QA script walks every element at five
+viewport widths and flags any computed colour whose RGB channels differ by more than 4
+unless it is one of those two.
 
 ## Head, indexing and tracking
 
@@ -304,12 +353,18 @@ as live `<text>`. It is now the official lockup, from the artwork Comms supplied
 
 | File | Used on | Size |
 |---|---|---|
-| `logo-fas-380.png` / `.webp` | Nav, **cold** and **thank-you** (light navs) | 6.1KB / 5.1KB |
-| `logo-fas-white-380.png` / `.webp` | Nav, **in-market** (nav sits on `rgba(23,21,20,.92)`) | 16.7KB / 9.7KB |
+| `logo-fas-white-380.png` / `.webp` | Nav, **all three pages** (burgundy strip) | 16.7KB / 9.7KB |
+| `logo-fas-380.png` / `.webp` | — currently unreferenced, see below | 6.1KB / 5.1KB |
 | `logo-aub-concise-white-300.png` / `.webp` | Footer, all three pages | 35.3KB / 20.5KB |
 
 All six are byte-identical to the Online Education diploma build, so the two page sets
 carry exactly the same marks.
+
+**The burgundy lockup is no longer referenced by any page.** Once the headers became a
+burgundy strip (October round) all three navs moved to the reversed mark. The files stay
+in `assets/` because they cost nothing there and any future section on a light ground
+will want them — but if a page is edited to show a logo on white, use `logo-fas-380`,
+not the reversed one.
 
 **The reversed versions are derived, and the precondition was checked first.** Filling a
 mark's alpha channel with white only works if its knockouts are transparent rather than
@@ -321,6 +376,37 @@ file size, but on white-on-transparent artwork it collapses the alpha ramp from 
 to 8, which bands the antialiased edges of the seal's ring text and the cedar. The standard
 burgundy lockup *is* palettised (28 alpha levels, no visible cost). Measured both ways
 before choosing.
+
+## Header
+
+Comms asked for one header across every AUB Online program page, modelled on the new
+Executive MBA site: a burgundy strip carrying the logos, with the hero image below it
+and the hero text over the image. Sampling the EMBA header confirms the strip is
+`#840131` — our approved `#840132` within rounding — flat, not translucent.
+
+The three pages had drifted to three different navs, which is what the request is really
+about:
+
+| Page | Was | Now |
+|---|---|---|
+| Cold | `rgba(255,255,255,.94)` + blur, burgundy lockup | `#840132`, reversed lockup |
+| In-market | `rgba(23,21,20,.92)` + blur, reversed lockup | `#840132`, reversed lockup |
+| Thank-you | solid `#fff`, burgundy lockup | `#840132`, reversed lockup |
+
+Two consequences:
+
+- **The CTA button inverted.** A `#840132` button on a `#840132` strip is invisible, so
+  the nav buttons are now white with burgundy text, hovering to `#F4F4F4`. At 10.34:1
+  they are the highest-contrast element on the page, which is the right place for the
+  primary action. The buttons elsewhere on the pages are unchanged — they sit on light
+  grounds where burgundy-on-white is correct.
+- **`backdrop-filter: blur(10px)` was dropped** from the two sticky navs. It did nothing
+  once the background became opaque, and it is not free — it forces a compositing layer
+  on every scroll frame.
+
+The strip keeps a `rgba(255,255,255,.15)` hairline at its base. The EMBA header has none,
+but on the thank-you page the hero below is `#6A132C`, so without the rule two burgundies
+butt together and the join reads as a rendering fault rather than a decision.
 
 ## Footer
 
@@ -339,6 +425,18 @@ Identical markup on all three pages, byte for byte.
   email and phone, and Google Ads requires lead-gen destinations to carry a reachable
   privacy disclosure — a missing one is a common disapproval cause. Link AUB's existing
   policies; do not author new ones.
+- **Social handles**, added in the October Comms round, below a hairline rule: Facebook,
+  X, LinkedIn, Instagram, YouTube — AUB's institutional accounts, the same five and the
+  same order as the strip on `aub.edu.lb`'s own footer. They are inline `<svg>` with
+  `fill:currentColor`, so they cost no extra request and brighten on hover from the
+  parent's `color`. Each link carries an `aria-label`, because a glyph with no text
+  gives a screen reader nothing to announce, and a 40px round tap area. Measured
+  7.30:1 against the footer ground.
+
+**Comms said "the footer can remain as is", so the ground stayed `#6A132C` throughout.**
+Worth knowing that AUB's own footer is two-tone — `#840132` behind the link columns and
+`#6A132C` behind the social strip. Matching that is a small change if closer alignment
+is wanted.
 
 ### The sticky bar was covering the privacy link
 
