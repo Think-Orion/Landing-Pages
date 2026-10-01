@@ -119,8 +119,16 @@
     .hw  { display: inline-block; animation: heroWord .8s cubic-bezier(.33,1,.68,1) both; }
     .hm  { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
     .hm-hl { padding-top: .16em; margin-top: -.16em; }
-    .hl  { background: #840132; color: #fff; font-style: normal;
-           padding: .02em .2em .1em; border-radius: 3px;
+    /* The highlight band is trimmed with a hard-stop gradient rather than by padding. An
+       inline element's background box is sized by the font's ascent and descent, not by
+       line-height or padding, so at 46px/1.15 the band stood 59px tall inside a 53px line
+       box and its top edge ran into the descender of the "y" above it. Measured at 3x: the
+       band had 8.7px of dead space above the caps and 6.7px below the "g", so 8% off each
+       end pulls it clear while keeping 4px above the caps and 2px below the descender.
+       Hard stops at the same position, so there is no gradient fringe. */
+    .hl  { background: linear-gradient(to bottom, transparent 0 8%, #840132 8% 92%, transparent 92% 100%);
+           color: #fff; font-style: normal;
+           padding: .02em .2em .1em;
            -webkit-box-decoration-break: clone; box-decoration-break: clone; }
     @keyframes heroWord { from { transform: translateY(105%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @media (prefers-reduced-motion: reduce) {
