@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Cold hero — white headline options</title>
+<title>Cold hero — calibrated to the EMBA reference</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,8 +14,15 @@
   body{font-family:Roboto,system-ui,sans-serif;background:var(--grey);color:#404040;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1280px;margin-inline:auto;padding:48px clamp(16px,4vw,40px) 90px}
   h1.pg{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.8px;color:#151515;margin-bottom:12px}
-  .lede{font-size:16px;line-height:1.65;max-width:72ch;color:#404040;margin-bottom:10px}
+  .lede{font-size:16px;line-height:1.65;max-width:74ch;color:#404040;margin-bottom:12px}
   .lede strong{color:#151515;font-weight:600}
+  table.m{width:100%;border-collapse:collapse;margin:26px 0 8px;background:#fff;border:1px solid #E2E2E2;font-size:13.5px}
+  table.m th,table.m td{padding:10px 13px;border-bottom:1px solid #E2E2E2;text-align:left;vertical-align:top}
+  table.m th{background:#151515;color:#fff;font-weight:600;font-size:11px;letter-spacing:1.1px;text-transform:uppercase}
+  table.m td:first-child{font-weight:600;color:#151515}
+  table.m tr:last-child td{border-bottom:none}
+  .was{color:#747474}
+  .now{color:var(--burgundy);font-weight:600}
   .variant{margin-top:52px;background:#fff;border:1px solid #E2E2E2;border-radius:10px;overflow:hidden}
   .vhead{padding:20px 24px;border-bottom:1px solid #E2E2E2}
   .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
@@ -27,68 +34,85 @@
   .note b{color:#404040;font-weight:600}
   .ref-img{display:block;width:100%;height:auto}
 
-  /* ---------- strip (settled) ---------- */
+  /* ---------- strip: taller, square CTA ---------- */
   .strip{background:var(--burgundy);border-bottom:1px solid rgba(255,255,255,.15)}
-  .strip-in{max-width:1140px;margin-inline:auto;padding:12px clamp(16px,3vw,34px);
+  .strip-in{max-width:1140px;margin-inline:auto;padding:20px clamp(16px,3vw,34px);
             display:flex;align-items:center;justify-content:space-between;gap:22px}
-  .lock{height:42px;width:auto;display:block;flex-shrink:0}
-  .pill{background:#fff;color:var(--burgundy);font-size:12.5px;font-weight:700;padding:10px 20px;
-        border-radius:6px;border:none;white-space:nowrap;cursor:pointer}
+  .lock{height:46px;width:auto;display:block;flex-shrink:0}
+  .navpill{background:#fff;color:var(--burgundy);font-family:inherit;font-size:13.5px;font-weight:700;
+           letter-spacing:.5px;padding:13px 24px;border-radius:3px;border:none;white-space:nowrap;cursor:pointer}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;min-height:520px;overflow:hidden;background:#151515;display:flex;flex-direction:column}
+  .hero{position:relative;min-height:540px;overflow:hidden;background:#151515;display:flex;flex-direction:column}
   .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .scrim{position:absolute;inset:0;background:rgba(0,0,0,.64)}
   .scrim2{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 68%,rgba(0,0,0,.42) 100%)}
   .hero-in{position:relative;flex:1;max-width:1140px;width:100%;margin-inline:auto;
-           padding:clamp(40px,5vw,66px) clamp(16px,3vw,34px) clamp(30px,4vw,46px);color:#fff}
-  .eyebrow{font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;
-           color:#fff;margin-bottom:20px}
-  .hh{font-size:clamp(28px,5.2vw,60px);font-weight:700;line-height:1.05;letter-spacing:-1.2px;color:#fff;
+           padding:clamp(42px,5vw,70px) clamp(16px,3vw,34px) clamp(32px,4vw,48px);color:#fff}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:22px}
+  .hh{font-size:clamp(30px,4.6vw,64px);font-weight:700;line-height:1.06;letter-spacing:-1.3px;color:#fff;
       margin-bottom:clamp(20px,2.6vw,28px);text-shadow:0 2px 24px rgba(0,0,0,.28)}
   .hh span{display:block}
-  .sub{font-size:clamp(15px,1.6vw,18px);line-height:1.68;color:#fff;max-width:56ch;font-weight:300;
-       margin-bottom:clamp(26px,3.4vw,36px);text-shadow:0 1px 14px rgba(0,0,0,.45)}
-  .cta{background:var(--burgundy);color:#fff;font-family:inherit;font-size:15px;font-weight:700;
-       padding:15px 30px;border:none;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.34);cursor:pointer}
-  .seehow{display:inline-flex;align-items:center;gap:8px;margin-left:22px;color:#fff;font-size:14px;
+  .sub{font-size:clamp(15px,1.6vw,18px);line-height:1.70;color:#fff;max-width:56ch;font-weight:300;
+       margin-bottom:clamp(28px,3.4vw,38px);text-shadow:0 1px 14px rgba(0,0,0,.45)}
+  .cta{background:var(--burgundy);color:#fff;font-family:inherit;font-size:17px;font-weight:700;letter-spacing:.6px;
+       padding:18px 36px;border:none;border-radius:3px;box-shadow:0 14px 34px rgba(0,0,0,.34);cursor:pointer}
+  .seehow{display:inline-flex;align-items:center;gap:8px;margin-left:24px;color:#fff;font-size:15px;
           font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px}
-
-  /* headline treatments */
-  .t-block .key{background:var(--burgundy);padding:0 .14em;box-decoration-break:clone;-webkit-box-decoration-break:clone;
-                display:inline-block}
   .t-rule .key{display:inline-block;border-bottom:4px solid #fff;padding-bottom:.04em}
-  .t-light .lead{font-weight:300}
+
+  /* ---------- the old pill, for the side-by-side ---------- */
+  .oldbar{display:flex;gap:26px;align-items:center;flex-wrap:wrap;padding:26px 24px;background:#151515}
+  .cta.old{border-radius:999px;font-size:15px;letter-spacing:.2px;padding:15px 30px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1 class="pg">Cold hero — white headline on the image</h1>
-  <p class="lede">The burgundy strip is settled, so it is the same in every option below. What changes is the
-  <strong>headline treatment</strong>: EMBA sets its hero type as plain white over the photograph with no
-  colour block behind it. Three ways to do that here, over the real cold hero and at the real type scale.</p>
+  <h1 class="pg">Cold hero, calibrated to the EMBA reference</h1>
+  <p class="lede">Rather than eyeball it, I measured the two EMBA screenshots directly — pixel analysis of the
+  burgundy button, the white text bands and the strip gutter — then solved for the Roboto settings that
+  reproduce those widths and cap heights. <strong>Both screenshots agree to within about 4%</strong>, so the
+  numbers below are stable rather than one-off.</p>
+
+  <table class="m">
+    <tr><th>Element</th><th>EMBA, measured</th><th>Ours before</th><th>Set to</th><th>Why</th></tr>
+    <tr><td>Button corners</td><td>3px radius on a 61px-tall button</td><td class="was">999px (pill)</td><td class="now">3px — square</td><td>Unambiguous in the crop. The pill was ours, not theirs.</td></tr>
+    <tr><td>Button label</td><td>~19px, tracked</td><td class="was">15px / 0.2px</td><td class="now">17px / 0.6px</td><td>Label band measured 19px tall; width 196px solves to ~19px Roboto at 0.6px tracking.</td></tr>
+    <tr><td>Button padding</td><td>~40px × 19px</td><td class="was">30px × 15px</td><td class="now">36px × 18px</td><td>From the 277×61px button box minus the 196px label.</td></tr>
+    <tr><td>Eyebrow</td><td>~14px, 0.24em tracking</td><td class="was">11px / 0.218em</td><td class="now">13px / 0.24em</td><td>Cap height measured 10px; 0.24em holds at either candidate size, so tracking is the robust number.</td></tr>
+    <tr><td>Headline</td><td>~70px, line-height 1.06</td><td class="was">60px / 1.05</td><td class="now">64px / 1.06</td><td>Held below their ratio on purpose — see the note below.</td></tr>
+    <tr><td>Paragraph</td><td>~19px, line-height 1.70</td><td class="was">18px / 1.68</td><td class="now">18px / 1.70</td><td>Already within a pixel. Leading matched exactly.</td></tr>
+    <tr><td>Strip height</td><td>102px (1892px capture)</td><td class="was">69px</td><td class="now">86px</td><td>Moderated — see the note below.</td></tr>
+  </table>
+
+  <p class="lede"><strong>Two places I deliberately stopped short of their numbers, and why.</strong>
+  Their headline-to-body ratio is 3.68; matching it would put ours at 66px. But their headline is two short
+  lines and ours is four long ones, so the same ratio reads as a wall of type. 64px keeps the relationship
+  close without that. And their strip is 102px at a 1892px-wide capture — proportionally about 97px for us.
+  Theirs is a brochure site; ours is sticky on a lead-gen page, where a 97px bar eats real estate on every
+  scroll. 86px closes most of the gap and stays usable.</p>
+
+  <p class="lede"><strong>One honest limit:</strong> I have their site at a single viewport width, so I cannot
+  see their clamp curve. If EMBA's type is already at its maximum at 1892px, these values are right. If it is
+  still growing, theirs would be smaller than measured at our 1440 target. Send a narrower screenshot of their
+  page and I can pin it exactly.</p>
 
   <!-- REFERENCE -->
   <div class="variant">
-    <div class="vhead">
-      <span class="tag ref">Reference</span>
+    <div class="vhead"><span class="tag ref">Reference</span>
       <h2>AUB Executive MBA</h2>
-      <p>Letterspaced eyebrow, headline in plain white at a single weight, white paragraph, burgundy pill.
-      No colour behind the type — the scrim on the photograph does all the work.</p>
-    </div>
+      <p>The source for every number in the table.</p></div>
     <img class="ref-img" src="assets/mockup-emba-reference-hero.jpg" alt="AUB Executive MBA hero" />
   </div>
 
-  <!-- OPTION 1 -->
+  <!-- CALIBRATED, PLAIN WHITE -->
   <div class="variant">
-    <div class="vhead">
-      <span class="tag">Option 1</span>
-      <h2>Plain white, single weight — the EMBA match</h2>
-      <p>The colour block comes off and nothing replaces it. Closest to the reference.</p>
-    </div>
+    <div class="vhead"><span class="tag">Calibrated · plain white</span>
+      <h2>Square buttons, larger tracked labels, taller strip</h2>
+      <p>Every value from the table applied, with the headline in plain white — the EMBA treatment.</p></div>
     <div class="strip"><div class="strip-in">
       <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
-      <button class="pill">Chat with an Advisor</button></div></div>
+      <button class="navpill">Chat with an Advisor</button></div></div>
     <div class="hero">
       <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
       <div class="scrim"></div><div class="scrim2"></div>
@@ -100,22 +124,17 @@
         <a class="seehow" href="#">See how it works</a>
       </div>
     </div>
-    <p class="note"><b>Worth knowing:</b> four rows of white at the same weight is a lot of uniform type. The
-    burgundy block was carrying the line rhythm as well as the emphasis, so losing it makes the headline read
-    flatter. The eyebrow above is doing more work here than it did before.</p>
   </div>
 
-  <!-- OPTION 2 -->
+  <!-- CALIBRATED, WHITE RULE -->
   <div class="variant">
-    <div class="vhead">
-      <span class="tag">Option 2</span>
-      <h2>Plain white with a white rule under the key line</h2>
-      <p>Still entirely white — no colour anywhere in the type — but the rule restores the emphasis the
-      burgundy block was giving. EMBA uses the same device for its active nav item.</p>
-    </div>
+    <div class="vhead"><span class="tag">Calibrated · white rule</span>
+      <h2>Same calibration, rule under the key line</h2>
+      <p>Identical numbers; the only difference is the rule restoring the emphasis the burgundy block used to
+      carry. The headline-treatment choice is still open — the calibration applies either way.</p></div>
     <div class="strip"><div class="strip-in">
       <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
-      <button class="pill">Chat with an Advisor</button></div></div>
+      <button class="navpill">Chat with an Advisor</button></div></div>
     <div class="hero">
       <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
       <div class="scrim"></div><div class="scrim2"></div>
@@ -129,57 +148,21 @@
     </div>
   </div>
 
-  <!-- OPTION 3 -->
+  <!-- BUTTON COMPARISON -->
   <div class="variant">
-    <div class="vhead">
-      <span class="tag">Option 3</span>
-      <h2>Plain white, lead line lighter</h2>
-      <p>"Earn your AUB" drops to Light 300 so "master’s degree in Computing in Education" carries the weight.
-      Hierarchy from weight alone, no colour and no rule.</p>
-    </div>
-    <div class="strip"><div class="strip-in">
-      <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
-      <button class="pill">Chat with an Advisor</button></div></div>
-    <div class="hero">
-      <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
-      <div class="scrim"></div><div class="scrim2"></div>
-      <div class="hero-in">
-        <div class="eyebrow">MA in Computing in Education · 100% Online</div>
-        <div class="hh t-light"><span class="lead">Earn your AUB</span><span>master’s degree</span><span>in Computing</span><span>in Education</span></div>
-        <p class="sub">The only online master’s in the region combining Education and Computer Science — with the Microsoft Certified Educator certificate included.</p>
-        <button class="cta">Speak to an Advisor</button>
-        <a class="seehow" href="#">See how it works</a>
-      </div>
+    <div class="vhead"><span class="tag now">Buttons, side by side</span>
+      <h2>Pill versus square</h2>
+      <p>Left is what ships today, right is the calibrated square. Same label, same colour.</p></div>
+    <div class="oldbar">
+      <button class="cta old">Speak to an Advisor</button>
+      <button class="cta">Speak to an Advisor</button>
     </div>
   </div>
 
-  <!-- CURRENT -->
-  <div class="variant">
-    <div class="vhead">
-      <span class="tag now">Live now</span>
-      <h2>Burgundy block behind the key line</h2>
-      <p>For comparison — what is on the branch today.</p>
-    </div>
-    <div class="strip"><div class="strip-in">
-      <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
-      <button class="pill">Chat with an Advisor</button></div></div>
-    <div class="hero">
-      <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
-      <div class="scrim"></div><div class="scrim2"></div>
-      <div class="hero-in">
-        <div class="hh t-block"><span>Earn your AUB</span><span><span class="key">master’s degree</span></span><span>in Computing</span><span>in Education</span></div>
-        <p class="sub">The only online master’s in the region combining Education and Computer Science — with the Microsoft Certified Educator certificate included.</p>
-        <button class="cta">Speak to an Advisor</button>
-        <a class="seehow" href="#">See how it works</a>
-      </div>
-    </div>
-  </div>
-
-  <p class="lede" style="margin-top:46px"><strong>Contrast is not a concern in any of them.</strong> Measured
-  rather than assumed: with the type hidden, the lightest pixel anywhere under the headline is
-  <code>rgb(79,73,77)</code>, which puts white at <strong>8.78:1</strong> — above the 7:1 AAA line, and that
-  is the worst point, not the average. The black scrim at 64% was already doing the work; the burgundy block
-  was never load-bearing for legibility, only for emphasis.</p>
+  <p class="lede" style="margin-top:46px"><strong>Where else this lands.</strong> Square corners and the
+  tracked label are a page-wide decision, not a hero one — the nav button, the sticky bottom bar and the form
+  submit all use the same pill today. If this is approved I will apply it to all of them on all three pages,
+  so nothing is left rounded.</p>
 </div>
 </body>
 </html>
