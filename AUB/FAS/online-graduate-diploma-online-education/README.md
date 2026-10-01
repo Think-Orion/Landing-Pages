@@ -214,6 +214,75 @@ data practices, and a missing privacy link is a common disapproval cause on paid
 The footer carries `padding-bottom:104px` so the sticky CTA bar cannot cover the legal
 links at page bottom — without it the privacy link was unclickable on mobile.
 
+## October AUB Comms round
+
+Ported from the MA in Computing in Education build, where this round was specified and
+measured. The full rationale, including the measurements taken off AUB's Executive MBA
+site, is in `AUB/FAS/online-ma-computing-in-education/PORTING-BRIEF-online-education.md`
+on branch `claude/aub-fas-ma-computing-education-6bcyjd`.
+
+**Neutral palette.** Comms sampled their own Online subpages at `#F4F4F4`, a true neutral,
+against our `#F8F5F1` beige. The whole warm ramp moved with it, because changing only the
+ground leaves beige borders and beige-grey text on neutral grey. 344 replacements, each
+luminance-matched so existing contrast ratios survive: `#E6E1DB`→`#E2E2E2`,
+`#7A736F`→`#747474`, `#45403D`→`#404040`, `#171514`→`#151515`, and the six pink tints onto
+greys of the same luminance. `#840132` and `#6A132C` are now the only non-neutral colours,
+asserted by a sweep at six widths rather than assumed.
+
+This build also carried **`#A10841`** on two hover states — both buttons went *lighter* on
+hover, the only places that did. Both now darken to `#6A132C`.
+
+**The pink was arithmetic.** Those panels were never assigned a pink. They were white veils
+over burgundy, and white over `#840132` composites upward: `.08` gives `#8E1542`, `.32`
+gives `#AB5274`. Ten of them now use a black veil instead, which moves the same panels down
+into deeper burgundy (about `#690028`). White body text gains contrast because the panels
+got darker. The identical veils over `#151515` are untouched — there they composite to grey.
+Two white veils remain on burgundy and both are 1px dividers; darkening them would make
+them vanish.
+
+**Header.** All three navs are now the same `#840132` strip with the reversed lockup,
+modelled on the Executive MBA site. The nav CTA inverted to white with burgundy text,
+because a burgundy button on a burgundy strip is invisible. `backdrop-filter` dropped from
+the two sticky navs — it did nothing once the background became opaque.
+
+**Footer.** AUB's five institutional social handles added below a hairline, inline SVG with
+an `aria-label` on each.
+
+**Square CTAs.** Nine buttons and button-styled links at 3px. Sampling the EMBA reference,
+their CTA is 3px on a 61px-tall button; the pill was ours.
+
+**Lead forms.** Fields moved into a `#F4F4F4` well with a focus state that clears to white,
+because white inputs on a white card left the panel with no internal structure and it read
+as an embed. The cold card gained the burgundy cap and heading block the in-market card
+already had. Placeholder is `#6E6E6E` — `#949494` measures 2.76:1 on the new well.
+
+**Cold hero.** EMBA-calibrated: headline to 64px plain white at leading 1.06, eyebrow at
+13px / 0.24em, hero CTA at 17px / 0.6px tracking with 36x18 padding, strip to 86px. The
+burgundy highlight came off the headline and its CSS was deleted rather than left dead; the
+in-market page still uses it.
+
+**Headline band.** An inline element's background box is sized by the font's ascent and
+descent, not line-height or padding, so the in-market band stood 59px tall inside a 53px
+line box and ran into the descender above it. Trimmed 8% at each end with a hard-stop
+gradient, measured identical to the MA build.
+
+### Two things found on this build that the MA build did not have
+
+- **The in-market footer had no bottom clearance at all** (`padding: 28px 20px`), and the
+  cold footer's 104px was 37px short at 320px, where the CTA bar's label wraps and the bar
+  grows to 141px. A covered privacy disclosure is a Google Ads disapproval cause on
+  lead-gen destinations. All three now use `.pg-footer` with a 160px bottom padding below
+  420px; measured clear at 390, 360 and 320.
+- **The in-market nav intake badge** wrapped at 320px and pushed the strip to 116px. Hidden
+  below 560px, as on the MA build; the sticky bar still carries the intake line there.
+
+### What was deliberately not ported
+
+The MA in-market page had `.jm:hover .jm-title { color:#840132 }` painting curriculum rows
+in their own background colour, because those rows sit on a burgundy section. On this build
+the rows sit on the light ground and the in-market page has none, so the rule is correct as
+written and was left alone.
+
 ## Assets
 
 Both photos are still embedded as base64 data URIs, so the file reviews standalone
