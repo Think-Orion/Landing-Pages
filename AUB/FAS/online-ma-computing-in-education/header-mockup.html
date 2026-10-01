@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Cold audience header — EMBA alignment mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --burgundy:#840132; --dark:#6A132C; --grey:#F4F4F4; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Roboto,system-ui,sans-serif;background:var(--grey);color:#404040;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1280px;margin-inline:auto;padding:48px clamp(16px,4vw,40px) 90px}
+  h1{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.8px;color:#151515;margin-bottom:12px}
+  .lede{font-size:16px;line-height:1.65;max-width:70ch;color:#404040;margin-bottom:10px}
+  .lede strong{color:#151515;font-weight:600}
+  .variant{margin-top:52px;background:#fff;border:1px solid #E2E2E2;border-radius:10px;overflow:hidden}
+  .vhead{padding:20px 24px;border-bottom:1px solid #E2E2E2}
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+       color:#fff;background:var(--burgundy);padding:5px 11px;border-radius:3px;margin-bottom:10px}
+  .tag.ref{background:#404040}
+  .vhead h2{font-size:19px;font-weight:600;color:#151515;letter-spacing:-.3px;margin-bottom:6px}
+  .vhead p{font-size:14px;line-height:1.6;color:#404040;max-width:76ch}
+  .note{font-size:13px;line-height:1.6;color:#747474;padding:14px 24px;background:#F6F6F6;border-top:1px solid #E2E2E2}
+  .note b{color:#404040;font-weight:600}
+
+  /* ---------- shared strip ---------- */
+  .strip{background:var(--burgundy);border-bottom:1px solid rgba(255,255,255,.15)}
+  .strip-in{max-width:1140px;margin-inline:auto;padding:12px clamp(16px,3vw,34px);
+            display:flex;align-items:center;justify-content:space-between;gap:22px}
+  .lock{height:42px;width:auto;display:block;flex-shrink:0}
+  .menu{display:flex;align-items:center;gap:clamp(12px,1.5vw,22px);flex-wrap:nowrap}
+  .menu a{font-size:11.5px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;
+          color:rgba(255,255,255,.88);text-decoration:none;white-space:nowrap;padding:6px 0;
+          border-bottom:2px solid transparent}
+  .menu a:hover{color:#fff}
+  .menu a.on{color:#fff;border-bottom-color:#fff}
+  .pill{background:#fff;color:var(--burgundy);font-size:12.5px;font-weight:700;letter-spacing:.2px;
+        padding:10px 20px;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:pointer}
+
+  /* ---------- hero beneath ---------- */
+  .hero{position:relative;height:300px;overflow:hidden;background:#151515}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .scrim{position:absolute;inset:0;background:rgba(0,0,0,.64)}
+  .hero-in{position:relative;max-width:1140px;margin-inline:auto;padding:36px clamp(16px,3vw,34px);color:#fff}
+  .eyebrow{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+           color:rgba(255,255,255,.9);margin-bottom:14px}
+  .h1{font-size:40px;font-weight:700;line-height:1.05;letter-spacing:-1.4px;margin-bottom:14px}
+  .hl{background:var(--burgundy);padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .sub{font-size:15px;line-height:1.6;max-width:56ch;color:#fff;font-weight:300}
+  .ref-img{display:block;width:100%;height:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Cold audience header — closer to the EMBA strip</h1>
+  <p class="lede">The strip colour, the reversed lockup and the hero-text-over-image structure already match
+  the Executive MBA site. <strong>The one thing EMBA has that we don't is a row of section links.</strong>
+  That is what makes their header read as a site header rather than a landing-page bar. Three ways to close
+  the gap, each shown over the real cold hero.</p>
+
+  <!-- ============ REFERENCE ============ -->
+  <div class="variant">
+    <div class="vhead">
+      <span class="tag ref">Reference</span>
+      <h2>AUB Executive MBA — the header you sent</h2>
+      <p>Logos left, seven uppercase section links right, active item underlined, no button in the strip.
+      The primary CTA ("Discover the program") lives in the hero instead.</p>
+    </div>
+    <img class="ref-img" src="assets/mockup-emba-reference.jpg" alt="AUB Executive MBA site header" />
+  </div>
+
+  <!-- ============ A ============ -->
+  <div class="variant">
+    <div class="vhead">
+      <span class="tag">Option A</span>
+      <h2>Faithful to EMBA — section links only, CTA moves into the hero</h2>
+      <p>The closest match. The strip carries nothing but the lockup and the links, exactly as EMBA does,
+      and the "Speak to an Advisor" button already sitting in the hero becomes the only CTA above the fold.</p>
+    </div>
+    <div class="strip">
+      <div class="strip-in">
+        <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
+        <nav class="menu">
+          <a href="#how-it-works" class="on">The Programme</a>
+          <a href="#who">Who It's For</a>
+          <a href="#flex">Flexibility</a>
+          <a href="#tuition">Tuition</a>
+          <a href="#faculty">Faculty</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="hero">
+      <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
+      <div class="scrim"></div>
+      <div class="hero-in">
+        <div class="h1">Earn your AUB<br /><span class="hl">master's degree</span></div>
+        <p class="sub">The only online master's in the region combining Education and Computer Science.</p>
+      </div>
+    </div>
+    <p class="note"><b>Trade-off:</b> no CTA in the sticky strip. On a paid landing page that costs you the
+    persistent click target — a visitor three screens down has to scroll back to the hero or wait for the
+    sticky bottom bar. EMBA can afford this because it is a brochure site, not a lead-gen destination.</p>
+  </div>
+
+  <!-- ============ B ============ -->
+  <div class="variant">
+    <div class="vhead">
+      <span class="tag">Option B</span>
+      <h2>EMBA links plus the advisor CTA — recommended</h2>
+      <p>Same uppercase link row, with the white pill kept at the far right. Reads as an AUB site header and
+      still carries a persistent CTA.</p>
+    </div>
+    <div class="strip">
+      <div class="strip-in">
+        <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
+        <nav class="menu">
+          <a href="#how-it-works" class="on">The Programme</a>
+          <a href="#who">Who It's For</a>
+          <a href="#flex">Flexibility</a>
+          <a href="#tuition">Tuition</a>
+          <a href="#faculty">Faculty</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <button class="pill">Speak to an Advisor</button>
+      </div>
+    </div>
+    <div class="hero">
+      <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
+      <div class="scrim"></div>
+      <div class="hero-in">
+        <div class="h1">Earn your AUB<br /><span class="hl">master's degree</span></div>
+        <p class="sub">The only online master's in the region combining Education and Computer Science.</p>
+      </div>
+    </div>
+    <p class="note"><b>Six links fit, and so would seven.</b> Measured by stepping the viewport in 20px
+    increments with the pill in place: six labels hold a single row down to ~920px, seven down to ~1020px,
+    both with clear space either side. Width is not the constraint at desktop sizes — the constraint is the
+    tablet collapse below, which applies at any label count.</p>
+  </div>
+
+  <!-- ============ C ============ -->
+  <div class="variant">
+    <div class="vhead">
+      <span class="tag">Option C</span>
+      <h2>What is live now — lockup and CTA only</h2>
+      <p>For comparison. Correct colour, correct lockup, correct structure, but no section links, so it reads
+      as a landing-page bar rather than an AUB site header.</p>
+    </div>
+    <div class="strip">
+      <div class="strip-in">
+        <img class="lock" src="assets/logo-fas-white-380.png" alt="AUB Faculty of Arts and Sciences" />
+        <button class="pill">Chat with an Advisor</button>
+      </div>
+    </div>
+    <div class="hero">
+      <img src="assets/hero-cold-elearning-1600.jpg" alt="" />
+      <div class="scrim"></div>
+      <div class="hero-in">
+        <div class="h1">Earn your AUB<br /><span class="hl">master's degree</span></div>
+        <p class="sub">The only online master's in the region combining Education and Computer Science.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="lede" style="margin-top:46px"><strong>Below roughly 960px the link row has to collapse</strong>
+  in every option — that is where the labels stop fitting beside the lockup, and it is well above tablet
+  width, so it is not an edge case. It would go behind a hamburger, or simply be dropped, leaving the lockup
+  and the CTA, which is exactly what ships today. EMBA does the same.</p>
+  <p class="lede" style="margin-top:14px"><strong>One build note:</strong> only two sections on the cold page
+  currently have IDs (<code>#how-it-works</code> and <code>#form</code>). Wiring a link row means adding
+  anchors to the other four — a small change, but the links are inert until it happens.</p>
+</div>
+</body>
+</html>
