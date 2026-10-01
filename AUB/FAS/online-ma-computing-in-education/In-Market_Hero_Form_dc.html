@@ -89,8 +89,15 @@
     .lf .field { margin-bottom: 12px; }
     .lf .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .lf label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: #747474; margin-bottom: 6px; }
-    .lf input[type=text], .lf input[type=email], .lf input[type=tel], .lf select { width: 100%; padding: 11px 12px; border: 1px solid #E2E2E2; border-radius: 5px; font-family: inherit; font-size: 14px; color: #151515; background: #fff; }
-    .lf input:focus, .lf select:focus { outline: none; border-color: #840132; }
+    /* Fields are filled rather than white-on-white. A white input on a white card gives the
+       panel no internal structure, which is most of why the form read as an embed dropped
+       onto the page; a tinted well reads as a designed field. The fill clears to white on
+       focus so the active field is the brightest thing in the card. Radius matches the 3px
+       the buttons now use. */
+    .lf input[type=text], .lf input[type=email], .lf input[type=tel], .lf select { width: 100%; padding: 12px 13px; border: 1px solid #DCDCDC; border-radius: 3px; font-family: inherit; font-size: 14px; color: #151515; background: #F4F4F4; transition: background .15s ease, border-color .15s ease, box-shadow .15s ease; }
+    .lf input::placeholder { color: #6E6E6E; }   /* 4.64:1 on the #F4F4F4 well; #949494 measured 2.76:1 */
+    .lf input[type=text]:hover, .lf input[type=email]:hover, .lf input[type=tel]:hover, .lf select:hover { border-color: #C4C4C4; }
+    .lf input:focus, .lf select:focus { outline: none; border-color: #840132; background: #fff; box-shadow: 0 0 0 3px rgba(132,1,50,.12); }
     .lf .radio-row { display: flex; gap: 18px; align-items: center; padding-top: 2px; }
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #151515; }
     .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
@@ -258,7 +265,7 @@
         </picture>
       <div style="display:flex;align-items:center;gap:18px">
         <span class="nav-intake" style="font-size:13px;font-weight:500;color:rgba(255,255,255,.92);white-space:nowrap">Spring 2026–2027 intake open</span>
-        <button onClick="{{ scrollToForm }}" style="background:#fff;color:#840132;font-size:13px;font-weight:700;letter-spacing:.2px;padding:11px 24px;border-radius:6px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#F4F4F4">Apply Now</button>
+        <button onClick="{{ scrollToForm }}" style="background:#fff;color:#840132;font-size:13.5px;font-weight:700;letter-spacing:.5px;padding:13px 24px;border-radius:3px;border:none;white-space:nowrap;transition:background .2s" style-hover="background:#F4F4F4">Apply Now</button>
       </div>
     </div>
   </nav>
@@ -302,7 +309,7 @@
       </div>
 
       <div id="form" style="scroll-margin-top:84px">
-        <div style="background:#fff;border-top:3px solid #840132;box-shadow:0 28px 70px rgba(0,0,0,.45);padding:clamp(20px,2.6vw,28px);min-height:300px">
+        <div style="background:#fff;border-top:3px solid #840132;box-shadow:0 18px 44px rgba(0,0,0,.28);padding:clamp(22px,2.6vw,30px);min-height:300px">
           <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid #E2E2E2">
             <p style="font-size:17px;font-weight:700;color:#151515;letter-spacing:-.2px">Talk to an advisor</p>
             <p style="font-size:12.5px;color:#747474;margin-top:4px">18–24 months, 100% online, $13,500 in total.</p>
@@ -329,7 +336,7 @@
                 <label><input required type="radio" name="lf-degree-hero"> No</label>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#747474;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#747474;line-height:1.5">No obligation. An AUB advisor replies within 48 hours.</span></div><button type="button" style="width:100%;background:#840132;color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px;padding:13px 20px;border-radius:6px;border:none">Start My Journey</button>
+            <div style="display:flex;align-items:center;gap:7px;margin:2px 0 10px"><svg viewBox="0 0 24 24" style="width:13px;height:13px;flex-shrink:0;stroke:#747474;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 v3"></path></svg><span style="font-size:12px;color:#747474;line-height:1.5">No obligation. An AUB advisor replies within 48 hours.</span></div><button type="button" style="width:100%;background:#840132;color:#fff;font-size:15px;font-weight:700;letter-spacing:.5px;padding:15px 20px;border-radius:3px;border:none">Start My Journey</button>
             <p style="font-size:11px;color:#747474;line-height:1.5;margin-top:10px;text-align:center">By submitting this form, you consent to AUB contacting you about this program.</p>
           </div>
           <div id="vala-funnel"></div>
@@ -652,7 +659,7 @@
       <div>
         <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Common Questions</p>
         <h2 style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(24px,3.1vw,37px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#151515;margin-bottom:24px;text-wrap:pretty">Your questions, answered.</h2>
-        <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:14px;font-weight:700;padding:14px 26px;border:none;border-radius:6px;letter-spacing:.2px;transition:background .2s" style-hover="background:#6A132C">Chat with an Advisor</button>
+        <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border:none;border-radius:3px;letter-spacing:.5px;transition:background .2s" style-hover="background:#6A132C">Chat with an Advisor</button>
       </div>
       <div style="display:flex;flex-direction:column;border-top:1px solid #E2E2E2">
         <div style="border-bottom:1px solid #E2E2E2">
@@ -776,7 +783,7 @@
       <strong style="display:block;font-size:13.5px;font-weight:700;color:#151515">MA in Computing in Education</strong>
       <span style="font-size:11.5px;color:#747474">$450/credit · 100% Online · Spring 2026–2027</span>
     </div>
-    <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;border:none;white-space:nowrap">Apply Now</button>
+    <button onClick="{{ scrollToForm }}" style="background:#840132;color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.5px;padding:13px 24px;border-radius:3px;border:none;white-space:nowrap">Apply Now</button>
   </div>
 
 </div>

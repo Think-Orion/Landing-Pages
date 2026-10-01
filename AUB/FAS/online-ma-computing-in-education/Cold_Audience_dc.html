@@ -89,8 +89,15 @@
     .lf .field { margin-bottom: 12px; }
     .lf .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .lf label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: #747474; margin-bottom: 6px; }
-    .lf input[type=text], .lf input[type=email], .lf input[type=tel], .lf select { width: 100%; padding: 11px 12px; border: 1px solid #E2E2E2; border-radius: 5px; font-family: inherit; font-size: 14px; color: #151515; background: #fff; }
-    .lf input:focus, .lf select:focus { outline: none; border-color: #840132; }
+    /* Fields are filled rather than white-on-white. A white input on a white card gives the
+       panel no internal structure, which is most of why the form read as an embed dropped
+       onto the page; a tinted well reads as a designed field. The fill clears to white on
+       focus so the active field is the brightest thing in the card. Radius matches the 3px
+       the buttons now use. */
+    .lf input[type=text], .lf input[type=email], .lf input[type=tel], .lf select { width: 100%; padding: 12px 13px; border: 1px solid #DCDCDC; border-radius: 3px; font-family: inherit; font-size: 14px; color: #151515; background: #F4F4F4; transition: background .15s ease, border-color .15s ease, box-shadow .15s ease; }
+    .lf input::placeholder { color: #6E6E6E; }   /* 4.64:1 on the #F4F4F4 well; #949494 measured 2.76:1 */
+    .lf input[type=text]:hover, .lf input[type=email]:hover, .lf input[type=tel]:hover, .lf select:hover { border-color: #C4C4C4; }
+    .lf input:focus, .lf select:focus { outline: none; border-color: #840132; background: #fff; box-shadow: 0 0 0 3px rgba(132,1,50,.12); }
     .lf .radio-row { display: flex; gap: 18px; align-items: center; padding-top: 2px; }
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #151515; }
     .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
@@ -712,7 +719,15 @@
           <div style="display:flex;align-items:center;gap:11px;font-size:13.5px;color:rgba(255,255,255,.72)"><span style="width:4px;height:4px;border-radius:50%;background:#B4B4B4;flex-shrink:0"></span>Scholarship and payment plan guidance</div>
         </div>
       </div>
-      <div style="background:#fff;border-radius:4px;padding:clamp(20px,2.6vw,28px);box-shadow:0 24px 60px rgba(0,0,0,.35);min-height:280px">
+      <!-- The card gets the same burgundy cap, heading block and divider the in-market form
+           already had. Without them the fields began at the card's top edge with no title,
+           which is what made it read as an embed rather than part of the page. Shadow is
+           softer than before so the card sits on the section instead of floating over it. -->
+      <div style="background:#fff;border-top:3px solid #840132;padding:clamp(22px,2.6vw,30px);box-shadow:0 18px 44px rgba(0,0,0,.28);min-height:280px">
+        <div style="padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid #E2E2E2">
+          <p style="font-size:17px;font-weight:700;color:#151515;letter-spacing:-.2px">Request information</p>
+          <p style="font-size:13px;color:#747474;line-height:1.6;margin-top:5px">Takes about a minute. No obligation.</p>
+        </div>
         <!-- Sole Vala mount. The hero form was removed in favour of the image-led hero, so this is now the only form on the page and #vala-funnel lives here. The earlier two-mount question is moot. -->
         <!-- Static lead-form mockup for client review. Replace with the live Vala embed, or wire these fields via DC. -->
           <div class="lf">
