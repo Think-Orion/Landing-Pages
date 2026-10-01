@@ -266,6 +266,28 @@ descent, not line-height or padding, so the in-market band stood 59px tall insid
 line box and ran into the descender above it. Trimmed 8% at each end with a hard-stop
 gradient, measured identical to the MA build.
 
+### Curriculum section
+
+Rebuilt to match the MA build's design and behaviour. It was a 2x2 grid of white cards with
+every description permanently on show; it is now the same two-column accordion the MA uses —
+numbered rows, a `+` that rotates to a close mark, and descriptions collapsed behind it.
+Four courses split 2/2 across the columns, against the MA's 10 split 5/5.
+
+Two things this needed beyond copying the markup:
+
+- **The accordion script did not exist on this build.** The MA pages carry a
+  `[data-cur-toggle]` handler that the diploma pages never had, because they had no
+  accordion. It is added to both pages, next to the sticky-CTA block.
+- **The in-market rows now sit on `#840132`, which activates a bug that previously could
+  not fire here.** The shared `.jm:hover .jm-title { color:#840132 }` rule would paint the
+  title in its own background colour and the row would go blank on hover. The dark-ground
+  treatment from the MA build is now applied on this page: the row lights up with a 7%
+  white wash and the title holds at `#fff`. The cold page keeps the burgundy hover, which
+  is correct on its light ground.
+
+The in-market list previously showed course titles only. It now carries the same
+descriptions as the cold page, including the instructor attributions.
+
 ### Two things found on this build that the MA build did not have
 
 - **The in-market footer had no bottom clearance at all** (`padding: 28px 20px`), and the

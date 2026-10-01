@@ -98,9 +98,16 @@
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #151515; }
     .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
     [data-testimonial-track]::-webkit-scrollbar { display: none; }
-    .jm .jm-title, .jm .jm-dot { transition: color .2s ease, background-color .2s ease; }
-    .jm:hover .jm-title { color: #840132 !important; }
-    .jm:hover .jm-dot { background: #840132 !important; }
+    /* Curriculum rows. On the cold page these sit on #F4F4F4 and the hover paints the title
+       burgundy, which reads fine. This section sits ON #840132, so that same rule would
+       paint the title in its own background colour and the row would go blank on hover.
+       On a dark ground the title is already white, so there is no brighter colour to go to
+       — the row itself lights up instead, and the + icon goes to full white. */
+    .jm { transition: background-color .2s ease; }
+    .jm .jm-title, .jm [data-cur-icon] { transition: color .2s ease; }
+    .jm:hover { background: rgba(255,255,255,.07); }
+    .jm:hover .jm-title { color: #fff !important; }
+    .jm:hover [data-cur-icon] { color: #fff !important; }
     /* Hero type sits over a photograph (an image-slot placeholder until AUB supply it), so a
        soft shadow holds the letterforms wherever the image runs light. Client feedback was
        that the sub-heading and small white text read as faded. */
@@ -401,27 +408,52 @@
         </div>
         <p style="font-size:clamp(14.5px,1.5vw,16px);line-height:1.72;color:rgba(255,255,255,.75);max-width:46ch;font-weight:300">Four courses over nine months. Each one is practical and project-based, designed to give you skills you can apply the same week.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:0 clamp(24px,4vw,48px);margin-bottom:clamp(32px,4vw,48px)">
-        <div style="display:flex;align-items:baseline;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.18)">
-          <span style="font-family:Roboto,system-ui,sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;flex-shrink:0">01</span>
-          <span style="font-size:15.5px;color:#fff;line-height:1.45">EDUC 371 · Digital Citizenship</span>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.18)">
-          <span style="font-family:Roboto,system-ui,sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;flex-shrink:0">02</span>
-          <span style="font-size:15.5px;color:#fff;line-height:1.45">EDUC 372 · Foundations in Distance Education</span>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.18)">
-          <span style="font-family:Roboto,system-ui,sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;flex-shrink:0">03</span>
-          <span style="font-size:15.5px;color:#fff;line-height:1.45">EDUC 373 · Instructional Design and Development</span>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.18)">
-          <span style="font-family:Roboto,system-ui,sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;flex-shrink:0">04</span>
-          <span style="font-size:15.5px;color:#fff;line-height:1.45">EDUC 374 · Technology and Information Systems</span>
-        </div>
-        
-        
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:0 clamp(24px,4vw,48px);margin-bottom:clamp(32px,4vw,48px);align-items:start">
+          <div style="border-top:1px solid rgba(255,255,255,.18)">
+            <div class="jm" style="border-bottom:1px solid rgba(255,255,255,.18);">
+              <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
+                <span style="font-family:Roboto,system-ui,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;padding-top:2px">01</span>
+                <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#fff">EDUC 371 · Digital Citizenship</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#CBCBCB;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+              </button>
+              <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+                <p style="font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Learn the ethics of technology: responsible ways to access, manage, exchange, and share information online. Taught by Dr. Hugo Hachem.</p>
+              </div>
+            </div>
+            <div class="jm" style="border-bottom:1px solid rgba(255,255,255,.18);">
+              <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
+                <span style="font-family:Roboto,system-ui,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;padding-top:2px">02</span>
+                <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#fff">EDUC 372 · Foundations in Distance Education</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#CBCBCB;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+              </button>
+              <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+                <p style="font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Learn the fundamentals of online learning, for K-12 students and adult learners, in formal and informal settings. Taught by Dr. Mahmud Shihab.</p>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,.18)">
+            <div class="jm" style="border-bottom:1px solid rgba(255,255,255,.18);">
+              <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
+                <span style="font-family:Roboto,system-ui,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;padding-top:2px">03</span>
+                <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#fff">EDUC 373 · Instructional Design and Development</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#CBCBCB;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+              </button>
+              <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+                <p style="font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Learn the core principles, tools, and techniques of instructional design, then apply them in real course projects. Taught by Rayan Fayed and Rana Ghazzi.</p>
+              </div>
+            </div>
+            <div class="jm" style="border-bottom:1px solid rgba(255,255,255,.18);">
+              <button data-cur-toggle style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;display:flex;align-items:flex-start;gap:14px;line-height:1.45;cursor:pointer">
+                <span style="font-family:Roboto,system-ui,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);min-width:20px;padding-top:2px">04</span>
+                <span class="jm-title" style="flex:1;font-size:14.5px;font-weight:600;color:#fff">EDUC 374 · Technology and Information Systems</span>
+                <span data-cur-icon style="font-size:18px;font-weight:300;color:#CBCBCB;line-height:1;flex-shrink:0;transition:transform .25s;padding-top:1px">+</span>
+              </button>
+              <div data-cur-answer style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+                <p style="font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.72;padding:0 0 18px 34px;max-width:52ch">Explore how schools use technology and information systems: for decision-making, planning, and communication. Taught by Dr. Mahmud Shihab.</p>
+              </div>
+            </div>
+          </div>
       </div>
-      
     </div>
   </section>
 
@@ -798,6 +830,18 @@ class Component extends DCLogic {
       }
     });
   });
+  // Curriculum accordion toggles
+  document.querySelectorAll('[data-cur-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var ans = btn.parentElement.querySelector('[data-cur-answer]');
+      var icon = btn.querySelector('[data-cur-icon]');
+      if (!ans) return;
+      var open = ans.style.maxHeight && ans.style.maxHeight !== '0px';
+      ans.style.maxHeight = open ? '0px' : ans.scrollHeight + 'px';
+      if (icon) icon.style.transform = open ? 'rotate(0deg)' : 'rotate(45deg)';
+    });
+  });
+
   // Sticky CTA (idempotent alongside the DC runtime)
   var cta = document.querySelector('[data-sticky-cta]');
   if (cta) {
