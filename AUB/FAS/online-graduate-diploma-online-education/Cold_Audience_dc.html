@@ -110,6 +110,15 @@
     @media (max-width: 700px) {
       [data-testimonial-track] > * { flex: 0 0 100% !important; }
     }
+    /* The faculty cards are a quarter width inline, which is right at desktop but leaves a
+       153px column at tablet — far too narrow for a 4:5 portrait with a bio under it. Two
+       per view between 700 and 1000px, one per view below that. */
+    @media (max-width: 1000px) {
+      [data-faculty-track] > * { flex: 0 0 calc(50% - 16px) !important; }
+    }
+    @media (max-width: 700px) {
+      [data-faculty-track] > * { flex: 0 0 100% !important; }
+    }
     .jm .jm-title, .jm .jm-dot { transition: color .2s ease, background-color .2s ease; }
     .jm:hover .jm-title { color: #840132 !important; }
     .jm:hover .jm-dot { background: #840132 !important; }
@@ -644,35 +653,84 @@
         <h2 style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(25px,3.2vw,40px);font-weight:700;line-height:1.14;letter-spacing:-.7px;color:#151515;margin-bottom:18px;text-wrap:pretty">Meet your instructors.</h2>
         <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.75;color:#404040">The diploma is taught by AUB faculty in education and educational technology.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,32px)">
-        <div data-reveal>
+      <!-- Faculty slider: same mechanism as the testimonial track. Ten staff do not fit a
+           static grid, so the row scrolls with snap and the arrows appear automatically once
+           the cards overflow. Four visible at desktop, one at a phone width. -->
+      <div data-faculty-track style="display:flex;gap:clamp(20px,3vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;margin-bottom:12px">
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
           <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
             <image-slot id="cold-fac-1" shape="rect" src="./dummy/portrait-1.png" placeholder="Portrait — Dr. Hoda Baytiyeh"></image-slot>
           </div>
           <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Dr. Hoda Baytiyeh</strong>
-          <span style="font-size:14px;color:#747474;line-height:1.68">[Short bio to be supplied by AUB.]</span>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Associate Dean for Online Education at the Faculty of Arts and Sciences… initiated two graduate online asynchronous programs that were launched in Fall 2022.</span>
         </div>
-        <div data-reveal>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
           <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
-            <image-slot id="cold-fac-2" shape="rect" src="./dummy/portrait-2.png" placeholder="Portrait — Dr. Mahmud Shihab"></image-slot>
+            <image-slot id="cold-fac-2" shape="rect" src="./dummy/portrait-2.png" placeholder="Portrait — Hugo-Henrik Hany Hachem"></image-slot>
+          </div>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Hugo-Henrik Hany Hachem</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Lebanese-Swedish researcher in adult education. He defended his PhD in 2023 at Örebro University, Sweden, where he researched the education of older adults.</span>
+        </div>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
+          <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
+            <image-slot id="cold-fac-3" shape="rect" src="./dummy/portrait-3.png" placeholder="Portrait — Dr. Mahmud Shihab"></image-slot>
           </div>
           <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Dr. Mahmud Shihab</strong>
-          <span style="font-size:14px;color:#747474;line-height:1.68">[Short bio to be supplied by AUB.]</span>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Senior educational leader and consultant with more than 30 years of experience in academic leadership, curriculum development, professional learning.</span>
         </div>
-        <div data-reveal>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
           <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
-            <image-slot id="cold-fac-3" shape="rect" src="./dummy/portrait-3.png" placeholder="Portrait — Rayan Fayed"></image-slot>
+            <image-slot id="cold-fac-4" shape="rect" src="./dummy/portrait-4.png" placeholder="Portrait — Rayane Fayed"></image-slot>
           </div>
-          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Rayan Fayed</strong>
-          <span style="font-size:14px;color:#747474;line-height:1.68">[Short bio to be supplied by AUB.]</span>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Rayane Fayed</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Over nearly two decades at the American University of Beirut, rising from instructional designer to Senior Learning Design Manager.</span>
         </div>
-        <div data-reveal>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
           <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
-            <image-slot id="cold-fac-4" shape="rect" src="./dummy/portrait-3.png" placeholder="Portrait — Rana Ghazzi"></image-slot>
+            <image-slot id="cold-fac-5" shape="rect" src="./dummy/portrait-5.png" placeholder="Portrait — Rana Al Ghazzi"></image-slot>
           </div>
-          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Rana Ghazzi</strong>
-          <span style="font-size:14px;color:#747474;line-height:1.68">[Short bio to be supplied by AUB.]</span>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Rana Al Ghazzi</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Principal Instructional Designer passionate about creating meaningful, engaging, and accessible learning experiences.</span>
         </div>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
+          <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
+            <image-slot id="cold-fac-6" shape="rect" src="./dummy/portrait-6.png" placeholder="Portrait — Amal BouZeineddine"></image-slot>
+          </div>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Amal BouZeineddine</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">She teaches graduate and undergraduate courses in elementary education with focus on teaching of language arts and curriculum design.</span>
+        </div>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
+          <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
+            <image-slot id="cold-fac-7" shape="rect" src="./dummy/portrait-7.png" placeholder="Portrait — Vivian Khamis"></image-slot>
+          </div>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Vivian Khamis</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Her research and teaching focus on child and adolescent development, psychological adjustment, trauma and stress, coping, resilience.</span>
+        </div>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
+          <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
+            <image-slot id="cold-fac-8" shape="rect" src="./dummy/portrait-8.png" placeholder="Portrait — Yassine Zein"></image-slot>
+          </div>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Yassine Zein</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">His areas of expertise include Design Thinking, product design, robotics, programming, digital fabrication, and project-based STEAM education.</span>
+        </div>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
+          <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
+            <image-slot id="cold-fac-9" shape="rect" src="./dummy/portrait-9.png" placeholder="Portrait — Dr. Saeed Raheel"></image-slot>
+          </div>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Dr. Saeed Raheel</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">He's mainly interested in teaching courses about Generative and Agentic Artificial Intelligence, Data Structures and Algorithms, and Programming Languages.</span>
+        </div>
+        <div data-reveal style="flex:0 0 min(100%,calc(25% - 24px));scroll-snap-align:start;box-sizing:border-box">
+          <div style="position:relative;aspect-ratio:4/5;margin-bottom:18px;background:#E8E8E8;overflow:hidden">
+            <image-slot id="cold-fac-10" shape="rect" src="./dummy/portrait-10.png" placeholder="Portrait — Prof. Haidar Safa"></image-slot>
+          </div>
+          <strong style="display:block;font-family:Roboto,system-ui,sans-serif;font-size:19px;font-weight:700;color:#151515;margin-bottom:8px;letter-spacing:-.2px">Prof. Haidar Safa</strong>
+          <span style="font-size:14px;color:#747474;line-height:1.68">Professor in the Department of Computer Science, which he chaired for six years… research centers on networking and security.</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end">
+        <button data-f-prev type="button" aria-label="Previous instructors" style="display:none;width:38px;height:38px;border-radius:50%;border:1px solid #E2E2E2;background:#fff;color:#151515;place-items:center;font-size:17px;line-height:1;padding:0">&#8249;</button>
+        <button data-f-next type="button" aria-label="Next instructors" style="display:none;width:38px;height:38px;border-radius:50%;border:1px solid #E2E2E2;background:#fff;color:#151515;place-items:center;font-size:17px;line-height:1;padding:0">&#8250;</button>
       </div>
     </div>
   </section>
@@ -1065,6 +1123,22 @@ class Component extends DCLogic {
       if (icon) icon.style.transform = open ? 'rotate(0deg)' : 'rotate(45deg)';
     });
   });
+
+  // Faculty slider: mirrors the testimonial track
+  var ftrack = document.querySelector('[data-faculty-track]');
+  if (ftrack) {
+    var fprev = document.querySelector('[data-f-prev]');
+    var fnext = document.querySelector('[data-f-next]');
+    var fupdate = function () {
+      var scrollable = ftrack.scrollWidth > ftrack.clientWidth + 4;
+      [fprev, fnext].forEach(function (b) { if (b) b.style.display = scrollable ? 'grid' : 'none'; });
+    };
+    var fstep = function (dir) { ftrack.scrollBy({ left: dir * ftrack.clientWidth * 0.9, behavior: 'smooth' }); };
+    if (fprev) fprev.addEventListener('click', function () { fstep(-1); });
+    if (fnext) fnext.addEventListener('click', function () { fstep(1); });
+    window.addEventListener('resize', fupdate);
+    fupdate();
+  }
 
   // Sticky CTA: show after the hero scrolls out, hide while the form section is in view
   var bar = document.querySelector('[data-sticky-cta]');
