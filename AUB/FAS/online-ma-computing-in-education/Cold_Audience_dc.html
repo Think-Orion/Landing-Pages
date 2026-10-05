@@ -102,6 +102,14 @@
     .lf .radio-row label { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 14px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #151515; }
     .lf input[type=radio] { accent-color: #840132; width: 15px; height: 15px; }
     [data-testimonial-track]::-webkit-scrollbar { display: none; }
+    /* The cards declare flex-basis: min(100%, calc(50% - 14px)) inline, intending "full width
+       on a phone, half width on desktop" — but min() takes the SMALLER value, so they stayed
+       at ~50% everywhere. At 390px that is a 163px column, and a real testimonial ran 780px
+       tall in it. Below 700px each card now fills the track and the existing scroll-snap
+       makes it a proper one-card swipe. !important is needed to beat the inline style. */
+    @media (max-width: 700px) {
+      [data-testimonial-track] > * { flex: 0 0 100% !important; }
+    }
     .jm .jm-title, .jm .jm-dot { transition: color .2s ease, background-color .2s ease; }
     .jm:hover .jm-title { color: #840132 !important; }
     .jm:hover .jm-dot { background: #840132 !important; }
@@ -156,7 +164,10 @@
      Prerequisite mapping: EDUC 300 (education) and CMPS 302 (computer science) identified as the two exemptible prerequisites by reconciling the 36-credit factsheet degree plan against the 30-credit core — confirm with AUB
      Instructor names appear only for EDUC 371-374 (verified from client materials). Instructors for EDUC 375, EDUC 315, EDUC 321, CMPS 301, CMPS 303, and the MA project to be supplied; faculty [Short bio] lines and portraits to be supplied by AUB
      Premise-section image (educator with students and robotics kits, MCE badge composite) is client-supplied and embedded as a data URI — swap to a hosted file at launch; confirm Microsoft brand-usage approval for the badge
-     [TESTIMONIAL / NAME / ROLE] — all quote blocks are placeholders with suggested angles
+     Testimonials are REAL, supplied by AUB in October and trimmed to the card length: Ayah Bitar,
+     Marwa El Hajj and Marwa Othman. Each student's ROLE AND LOCATION is still outstanding — the
+     [Role, Location] line under every name must be filled before launch. Confirm each named student
+     has approved the trimmed wording and the role shown
      Comparison-table figures for non-AUB categories are indicative ranges; validate before publishing
      Dean's Scholarship REMOVED from the cost FAQ at Comms' request; payment plans now attributed to the Comptroller's office
      Vala form embed (continuous-learning-survey.js) — confirm the correct funnel script for this program
@@ -581,21 +592,31 @@
       <!-- Testimonial slider: horizontally scrollable track with snap. Add more cards to the track for pages with many testimonials; arrows appear automatically when cards overflow. -->
       <div data-testimonial-track style="display:flex;gap:clamp(20px,3vw,28px);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;margin-bottom:12px">
         <div data-reveal style="border:1px solid #E2E2E2;padding:clamp(26px,3vw,36px);background:#fff;flex:0 0 min(100%,calc(50% - 14px));scroll-snap-align:start;box-sizing:border-box">
-          <p style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#151515;margin-bottom:24px">[TESTIMONIAL — student quote to be supplied by AUB. Suggested angle: an experienced teacher who moved into an EdTech coordinator or head of digital learning role after the MA.]</p>
+          <p style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#151515;margin-bottom:24px">The MA is where the learning really opened up for me. It helped me think more critically about how learning happens online, how to design instruction that is inclusive and engaging, and how to evaluate whether a program is actually achieving its goals.</p>
           <div style="display:flex;align-items:center;gap:13px">
-            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">AB</div>
             <div>
-              <strong style="display:block;font-size:13.5px;font-weight:600;color:#151515">[NAME]</strong>
+              <strong style="display:block;font-size:13.5px;font-weight:600;color:#151515">Ayah Bitar</strong>
               <span style="font-size:12.5px;color:#747474">[Role, Location]</span>
             </div>
           </div>
         </div>
         <div data-reveal style="border:1px solid #E2E2E2;padding:clamp(26px,3vw,36px);background:#fff;flex:0 0 min(100%,calc(50% - 14px));scroll-snap-align:start;box-sizing:border-box">
-          <p style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#151515;margin-bottom:24px">[TESTIMONIAL — student quote to be supplied by AUB. Suggested angle: a career shifter from IT, HR, or corporate training who used the MA to move into instructional design.]</p>
+          <p style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#151515;margin-bottom:24px">The MA in Computing in Education gave me the opportunity to connect my existing background and skills with educational theory, research, and technology. It helped me organize what I already knew, deepen it through research, and translate that knowledge into practical solutions.</p>
           <div style="display:flex;align-items:center;gap:13px">
-            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">—</div>
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">ME</div>
             <div>
-              <strong style="display:block;font-size:13.5px;font-weight:600;color:#151515">[NAME]</strong>
+              <strong style="display:block;font-size:13.5px;font-weight:600;color:#151515">Marwa El Hajj</strong>
+              <span style="font-size:12.5px;color:#747474">[Role, Location]</span>
+            </div>
+          </div>
+        </div>
+        <div data-reveal style="border:1px solid #E2E2E2;padding:clamp(26px,3vw,36px);background:#fff;flex:0 0 min(100%,calc(50% - 14px));scroll-snap-align:start;box-sizing:border-box">
+          <p style="font-family:Roboto,system-ui,sans-serif;font-size:clamp(17px,1.9vw,20px);font-style:italic;line-height:1.55;color:#151515;margin-bottom:24px">With over 20 years in education, I saw the AI and technology revolution coming and refused to be left behind… the MA in Computing in Education, where I found the tools to excel and to become an educator who moves forward with AI and technology, not one left behind by it.</p>
+          <div style="display:flex;align-items:center;gap:13px">
+            <div style="width:40px;height:40px;background:#840132;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.4px">MO</div>
+            <div>
+              <strong style="display:block;font-size:13.5px;font-weight:600;color:#151515">Marwa Othman</strong>
               <span style="font-size:12.5px;color:#747474">[Role, Location]</span>
             </div>
           </div>
