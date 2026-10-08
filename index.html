@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>AUB Online — Landing Page Previews</title>
+<style>
+  :root { --burgundy:#840132; --ink:#151515; --mid:#5A5A5A; --line:#E2E2E2; --wash:#F4F4F4; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--wash); color:var(--ink);
+         font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; line-height:1.6; }
+  header { background:var(--burgundy); color:#fff; padding:clamp(28px,5vw,46px) clamp(18px,5vw,48px); }
+  .wrap { max-width:940px; margin-inline:auto; }
+  header p.eyebrow { margin:0 0 10px; font-size:10.5px; font-weight:700; letter-spacing:1.8px;
+                     text-transform:uppercase; color:rgba(255,255,255,.72); }
+  header h1 { margin:0 0 10px; font-size:clamp(25px,3.6vw,38px); font-weight:700; letter-spacing:-.6px; }
+  header p.sub { margin:0; font-size:clamp(14px,1.5vw,16px); color:rgba(255,255,255,.9); font-weight:300; max-width:60ch; }
+  main { padding:clamp(28px,5vw,52px) clamp(18px,5vw,48px) clamp(48px,7vw,80px); }
+  h2 { font-size:clamp(17px,2vw,21px); font-weight:700; letter-spacing:-.3px; margin:clamp(26px,4vw,40px) 0 4px; }
+  h2:first-of-type { margin-top:0; }
+  .meta { margin:0 0 16px; font-size:13px; color:var(--mid); }
+  ul { list-style:none; margin:0; padding:0; display:grid; gap:12px;
+       grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); }
+  a.card { display:block; background:#fff; border:1px solid var(--line); border-top:3px solid var(--burgundy);
+           padding:18px 20px; text-decoration:none; color:inherit; transition:box-shadow .18s, transform .18s; }
+  a.card:hover { box-shadow:0 10px 26px rgba(0,0,0,.10); transform:translateY(-2px); }
+  a.card strong { display:block; font-size:16px; letter-spacing:-.2px; margin-bottom:4px; }
+  a.card span { display:block; font-size:13px; color:var(--mid); line-height:1.5; }
+  .note { margin-top:clamp(34px,5vw,52px); background:#fff; border-left:4px solid var(--burgundy);
+          padding:18px 22px; font-size:13.5px; color:#3A3A3A; }
+  .note strong { color:var(--ink); }
+  footer { border-top:1px solid var(--line); margin-top:clamp(30px,4vw,44px); padding-top:16px;
+           font-size:12px; color:var(--mid); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">AUB Online · Faculty of Arts and Sciences</p>
+    <h1>Landing page previews</h1>
+    <p class="sub">Working previews of the funnels for two programmes. These are for review, not the published
+      pages — they are rebuilt whenever a change is approved.</p>
+  </div>
+</header>
+<main class="wrap">
+
+  <h2>MA in Computing in Education</h2>
+  <p class="meta">36 credits · 11 courses and a capstone project · $16,200</p>
+  <ul>
+    <li><a class="card" href="ma/cold-audience.html"><strong>Cold audience</strong>
+      <span>The long page: the full argument, curriculum, faculty and FAQs.</span></a></li>
+    <li><a class="card" href="ma/in-market.html"><strong>In-market</strong>
+      <span>The short page, with the form in the hero.</span></a></li>
+    <li><a class="card" href="ma/thank-you.html"><strong>Thank you</strong>
+      <span>What an enquirer sees after submitting.</span></a></li>
+  </ul>
+
+  <h2>Graduate Diploma in Online Education</h2>
+  <p class="meta">12 credits · 4 courses · $5,400</p>
+  <ul>
+    <li><a class="card" href="diploma/cold-audience.html"><strong>Cold audience</strong>
+      <span>The long page: the full argument, curriculum, faculty and FAQs.</span></a></li>
+    <li><a class="card" href="diploma/in-market.html"><strong>In-market</strong>
+      <span>The short page, with the form in the hero.</span></a></li>
+    <li><a class="card" href="diploma/thank-you.html"><strong>Thank you</strong>
+      <span>What an enquirer sees after submitting.</span></a></li>
+  </ul>
+
+  <div class="note">
+    <strong>Reading these previews.</strong> They show the design and the copy exactly as built. The forms and
+    the call-to-action buttons are not wired up here — those are connected when the pages are published, so
+    nothing you click will submit or scroll to the form. A few images are still placeholders where AUB have
+    yet to supply the file.
+  </div>
+
+  <footer class="wrap">Built by Think Orion for the American University of Beirut.</footer>
+</main>
+</body>
+</html>
