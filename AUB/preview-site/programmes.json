@@ -1,0 +1,51 @@
+{
+  "faculties": [
+    { "code": "FAS",  "name": "Arts and Sciences",
+      "programmes": [
+        { "name": "MA in Computing in Education", "slug": "online-ma-computing-in-education",
+          "meta": "36 credits · 11 courses and a capstone project · $16,200", "status": "live" },
+        { "name": "Graduate Diploma in Online Education", "slug": "online-graduate-diploma-online-education",
+          "meta": "12 credits · 4 courses · $5,400", "status": "live" },
+        { "name": "Diploma in Islamic Studies", "status": "planned" },
+        { "name": "Diploma in Arabic Language", "status": "planned" }
+      ] },
+    { "code": "FHS",  "name": "Health Sciences",
+      "programmes": [
+        { "name": "Diploma in Health Data Analytics", "status": "planned" },
+        { "name": "Diploma in Healthcare Management and Leadership", "status": "planned" },
+        { "name": "Diploma in Healthcare Financing & Management", "status": "planned" },
+        { "name": "Executive Master in Health Care Leadership", "status": "planned" }
+      ] },
+    { "code": "FM",   "name": "Medicine",
+      "programmes": [
+        { "name": "Palliative Care Online Diploma", "status": "planned" },
+        { "name": "SHARP", "status": "planned" },
+        { "name": "Coaching Skills in Healthcare", "status": "planned" },
+        { "name": "Pharmacogenomics", "status": "planned" },
+        { "name": "Advanced Vaccinology", "status": "planned" },
+        { "name": "Fundamental Vaccinology", "status": "planned" }
+      ] },
+    { "code": "HSON", "name": "Hariri School of Nursing",
+      "programmes": [
+        { "name": "Diploma in Critical Care Nursing", "status": "planned" },
+        { "name": "Diploma in Nursing Administration and Management", "status": "planned" },
+        { "name": "Diploma in Analytics-Informed Healthcare Quality", "status": "planned" },
+        { "name": "Online Professional Graduate Diploma in Nursing Education (NUEd)", "status": "planned" },
+        { "name": "Certificate in Adaptation and Validation of Research Instruments", "status": "planned" }
+      ] },
+    { "code": "OSB",  "name": "Olayan School of Business",
+      "programmes": [
+        { "name": "EMBA (Lebanon)", "status": "planned" },
+        { "name": "EMBA (Dubai)", "status": "planned" },
+        { "name": "Investment Analysis and Portfolio Management", "status": "planned" },
+        { "name": "Strategic Branding in the Digital Era", "status": "planned" },
+        { "name": "Trade-Based Financial Crime (Certificate) — English", "status": "planned" },
+        { "name": "Trade-Based Financial Crime (Certificate) — Arabic", "status": "planned", "note": "right-to-left" }
+      ] },
+    { "code": "FAFS", "name": "Agricultural and Food Sciences",
+      "programmes": [
+        { "name": "Risk Management in Food Safety Professional Diploma", "status": "planned" },
+        { "name": "Food Security Diploma", "status": "planned" }
+      ] }
+  ]
+}
