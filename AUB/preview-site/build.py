@@ -37,11 +37,59 @@ def copy_programme(fac, prog, out):
     return dst
 
 
-def card(fac, prog, published, title, blurb):
-    href = '%s/%s/%s' % (fac['code'], prog['slug'], published)
-    return ('        <li><a class="card" href="%s"><strong>%s</strong>'
-            '<span>%s</span><span class="go">Open preview &rsaquo;</span></a></li>'
-            % (href, html.escape(title), html.escape(blurb)))
+def slugify(code):
+    return code.lower()
+
+
+def render(out, path, title, heading, intro, stats, nav, sections):
+    page = (TEMPLATE.replace('{{PAGETITLE}}', title)
+                    .replace('{{HEADING}}', heading)
+                    .replace('{{INTRO}}', intro)
+                    .replace('{{STATS}}', stats)
+                    .replace('{{NAV}}', nav)
+                    .replace('{{SECTIONS}}', sections))
+    # a faculty page sits one level down, so its asset paths need a step up
+    if '/' in path:
+        page = page.replace('src="brand/', 'src="../brand/')
+    full = os.path.join(out, path)
+    os.makedirs(os.path.dirname(full), exist_ok=True)
+    open(full, 'w', encoding='utf-8').write(page)
+
+
+def stat(label, value):
+    return '      <div><dt>%s</dt><dd>%s</dd></div>' % (label, value)
+
+
+def faculty_section(fac, out, depth, copy=True):
+    """One faculty's block. depth is how far the links sit below the page."""
+    built = [p for p in fac['programmes'] if p.get('status') == 'live']
+    planned = [p for p in fac['programmes'] if p.get('status') != 'live']
+    prefix = '' if depth else fac['code'] + '/'
+    rows = ['      <section class="fac" id="%s">' % fac['code'],
+            '        <h2>%s <span class="code">%s</span></h2>'
+            % (html.escape(fac['name']), html.escape(fac['code']))]
+    for prog in built:
+        if copy:
+            copy_programme(fac, prog, out)
+        rows.append('        <h3>%s</h3>' % html.escape(prog['name']))
+        if prog.get('meta'):
+            rows.append('        <p class="meta">%s</p>' % html.escape(prog['meta']))
+        rows.append('        <ul>')
+        for _, published, title, blurb in PAGES:
+            href = '%s%s/%s' % (prefix, prog['slug'], published)
+            rows.append('        <li><a class="card" href="%s"><strong>%s</strong>'
+                        '<span>%s</span><span class="go">Open preview &rsaquo;</span></a></li>'
+                        % (href, html.escape(title), html.escape(blurb)))
+        rows.append('        </ul>')
+    if planned:
+        rows.append('        <p class="soon-label">Not yet built</p>')
+        rows.append('        <ul class="soon">')
+        for prog in planned:
+            note = ' <em>%s</em>' % html.escape(prog['note']) if prog.get('note') else ''
+            rows.append('          <li>%s%s</li>' % (html.escape(prog['name']), note))
+        rows.append('        </ul>')
+    rows.append('      </section>')
+    return '\n'.join(rows), len(built), len(fac['programmes'])
 
 
 def build(out):
@@ -52,41 +100,38 @@ def build(out):
     open(os.path.join(out, '.nojekyll'), 'w').close()
     shutil.copytree(os.path.join(HERE, 'brand'), os.path.join(out, 'brand'), dirs_exist_ok=True)
 
-    total = live = 0
-    sections = []
+    sections, links, total, live = [], [], 0, 0
     for fac in data['faculties']:
-        built = [p for p in fac['programmes'] if p.get('status') == 'live']
-        planned = [p for p in fac['programmes'] if p.get('status') != 'live']
-        total += len(fac['programmes'])
-        live += len(built)
+        block, nlive, ntotal = faculty_section(fac, out, depth=0)
+        sections.append(block)
+        total += ntotal
+        live += nlive
+        links.append('      <a href="#%s">%s<span class="n">%d of %d built</span></a>'
+                     % (fac['code'], html.escape(fac['name']), nlive, ntotal))
 
-        rows = ['      <section class="fac">',
-                '        <h2>%s <span class="code">%s</span></h2>'
-                % (html.escape(fac['name']), html.escape(fac['code']))]
-        for prog in built:
-            copy_programme(fac, prog, out)
-            rows.append('        <h3>%s</h3>' % html.escape(prog['name']))
-            if prog.get('meta'):
-                rows.append('        <p class="meta">%s</p>' % html.escape(prog['meta']))
-            rows.append('        <ul>')
-            for _, published, title, blurb in PAGES:
-                rows.append(card(fac, prog, published, title, blurb))
-            rows.append('        </ul>')
-        if planned:
-            rows.append('        <p class="soon-label">Not yet built</p>')
-            rows.append('        <ul class="soon">')
-            for prog in planned:
-                note = ' <em>%s</em>' % html.escape(prog['note']) if prog.get('note') else ''
-                rows.append('          <li>%s%s</li>' % (html.escape(prog['name']), note))
-            rows.append('        </ul>')
-        rows.append('      </section>')
-        sections.append('\n'.join(rows))
+    nav = ('  <nav class="rail" aria-label="Faculties">\n    <p>Faculties</p>\n'
+           '    <div class="links">\n%s\n    </div>\n  </nav>' % '\n'.join(links))
+    render(out, 'index.html',
+           'Think Orion \u2014 AUB Online Landing Page Previews',
+           'AUB Online \u2014 <em>landing page previews</em>',
+           'Working previews for review, not the published pages.',
+           '\n'.join([stat('Programmes', '%d built of %d' % (live, total)),
+                      stat('Faculties', str(len(data['faculties'])))]),
+           nav, '\n\n'.join(sections))
 
-    page = TEMPLATE.replace('{{SECTIONS}}', '\n\n'.join(sections)) \
-                   .replace('{{LIVE}}', str(live)).replace('{{TOTAL}}', str(total)) \
-                   .replace('{{FACULTIES}}', str(len(data['faculties'])))
-    open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(page)
-    print('built %s — %d of %d programmes live across %d faculties'
+    # One page per faculty, so a faculty can be sent a link that shows only
+    # their own programmes.
+    for fac in data['faculties']:
+        block, nlive, ntotal = faculty_section(fac, out, depth=1, copy=False)
+        render(out, '%s/index.html' % fac['code'],
+               'Think Orion \u2014 %s landing page previews' % fac['name'],
+               '%s \u2014 <em>landing page previews</em>' % html.escape(fac['name']),
+               'Working previews for review, not the published pages.',
+               '\n'.join([stat('Faculty', html.escape(fac['code'])),
+                          stat('Programmes', '%d built of %d' % (nlive, ntotal))]),
+               '', block)
+
+    print('built %s \u2014 %d of %d programmes live across %d faculties, plus a page per faculty'
           % (out, live, total, len(data['faculties'])))
 
 
