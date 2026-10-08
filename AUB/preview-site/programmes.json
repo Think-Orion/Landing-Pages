@@ -28,10 +28,8 @@
     { "code": "HSON", "name": "Hariri School of Nursing",
       "programmes": [
         { "name": "Diploma in Critical Care Nursing", "status": "planned" },
-        { "name": "Diploma in Nursing Administration and Management", "status": "planned" },
         { "name": "Diploma in Analytics-Informed Healthcare Quality", "status": "planned" },
-        { "name": "Online Professional Graduate Diploma in Nursing Education (NUEd)", "status": "planned" },
-        { "name": "Certificate in Adaptation and Validation of Research Instruments", "status": "planned" }
+        { "name": "Masters in Nursing Administration and Management", "status": "planned" }
       ] },
     { "code": "OSB",  "name": "Olayan School of Business",
       "programmes": [
