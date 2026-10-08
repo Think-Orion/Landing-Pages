@@ -1,35 +1,46 @@
-# AUB Online landing page previews
+# The client preview site
 
-The hub at `index.html` is Think Orion branded — it is our deliverable, shown to the
-client — and it links through to the AUB pages themselves, which carry AUB branding.
-Brand values come from the Think Orion brand system: purple `#A020F0` as the single
-accent, black `#1E1E1E` rather than pure black, off-white `#F8F8F8`, teal `#5BC9DE`
-reserved for the eyebrow, Roboto throughout. The wordmark in `brand/` is the approved
-logo file, not a reproduction.
+Builds the hub at https://think-orion.github.io/Landing-Pages/ — Think Orion
+branded, linking to every AUB programme we have built.
 
-The published preview site for the AUB Online funnels, served by GitHub Pages
-at https://think-orion.github.io/Landing-Pages/
+## Rebuilding it
 
-This branch holds **only built previews**. Nothing is developed here. The source
-lives on the two programme branches:
+```
+python3 AUB/preview-site/build.py
+```
 
-| Folder | Source branch |
-|---|---|
-| `ma/` | `claude/aub-fas-ma-computing-education-6bcyjd` |
-| `diploma/` | `claude/aub-fas-online-education-lp-gsj7lm` |
+That writes a `_site/` folder. Its contents go on the `gh-pages` branch, which
+is what GitHub Pages serves. The build is reproducible: it copies the current
+pages out of each programme folder, so the preview can never drift from the
+real files.
 
-Each folder is a verbatim copy of that programme's three `_dc.html` pages and
-its `assets/`, with the pages renamed for friendlier URLs:
+## Adding a programme
 
-    Cold_Audience_dc.html      -> cold-audience.html
-    In-Market_Hero_Form_dc.html -> in-market.html
-    Thank_You_dc.html           -> thank-you.html
+Edit `programmes.json`. Each programme needs a name and a status:
 
-Rebuild it by copying the current files from each programme branch into the
-matching folder and pushing. Do not edit the pages here — the change would be
-lost on the next rebuild and would not reach the deliverable.
+```json
+{ "name": "Diploma in Islamic Studies", "status": "planned" }
+```
 
-This branch exists because raw.githack rate-limited the previews (HTTP 429):
-one cold-page view pulls 35 files, so a handful of reviewers clicking through
-six pages exhausted its fair-use cap. GitHub Pages has no such limit, and the
-URLs are permanent.
+When its pages are built, change the status and point it at the folder:
+
+```json
+{ "name": "Diploma in Islamic Studies",
+  "slug": "online-diploma-islamic-studies",
+  "meta": "12 credits · 4 courses · $4,800",
+  "status": "live" }
+```
+
+The slug is the programme's folder name inside its faculty folder. Programmes
+marked `planned` are listed on the hub as not yet built, which keeps AUB's full
+roadmap visible without implying more is finished than is.
+
+`"note": "right-to-left"` adds a small qualifier after a name, used for the
+Arabic edition of the Trade-Based Financial Crime certificate.
+
+## Files here
+
+- `programmes.json` — the roadmap: faculties, programmes, status
+- `index-template.html` — the hub's design; `{{SECTIONS}}` is filled by the build
+- `build.py` — copies the live programmes and writes the hub
+- `brand/` — the approved Think Orion wordmark

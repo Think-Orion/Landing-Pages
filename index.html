@@ -9,57 +9,67 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 <style>
-  /* Think Orion brand system: purple is the one accent, black is #1E1E1E not #000,
-     off-white is barely visible against white, and the family is Roboto throughout. */
-  :root {
-    --purple:#A020F0; --black:#1E1E1E; --white:#fff; --offwhite:#F8F8F8;
-    --teal:#5BC9DE; --mid:#5E5E5E; --line:#E5E5E5;
-  }
+  :root { --purple:#A020F0; --black:#1E1E1E; --white:#fff; --offwhite:#F8F8F8;
+          --teal:#5BC9DE; --mid:#5E5E5E; --faint:#8A8A8A; --line:#E5E5E5; }
   * { box-sizing:border-box; }
   html { -webkit-text-size-adjust:100%; }
   body { margin:0; background:var(--white); color:var(--black);
          font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
          line-height:1.62; -webkit-font-smoothing:antialiased; }
-  .wrap { max-width:960px; margin-inline:auto; }
+  .wrap { max-width:980px; margin-inline:auto; }
 
-  header { background:var(--black); color:var(--white); padding:clamp(26px,4vw,38px) clamp(18px,5vw,48px) clamp(34px,5vw,52px); }
-  .logo { height:clamp(19px,2.3vw,25px); width:auto; display:block; margin-bottom:clamp(26px,4vw,40px); }
-  .tag { margin:0 0 14px; font-size:10px; font-weight:700; letter-spacing:4px;
+  header { background:var(--black); color:var(--white);
+           padding:clamp(26px,4vw,38px) clamp(18px,5vw,48px) clamp(32px,5vw,48px); }
+  .logo { height:clamp(19px,2.3vw,25px); width:auto; display:block; margin-bottom:clamp(24px,4vw,38px); }
+  .tag { margin:0 0 13px; font-size:10px; font-weight:700; letter-spacing:4px;
          text-transform:uppercase; color:var(--teal); }
-  header h1 { margin:0 0 14px; font-size:clamp(27px,4vw,42px); font-weight:700;
+  header h1 { margin:0 0 14px; font-size:clamp(26px,3.8vw,40px); font-weight:700;
               letter-spacing:-.8px; line-height:1.12; }
   header h1 em { font-style:normal; background:var(--purple); color:var(--white); padding:0 .18em; }
   header p { margin:0; font-size:clamp(14px,1.5vw,16.5px); color:rgba(255,255,255,.78);
-             font-weight:300; max-width:58ch; }
-  .for { margin-top:clamp(24px,3.4vw,32px); padding-top:16px; border-top:1px solid rgba(255,255,255,.16);
-         display:flex; flex-wrap:wrap; gap:6px 40px; }
-  .for div { min-width:120px; }
+             font-weight:300; max-width:60ch; }
+  .for { margin-top:clamp(22px,3.2vw,30px); padding-top:16px; border-top:1px solid rgba(255,255,255,.16);
+         display:flex; flex-wrap:wrap; gap:8px 40px; }
   .for dt { font-size:9px; font-weight:700; letter-spacing:5px; text-transform:uppercase;
             color:rgba(255,255,255,.45); margin-bottom:5px; }
-  .for dd { margin:0; font-size:13.5px; font-weight:500; color:var(--white); }
+  .for dd { margin:0; font-size:13.5px; font-weight:500; }
 
-  main { padding:clamp(34px,5vw,56px) clamp(18px,5vw,48px) clamp(50px,7vw,84px); }
-  h2 { font-size:clamp(18px,2.1vw,22px); font-weight:700; letter-spacing:-.3px;
-       margin:clamp(30px,4.5vw,46px) 0 3px; }
-  h2:first-of-type { margin-top:0; }
-  .meta { margin:0 0 18px; font-size:12.5px; color:var(--mid); letter-spacing:.1px; }
-  ul { list-style:none; margin:0; padding:0; display:grid; gap:14px;
-       grid-template-columns:repeat(auto-fit,minmax(min(100%,255px),1fr)); }
+  main { padding:clamp(32px,5vw,52px) clamp(18px,5vw,48px) clamp(50px,7vw,84px); }
+  .fac { margin-bottom:clamp(34px,5vw,54px); }
+  .fac:last-of-type { margin-bottom:0; }
+  h2 { font-size:clamp(19px,2.2vw,24px); font-weight:700; letter-spacing:-.4px;
+       margin:0 0 20px; padding-bottom:11px; border-bottom:2px solid var(--black);
+       display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+  h2 .code { font-size:10px; font-weight:700; letter-spacing:3px; color:var(--faint); flex-shrink:0; }
+  h3 { font-size:16.5px; font-weight:700; letter-spacing:-.2px; margin:0 0 3px; }
+  .meta { margin:0 0 14px; font-size:12.5px; color:var(--mid); }
+  ul { list-style:none; margin:0 0 26px; padding:0; display:grid; gap:13px;
+       grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); }
   a.card { display:block; background:var(--white); border:1px solid var(--line);
-           border-top:3px solid var(--purple); padding:19px 21px 21px; text-decoration:none;
-           color:inherit; transition:box-shadow .18s ease, transform .18s ease, border-color .18s ease; }
+           border-top:3px solid var(--purple); padding:18px 20px 20px; text-decoration:none;
+           color:inherit; transition:box-shadow .18s ease, transform .18s ease; }
   a.card:hover { box-shadow:0 12px 30px rgba(30,30,30,.12); transform:translateY(-2px); }
   a.card:focus-visible { outline:2px solid var(--purple); outline-offset:3px; }
-  a.card strong { display:block; font-size:16.5px; font-weight:700; letter-spacing:-.2px; margin-bottom:5px; }
-  a.card span { display:block; font-size:13px; color:var(--mid); line-height:1.52; }
-  a.card .go { display:block; margin-top:13px; font-size:12px; font-weight:700;
-               letter-spacing:.3px; color:var(--purple); }
+  a.card strong { display:block; font-size:15.5px; font-weight:700; margin-bottom:5px; }
+  a.card span { display:block; font-size:12.5px; color:var(--mid); line-height:1.5; }
+  a.card .go { margin-top:12px; font-size:11.5px; font-weight:700; letter-spacing:.3px; color:var(--purple); }
 
-  .note { margin-top:clamp(36px,5vw,56px); background:var(--offwhite);
+  .soon-label { margin:0 0 9px; font-size:9.5px; font-weight:700; letter-spacing:3.5px;
+                text-transform:uppercase; color:var(--faint); }
+  ul.soon { display:block; margin-bottom:0; columns:2; column-gap:34px; }
+  ul.soon li { font-size:13.5px; color:var(--mid); padding:4px 0 4px 15px; position:relative;
+               break-inside:avoid; }
+  ul.soon li::before { content:""; position:absolute; left:0; top:13px; width:6px; height:1px;
+                       background:var(--faint); }
+  ul.soon li em { font-style:normal; font-size:11px; color:var(--faint); }
+  @media (max-width:560px) { ul.soon { columns:1; } }
+
+  .note { margin-top:clamp(34px,5vw,54px); background:var(--offwhite);
           border-left:4px solid var(--purple); padding:19px 23px; font-size:13.5px; color:#3C3C3C; }
   .note strong { color:var(--black); }
-  footer { border-top:1px solid var(--line); margin-top:clamp(32px,4vw,46px); padding-top:18px;
-           font-size:12px; color:var(--mid); display:flex; flex-wrap:wrap; gap:4px 18px; justify-content:space-between; }
+  footer { border-top:1px solid var(--line); margin-top:clamp(30px,4vw,44px); padding-top:18px;
+           font-size:12px; color:var(--mid); display:flex; flex-wrap:wrap; gap:4px 18px;
+           justify-content:space-between; }
 </style>
 </head>
 <body>
@@ -68,45 +78,98 @@
     <img class="logo" src="brand/logo-white.png" width="1390" height="206" alt="Think Orion" />
     <p class="tag">Client review</p>
     <h1>AUB Online — <em>landing page previews</em></h1>
-    <p>Two programme funnels, three pages each. These are working previews for review, not the
+    <p>Every programme we build for AUB Online, by faculty. Working previews for review, not the
       published pages; they are rebuilt whenever a change is approved.</p>
     <dl class="for">
       <div><dt>Prepared for</dt><dd>American University of Beirut</dd></div>
-      <div><dt>Faculty</dt><dd>Arts and Sciences</dd></div>
+      <div><dt>Programmes</dt><dd>2 built of 27</dd></div>
+      <div><dt>Faculties</dt><dd>6</dd></div>
       <div><dt>Built by</dt><dd>Think Orion</dd></div>
     </dl>
   </div>
 </header>
 
 <main class="wrap">
+      <section class="fac">
+        <h2>Arts and Sciences <span class="code">FAS</span></h2>
+        <h3>MA in Computing in Education</h3>
+        <p class="meta">36 credits · 11 courses and a capstone project · $16,200</p>
+        <ul>
+        <li><a class="card" href="FAS/online-ma-computing-in-education/cold-audience.html"><strong>Cold audience</strong><span>The long page: the full argument, curriculum, faculty and FAQs.</span><span class="go">Open preview &rsaquo;</span></a></li>
+        <li><a class="card" href="FAS/online-ma-computing-in-education/in-market.html"><strong>In-market</strong><span>The short page, with the form in the hero.</span><span class="go">Open preview &rsaquo;</span></a></li>
+        <li><a class="card" href="FAS/online-ma-computing-in-education/thank-you.html"><strong>Thank you</strong><span>What an enquirer sees after submitting.</span><span class="go">Open preview &rsaquo;</span></a></li>
+        </ul>
+        <h3>Graduate Diploma in Online Education</h3>
+        <p class="meta">12 credits · 4 courses · $5,400</p>
+        <ul>
+        <li><a class="card" href="FAS/online-graduate-diploma-online-education/cold-audience.html"><strong>Cold audience</strong><span>The long page: the full argument, curriculum, faculty and FAQs.</span><span class="go">Open preview &rsaquo;</span></a></li>
+        <li><a class="card" href="FAS/online-graduate-diploma-online-education/in-market.html"><strong>In-market</strong><span>The short page, with the form in the hero.</span><span class="go">Open preview &rsaquo;</span></a></li>
+        <li><a class="card" href="FAS/online-graduate-diploma-online-education/thank-you.html"><strong>Thank you</strong><span>What an enquirer sees after submitting.</span><span class="go">Open preview &rsaquo;</span></a></li>
+        </ul>
+        <p class="soon-label">Not yet built</p>
+        <ul class="soon">
+          <li>Diploma in Islamic Studies</li>
+          <li>Diploma in Arabic Language</li>
+        </ul>
+      </section>
 
-  <h2>MA in Computing in Education</h2>
-  <p class="meta">36 credits &middot; 11 courses and a capstone project &middot; $16,200</p>
-  <ul>
-    <li><a class="card" href="ma/cold-audience.html"><strong>Cold audience</strong>
-      <span>The long page: the full argument, curriculum, faculty and FAQs.</span>
-      <span class="go">Open preview &rsaquo;</span></a></li>
-    <li><a class="card" href="ma/in-market.html"><strong>In-market</strong>
-      <span>The short page, with the form in the hero.</span>
-      <span class="go">Open preview &rsaquo;</span></a></li>
-    <li><a class="card" href="ma/thank-you.html"><strong>Thank you</strong>
-      <span>What an enquirer sees after submitting.</span>
-      <span class="go">Open preview &rsaquo;</span></a></li>
-  </ul>
+      <section class="fac">
+        <h2>Health Sciences <span class="code">FHS</span></h2>
+        <p class="soon-label">Not yet built</p>
+        <ul class="soon">
+          <li>Diploma in Health Data Analytics</li>
+          <li>Diploma in Healthcare Management and Leadership</li>
+          <li>Diploma in Healthcare Financing &amp; Management</li>
+          <li>Executive Master in Health Care Leadership</li>
+        </ul>
+      </section>
 
-  <h2>Graduate Diploma in Online Education</h2>
-  <p class="meta">12 credits &middot; 4 courses &middot; $5,400</p>
-  <ul>
-    <li><a class="card" href="diploma/cold-audience.html"><strong>Cold audience</strong>
-      <span>The long page: the full argument, curriculum, faculty and FAQs.</span>
-      <span class="go">Open preview &rsaquo;</span></a></li>
-    <li><a class="card" href="diploma/in-market.html"><strong>In-market</strong>
-      <span>The short page, with the form in the hero.</span>
-      <span class="go">Open preview &rsaquo;</span></a></li>
-    <li><a class="card" href="diploma/thank-you.html"><strong>Thank you</strong>
-      <span>What an enquirer sees after submitting.</span>
-      <span class="go">Open preview &rsaquo;</span></a></li>
-  </ul>
+      <section class="fac">
+        <h2>Medicine <span class="code">FM</span></h2>
+        <p class="soon-label">Not yet built</p>
+        <ul class="soon">
+          <li>Palliative Care Online Diploma</li>
+          <li>SHARP</li>
+          <li>Coaching Skills in Healthcare</li>
+          <li>Pharmacogenomics</li>
+          <li>Advanced Vaccinology</li>
+          <li>Fundamental Vaccinology</li>
+        </ul>
+      </section>
+
+      <section class="fac">
+        <h2>Hariri School of Nursing <span class="code">HSON</span></h2>
+        <p class="soon-label">Not yet built</p>
+        <ul class="soon">
+          <li>Diploma in Critical Care Nursing</li>
+          <li>Diploma in Nursing Administration and Management</li>
+          <li>Diploma in Analytics-Informed Healthcare Quality</li>
+          <li>Online Professional Graduate Diploma in Nursing Education (NUEd)</li>
+          <li>Certificate in Adaptation and Validation of Research Instruments</li>
+        </ul>
+      </section>
+
+      <section class="fac">
+        <h2>Olayan School of Business <span class="code">OSB</span></h2>
+        <p class="soon-label">Not yet built</p>
+        <ul class="soon">
+          <li>EMBA (Lebanon)</li>
+          <li>EMBA (Dubai)</li>
+          <li>Investment Analysis and Portfolio Management</li>
+          <li>Strategic Branding in the Digital Era</li>
+          <li>Trade-Based Financial Crime (Certificate) — English</li>
+          <li>Trade-Based Financial Crime (Certificate) — Arabic <em>right-to-left</em></li>
+        </ul>
+      </section>
+
+      <section class="fac">
+        <h2>Agricultural and Food Sciences <span class="code">FAFS</span></h2>
+        <p class="soon-label">Not yet built</p>
+        <ul class="soon">
+          <li>Risk Management in Food Safety Professional Diploma</li>
+          <li>Food Security Diploma</li>
+        </ul>
+      </section>
 
   <div class="note">
     <strong>Reading these previews.</strong> They show the design and the copy exactly as built. The forms

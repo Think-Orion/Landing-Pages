@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<!--
+  AUB : Graduate Diploma in Online Education : Thank-You page (adapted from Thank_You_dc.html)
+  CLIENT-FILL / CONFIRM BEFORE LAUNCH:
+  1. BOOKING LINK: the Step 1 "Choose a time" button and the sticky bottom bar both point to Mike's
+     Microsoft Bookings calendar:
+     https://bookings.cloud.microsoft/book/OnlineEducationOnetoonemeeting1@mail.aub.edu/
+     Confirm it is the right service for this program and that the meeting length there matches the
+     "20-minute" wording (the Bookings page is a JS app and could not be read to verify).
+  2. NEXT-STEP PROMISE: the hero says "Expect a call from our admissions team within 48 hours."
+     Confirm with admissions that the first touch is a call and that 48 hours is accurate.
+  3. FACTSHEET (Step 2): supplied by the client (Graduate_diploma_in_online_education_factsheet_2025.pdf,
+     4 pages, ships alongside this HTML). The download button uses a relative link to that filename and
+     opens in a new tab; upload the PDF next to this page or swap in the final hosted URL. The cover
+     thumbnail is page 1 embedded as a data URI (300px wide, retina for the 150px slot). Per client,
+     the page no longer claims the factsheet is emailed; download is the only channel. NOTE: the source
+     PDF is 23MB, heavy for a download link; worth compressing before hosting.
+     DONE: the PDF is now compressed and committed at assets/Graduate_diploma_in_online_education_factsheet_2025.pdf — 22.2MB down to 1.8MB. 77% of the original was ONE 2551x14099px PNG reused as the background on all four pages; it was resampled to 150dpi at JPEG q82. All four pages and all selectable text are intact, and page renders are visually indistinguishable from the original. The 23MB original is NOT in the repo — a binary that size would bloat git history permanently. Keep the client's copy as the source of truth
+     The download link is relative: assets/Graduate_diploma_in_online_education_factsheet_2025.pdf. Adjust it if the PDF is hosted elsewhere at deploy time
+     Head tags: robots is noindex,follow. NO canonical and NO Open Graph on this page by design — canonical is meaningless alongside noindex, and a post-conversion page should not be socially shareable. See the head comments
+     Favicon links added (root-relative — deploy the files to the web root)
+     GTM is live: Stape server-side container GTM-KZDZDJJ, first-party from trk.aub.edu.lb, pasted verbatim per AUB ops. A thank-you pageview is the usual conversion signal, so this is the install most worth verifying in GTM preview mode
+     Consent Mode v2 unconfirmed; handled in the server-side container, not on the page
+     Footer legal links added as placeholders (privacy, terms, non-discrimination)
+  4. STEP COUNT: the template's Step 3 survey was removed at client request (Aug 2026); the page is
+     two steps (call + factsheet). Survey handlers were stripped from the DC script accordingly.
+  5. TESTIMONIALS: real quotes from Lauren Hamade and Doumouh Moussa, supplied by AUB in October.
+     Roles and locations dropped at the client's request; attribution is the name alone.
+     AUB to supply real quotes and attributions; never publish the placeholders.
+  6. INTAKE: "Spring 2026-2027 intake" (updated per AUB feedback) mirrors the approved LP builds. No start date is shown
+     on the page; confirm the Spring semester start with AUB before launch.
+  7. FACTS: program numbers ($5,400 total at $450/credit, 12 credits, 4 courses, 9 months,
+     MCE included) come from the two approved LP builds for this program.
+  8. STICKY BAR: mirrors the cold-LP pattern; links straight to the booking calendar. Hidden while
+     the hero or the Step 1 booking card is on screen.
+  9. The standalone preview script at the bottom of the file (sticky bar only) is removable once DC
+     wiring is live.
+-->
+<x-dc>
+<helmet>
+  <!-- Google Tag Manager — Stape server-side container GTM-KZDZDJJ, loaded first-party
+       from trk.aub.edu.lb. Supplied by AUB ops with "do not modify this code", so it is
+       pasted verbatim: the obfuscated query parameter IS the container reference.
+       This is the highest-value of the three installs — a thank-you pageview is the usual
+       conversion signal, so if this tag is wrong, conversions go uncounted. -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://trk.aub.edu.lb/del06kgsdkznp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','5xknvli=GQpHLDA%2BSiAqKiAvLjlBHU1cVFpCFwlWERsYRQEXEkUcDA%3D%3D');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you — AUB Graduate Diploma in Online Education</title>
+  <meta name="description" content="Your details were sent to the AUB admissions team. Expect a call within 48 hours, or book your fit call now." />
+  <!-- ============================================================================
+       NOINDEX. A thank-you page must never be indexed: it would rank for brand queries,
+       leak the post-conversion state into search results, and inflate conversion counts
+       from organic arrivals that never submitted the form. "follow" is kept so link
+       equity still flows to aub.edu.lb.
+       ============================================================================ -->
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Deliberately NO canonical and NO Open Graph tags on this page.
+       canonical: meaningless alongside noindex, and a canonical pointing elsewhere would
+       contradict the noindex directive.
+       Open Graph: this page is post-conversion and unindexed, so it should never be shared
+       or previewed socially. Adding og:* would invite exactly that. The cold-audience and
+       in-market pages carry the full OG set instead. -->
+
+  <!-- Favicon. Root-relative because browsers resolve icons against the DOMAIN ROOT, not
+       the page path: these files must be deployed to the web root. They will NOT appear in
+       a githack/raw preview from a repo subfolder — expected, not a bug. -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#840132" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="./image-slot.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: Roboto, system-ui, sans-serif; color: #404040; background: #fff; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: #840132; text-decoration: none; }
+    a:hover { color: #6A132C; text-decoration: underline; }
+    button { font-family: inherit; cursor: pointer; }
+    /* The CTA bar's height is not fixed: its label wraps on small phones, so at 320px the
+       cold page's bar grows to 141px and was covering the footer's bottom content by 37px.
+       A covered privacy disclosure is a Google Ads disapproval cause on lead-gen
+       destinations, so the clearance scales at the narrow end. The in-market footer had no
+       bottom clearance at all. Padding lives here rather than inline so no !important is
+       needed to beat an inline style. */
+    .pg-footer { padding: 28px 20px 104px; }
+    @media (max-width: 420px) { .pg-footer { padding-bottom: 160px; } }
+  </style>
+</helmet>
+
+<!-- Google Tag Manager (noscript) — must sit immediately after the opening <body> tag.
+     In this DC file the production body content starts here, right after </helmet>, so
+     this is the equivalent position. CONFIRM WITH MANNO that DC emits it inside <body>. -->
+<noscript><iframe src="https://trk.aub.edu.lb/ns.html?id=GTM-KZDZDJJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div style="width:100%;background:#fff;overflow-x:hidden">
+
+  <nav style="background:#840132;border-bottom:1px solid rgba(255,255,255,.15)">
+    <div style="max-width:1140px;margin-inline:auto;padding:20px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <picture>
+          <source type="image/webp" srcset="assets/logo-fas-white-380.webp" />
+          <img src="assets/logo-fas-white-380.png" width="380" height="92"
+               alt="American University of Beirut — Faculty of Arts and Sciences"
+               style="height:clamp(34px,4.6vw,46px);width:auto;display:block;flex-shrink:0" />
+        </picture>
+      </div>
+      <span style="font-size:12.5px;color:rgba(255,255,255,.92);letter-spacing:.2px">Graduate Diploma in Online Education · Spring 2026-2027 intake</span>
+    </div>
+  </nav>
+
+  <section id="ty-hero" style="background:#6A132C;color:#fff">
+    <div style="max-width:1140px;margin-inline:auto;padding:clamp(44px,6vw,88px) clamp(18px,4vw,48px) clamp(40px,5vw,72px)">
+      <div style="display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.26);padding:7px 14px;border-radius:3px;margin-bottom:clamp(22px,3vw,32px)">
+        <span style="width:16px;height:16px;border-radius:50%;background:rgba(0,0,0,.26);display:grid;place-items:center;flex-shrink:0">
+          <svg viewBox="0 0 12 10" style="width:8px;height:7px;stroke:#CBCBCB;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><polyline points="1.5 5 4.5 8 10.5 2"></polyline></svg>
+        </span>
+        Application of interest received
+      </div>
+      <h1 style="font-size:clamp(30px,4.6vw,54px);font-weight:700;line-height:1.06;letter-spacing:-1.2px;color:#fff;max-width:22ch;margin-bottom:clamp(18px,2.4vw,26px);text-wrap:pretty">Thank you. Your details were sent to our admissions team.</h1>
+      <div style="background:rgba(0,0,0,.18);border-left:3px solid #CBCBCB;padding:clamp(16px,2.4vw,22px) clamp(16px,2.6vw,24px);max-width:640px">
+        <p style="font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#CBCBCB;margin-bottom:8px">What happens next</p>
+        <p style="font-size:clamp(15px,1.7vw,18px);line-height:1.65;color:rgba(255,255,255,.92);font-weight:300">Expect a call from our admissions team within 48 hours. Prefer to pick the time yourself? Book your 20-minute call below.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(48px,7vw,96px) clamp(18px,4vw,48px);background:#fff">
+    <div style="max-width:1140px;margin-inline:auto">
+      <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">Before We Speak</p>
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:700;line-height:1.16;letter-spacing:-.7px;color:#151515;max-width:26ch;margin-bottom:clamp(32px,4vw,52px);text-wrap:pretty">Two quick steps before the call.</h2>
+
+      <div style="display:flex;flex-direction:column;gap:1px;background:#E2E2E2;border:1px solid #E2E2E2">
+
+        <div style="background:#fff;padding:clamp(24px,3.4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,44px);align-items:center">
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+              <span style="width:30px;height:30px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:800;flex-shrink:0">1</span>
+              <span style="font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#747474">Step one · Two minutes</span>
+            </div>
+            <h3 style="font-size:clamp(19px,2.2vw,25px);font-weight:700;color:#151515;line-height:1.24;letter-spacing:-.4px;margin-bottom:12px;text-wrap:pretty">Schedule a fit call with Mike, our program advisor.</h3>
+            <p style="font-size:14.5px;color:#404040;line-height:1.74;max-width:52ch">On the call we cover tuition, intake dates, and whether the diploma fits your plans, and answer all your questions about the program.</p>
+          </div>
+          <div id="ty-book" style="background:#F4F4F4;border:1px solid #E2E2E2;padding:clamp(20px,2.4vw,26px)">
+            <p style="font-size:13px;font-weight:700;color:#151515;margin-bottom:6px">Book your 20-minute call</p>
+            <a href="https://bookings.cloud.microsoft/book/OnlineEducationOnetoonemeeting1@mail.aub.edu/" target="_blank" rel="noopener" style="display:block;text-align:center;background:#840132;color:#fff;font-size:14.5px;font-weight:700;padding:15px;border-radius:3px;text-decoration:none;letter-spacing:.5px" style-hover="background:#6A132C;text-decoration:none">Choose a time</a>
+            <p style="text-align:center;font-size:11.5px;color:#747474;margin-top:12px">Or wait for our call. We reach out within 48 hours.</p>
+          </div>
+        </div>
+
+        <div style="background:#fff;padding:clamp(24px,3.4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,44px);align-items:center">
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+              <span style="width:30px;height:30px;border-radius:50%;background:#840132;color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:800;flex-shrink:0">2</span>
+              <span style="font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#747474">Step two · Ten minutes</span>
+            </div>
+            <h3 style="font-size:clamp(19px,2.2vw,25px);font-weight:700;color:#151515;line-height:1.24;letter-spacing:-.4px;margin-bottom:12px;text-wrap:pretty">Grab your factsheet.</h3>
+            <p style="font-size:14.5px;color:#404040;line-height:1.74;max-width:52ch">Courses, fees, faculty, and eligibility in one PDF, so the call can focus on you instead of the basics.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+              <span style="font-size:11.5px;font-weight:600;color:#404040;background:#F4F4F4;border:1px solid #E2E2E2;padding:7px 12px;border-radius:3px">4 courses · 12 credits</span>
+              <span style="font-size:11.5px;font-weight:600;color:#404040;background:#F4F4F4;border:1px solid #E2E2E2;padding:7px 12px;border-radius:3px">9 months</span>
+              <span style="font-size:11.5px;font-weight:600;color:#404040;background:#F4F4F4;border:1px solid #E2E2E2;padding:7px 12px;border-radius:3px">$5,400 total</span>
+              <span style="font-size:11.5px;font-weight:600;color:#404040;background:#F4F4F4;border:1px solid #E2E2E2;padding:7px 12px;border-radius:3px">MCE included</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:clamp(16px,2vw,22px);align-items:flex-start">
+            <div style="position:relative;flex:0 0 clamp(120px,14vw,150px);aspect-ratio:3/4;border:1px solid #E2E2E2;background:#F4F4F4;overflow:hidden">
+              <img id="ty-factsheet" src="assets/factsheet-cover-300x424.jpg" alt="Cover of the Graduate Diploma in Online Education factsheet" loading="lazy" decoding="async" width="300" height="424" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+              <div>
+                <p style="font-size:13px;font-weight:700;color:#151515;margin-bottom:4px">Program factsheet</p>
+                <p style="font-size:12.5px;color:#747474;line-height:1.6">PDF · 4 pages</p>
+              </div>
+              <!-- CLIENT-FILL: relative link to the supplied factsheet PDF (Graduate_diploma_in_online_education_factsheet_2025.pdf); upload it next to this page or swap in the final hosted URL -->
+              <a href="assets/Graduate_diploma_in_online_education_factsheet_2025.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1.5px solid #840132;color:#840132;background:#fff;font-size:14px;font-weight:700;letter-spacing:.5px;padding:13px 18px;border-radius:3px;text-decoration:none" style-hover="background:#840132;color:#fff;text-decoration:none">Download the factsheet</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(44px,6vw,84px) clamp(18px,4vw,48px);background:#F4F4F4;border-top:1px solid #E2E2E2;border-bottom:1px solid #E2E2E2">
+    <div style="max-width:1140px;margin-inline:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,4vw,48px);align-items:center">
+      <div>
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#840132;margin-bottom:16px">While You Wait</p>
+        <h2 style="font-size:clamp(22px,2.8vw,32px);font-weight:700;line-height:1.18;letter-spacing:-.6px;color:#151515;margin-bottom:14px;text-wrap:pretty">What our graduates say.</h2>
+        <p style="font-size:15px;color:#404040;line-height:1.74;max-width:48ch">Questions in the meantime? Reply to the confirmation email and our admissions team will answer directly.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px">
+        <figure style="background:#fff;border:1px solid #E2E2E2;padding:22px 20px;margin:0">
+          <blockquote style="font-size:13.5px;color:#404040;line-height:1.7;font-style:italic;margin:0">Coming from a nutrition and dietetics background, the diploma gave me the opportunity to combine my professional expertise with my growing interest in education. I gained practical skills that I can apply when designing online courses and supporting learners in digital environments.</blockquote>
+          <figcaption style="margin-top:14px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#747474">
+            <picture>
+              <source type="image/webp" srcset="assets/testimonial-hamade-120x120.webp" />
+              <img src="assets/testimonial-hamade-120x120.jpg" width="120" height="120" alt="" loading="lazy" decoding="async"
+                   style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;display:block" />
+            </picture>
+            Lauren Hamade
+          </figcaption>
+        </figure>
+        <figure style="background:#fff;border:1px solid #E2E2E2;padding:22px 20px;margin:0">
+          <blockquote style="font-size:13.5px;color:#404040;line-height:1.7;font-style:italic;margin:0">I appreciated the flexibility of the program because it allowed me to study at my own pace and balance my studies with my personal responsibilities. After being away from studying for some time, the program made it easier for me to return to an academic environment and feel confident again.</blockquote>
+          <figcaption style="margin-top:14px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#747474">
+            <picture>
+              <source type="image/webp" srcset="assets/testimonial-moussa-120x120.webp" />
+              <img src="assets/testimonial-moussa-120x120.jpg" width="120" height="120" alt="" loading="lazy" decoding="async"
+                   style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;display:block" />
+            </picture>
+            Doumouh Moussa
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- padding-bottom clears the sticky booking bar. This page's sticky logic hides the bar
+       only while the hero or the Step 1 card is on screen, with no at-footer check, so
+       without this the bar sits over the legal links at page bottom and the privacy link
+       cannot be tapped. Verified by hit test at 1440px and 390px. -->
+  <footer class="pg-footer" style="background:#6A132C;color:rgba(255,255,255,.6);text-align:center;font-size:12.5px;line-height:1.7">
+    <picture>
+      <source type="image/webp" srcset="assets/logo-aub-concise-white-300.webp" />
+      <img src="assets/logo-aub-concise-white-300.png" width="300" height="283" alt=""
+           loading="lazy" decoding="async"
+           style="height:84px;width:auto;display:block;margin:0 auto 20px" />
+    </picture>
+    <p>© 2026 American University of Beirut. Faculty of Arts and Sciences.<br />Bliss Street, Hamra, Beirut, Lebanon. <a href="https://www.aub.edu.lb" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">aub.edu.lb</a></p>
+    <!-- Legal links. The visitor's name, email and phone were just submitted, so the
+         privacy notice must stay reachable on the confirmation screen too. Link AUB's OWN
+         existing policies; do not author new ones. -->
+    <p style="margin-top:12px">
+      <a href="https://www.aub.edu.lb/Pages/privacy.aspx" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">Privacy Policy</a>
+      <span style="opacity:.45;padding:0 8px">·</span>
+      <a href="https://www.aub.edu.lb/Pages/CopyRight.aspx" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">Terms of Use</a>
+      <span style="opacity:.45;padding:0 8px">·</span>
+      <a href="https://www.aub.edu.lb/President/oeo-titleix/pages/default.aspx" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8);text-decoration:underline">Non-Discrimination</a>
+    </p>
+    <!-- Faculty social handles, per AUB Comms. AUB's institutional accounts, matching the
+         social strip on aub.edu.lb's own footer. Inline SVG so they cost no extra request
+         and inherit colour on hover; each link carries an aria-label because the glyph
+         alone gives a screen reader nothing to read. -->
+    <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap">
+      <a href="https://www.facebook.com/FAS.AUB" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:rgba(255,255,255,.75);transition:color .2s" style-hover="color:#fff">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:20px;height:20px;fill:currentColor"><path d="M13.5 9H12V7.5c0-.6.2-1 1-1h1.4V4.1C14 4 13.2 4 12.4 4 10.5 4 9.2 5.2 9.2 7.2V9H7v2.6h2.2V20h2.9v-8.4h2l.4-2.6z"></path></svg>
+      </a>
+      <a href="https://x.com/fas_aub" target="_blank" rel="noopener" aria-label="X"
+         style="display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:rgba(255,255,255,.75);transition:color .2s" style-hover="color:#fff">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:20px;height:20px;fill:currentColor"><path d="M17.3 4h2.7l-5.9 6.8L21 20h-5.4l-4.2-5.6L6.5 20H3.8l6.3-7.2L3 4h5.6l3.8 5.1L17.3 4zm-1 14.4h1.5L8.1 5.5H6.5l9.8 12.9z"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/school/fas-aub/" target="_blank" rel="noopener" aria-label="LinkedIn"
+         style="display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:rgba(255,255,255,.75);transition:color .2s" style-hover="color:#fff">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:20px;height:20px;fill:currentColor"><path d="M6.9 20H4V9.4h2.9V20zM5.4 8.1c-.9 0-1.7-.8-1.7-1.7S4.5 4.7 5.4 4.7s1.7.8 1.7 1.7-.7 1.7-1.7 1.7zM20 20h-2.9v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H10.5V9.4h2.8v1.4h.1c.4-.8 1.4-1.6 2.8-1.6 3 0 3.6 2 3.6 4.5V20z"></path></svg>
+      </a>
+      <a href="https://www.instagram.com/fas_aub" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:rgba(255,255,255,.75);transition:color .2s" style-hover="color:#fff">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:20px;height:20px;fill:currentColor"><path d="M12 6.4c-3.1 0-5.6 2.5-5.6 5.6s2.5 5.6 5.6 5.6 5.6-2.5 5.6-5.6S15.1 6.4 12 6.4zm0 9.2c-2 0-3.6-1.6-3.6-3.6S10 8.4 12 8.4s3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6zm7.2-9.4c0 .7-.6 1.3-1.3 1.3s-1.3-.6-1.3-1.3.6-1.3 1.3-1.3 1.3.6 1.3 1.3zm3.7 1.3c-.1-1.8-.5-3.4-1.8-4.6C19.8 1.6 18.2 1.2 16.4 1.1 14.6 1 9.4 1 7.6 1.1 5.8 1.2 4.2 1.6 3 2.9 1.7 4.1 1.3 5.7 1.2 7.5c-.1 1.8-.1 7 0 8.8.1 1.8.5 3.4 1.8 4.6 1.2 1.3 2.8 1.7 4.6 1.8 1.8.1 7 .1 8.8 0 1.8-.1 3.4-.5 4.6-1.8 1.3-1.2 1.7-2.8 1.8-4.6.1-1.8.1-7 0-8.8zm-2.4 10.7c-.4 1-1.1 1.7-2.1 2.1-1.5.6-5 .4-6.4.4s-5 .1-6.4-.4c-1-.4-1.7-1.1-2.1-2.1-.6-1.5-.4-5-.4-6.4s-.1-5 .4-6.4c.4-1 1.1-1.7 2.1-2.1 1.5-.6 5-.4 6.4-.4s5-.1 6.4.4c1 .4 1.7 1.1 2.1 2.1.6 1.5.4 5 .4 6.4s.2 5-.4 6.4z"></path></svg>
+      </a>
+      <a href="https://www.youtube.com/@FAS_AUB" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:rgba(255,255,255,.75);transition:color .2s" style-hover="color:#fff">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:20px;height:20px;fill:currentColor"><path d="M22.5 7.2c-.3-1-1-1.8-2-2.1C18.7 4.6 12 4.6 12 4.6s-6.7 0-8.5.5c-1 .3-1.8 1.1-2 2.1C1 9 1 12 1 12s0 3 .5 4.8c.3 1 1 1.8 2 2.1 1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5c1-.3 1.8-1.1 2-2.1.5-1.8.5-4.8.5-4.8s0-3-.5-4.8zM9.8 15.4V8.6l5.6 3.4-5.6 3.4z"></path></svg>
+      </a>
+    </div>
+  </footer>
+
+  <div data-sticky-cta style="position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;border-top:1px solid #E2E2E2;padding:12px clamp(16px,4vw,32px);display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 -6px 24px rgba(0,0,0,.1);transform:translateY(110%);transition:transform .3s ease">
+    <div style="line-height:1.35">
+      <strong style="display:block;font-size:13.5px;font-weight:700;color:#151515">Book your fit call</strong>
+      <span style="font-size:11.5px;color:#747474">20 minutes · Mike, our program advisor</span>
+    </div>
+    <a href="https://bookings.cloud.microsoft/book/OnlineEducationOnetoonemeeting1@mail.aub.edu/" target="_blank" rel="noopener" style="background:#840132;color:#fff;font-size:13px;font-weight:700;letter-spacing:.5px;padding:12px 22px;border-radius:3px;border:none;white-space:nowrap;text-decoration:none" style-hover="background:#6A132C;text-decoration:none">Choose a time</a>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+    };
+  }
+}
+
+</script>
+<!-- STANDALONE PREVIEW SCRIPT: remove once DC wiring is live. Drives the sticky booking bar when this file is opened directly in a browser, outside the DC runtime. Idempotent if DC also wires it. -->
+<script>
+(function () {
+  var bar = document.querySelector('[data-sticky-cta]');
+  if (!bar) return;
+  var hero = document.getElementById('ty-hero');
+  var card = document.getElementById('ty-book');
+  var onScroll = function () {
+    var past = hero ? hero.getBoundingClientRect().bottom < 40 : window.scrollY > 500;
+    var atCard = false;
+    if (card) {
+      var r = card.getBoundingClientRect();
+      atCard = r.top < window.innerHeight * 0.9 && r.bottom > 0;
+    }
+    bar.style.transform = (past && !atCard) ? 'translateY(0)' : 'translateY(110%)';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
