@@ -1,4 +1,11 @@
-# AUB Online — landing page previews
+# AUB Online landing page previews
+
+The hub at `index.html` is Think Orion branded — it is our deliverable, shown to the
+client — and it links through to the AUB pages themselves, which carry AUB branding.
+Brand values come from the Think Orion brand system: purple `#A020F0` as the single
+accent, black `#1E1E1E` rather than pure black, off-white `#F8F8F8`, teal `#5BC9DE`
+reserved for the eyebrow, Roboto throughout. The wordmark in `brand/` is the approved
+logo file, not a reproduction.
 
 The published preview site for the AUB Online funnels, served by GitHub Pages
 at https://think-orion.github.io/Landing-Pages/
